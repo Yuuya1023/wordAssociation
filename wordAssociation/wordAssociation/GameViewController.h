@@ -8,6 +8,31 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GameViewController : UIViewController
+@interface GameViewController : UIViewController{
+    UIImageView *image1;
+    UIImageView *image2;
+    UIImageView *image3;
+    UIImageView *image4;
+    
+    UIImageView *zoomImage;
+    
+    UIImageView *panelBg;
+    
+    UIButton *button1;
+    UIButton *button2;
+    UIButton *button3;
+    UIButton *button4;
+    UIButton *button5;
+    UIButton *button6;
+    UIButton *button7;
+    UIButton *button8;
+    UIButton *button9;
+    UIButton *button10;
+    UIButton *button11;
+    UIButton *button12;
+    
+    UIButton *hint;
+    UIButton *hint2;
+}
 
 @end

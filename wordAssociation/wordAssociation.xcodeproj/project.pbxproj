@@ -16,15 +16,13 @@
 		18DF070016EF5EDC0049B1B6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF06FF16EF5EDC0049B1B6 /* Default.png */; };
 		18DF070216EF5EDC0049B1B6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF070116EF5EDC0049B1B6 /* Default@2x.png */; };
 		18DF070416EF5EDC0049B1B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF070316EF5EDC0049B1B6 /* Default-568h@2x.png */; };
-		18DF070716EF5EDC0049B1B6 /* WAMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF070616EF5EDC0049B1B6 /* WAMasterViewController.m */; };
-		18DF070A16EF5EDC0049B1B6 /* WADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF070916EF5EDC0049B1B6 /* WADetailViewController.m */; };
-		18DF070D16EF5EDC0049B1B6 /* WAMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DF070B16EF5EDC0049B1B6 /* WAMasterViewController.xib */; };
-		18DF071016EF5EDC0049B1B6 /* WADetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DF070E16EF5EDC0049B1B6 /* WADetailViewController.xib */; };
 		18DF071816EF5EDD0049B1B6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF071716EF5EDD0049B1B6 /* SenTestingKit.framework */; };
 		18DF071916EF5EDD0049B1B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */; };
 		18DF071A16EF5EDD0049B1B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */; };
 		18DF072216EF5EDD0049B1B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18DF072016EF5EDD0049B1B6 /* InfoPlist.strings */; };
 		18DF072516EF5EDD0049B1B6 /* wordAssociationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF072416EF5EDD0049B1B6 /* wordAssociationTests.m */; };
+		18DF073016EF5F8E0049B1B6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF072F16EF5F8E0049B1B6 /* HomeViewController.m */; };
+		18DF073316EF61300049B1B6 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF073216EF61300049B1B6 /* GameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,18 +49,16 @@
 		18DF06FF16EF5EDC0049B1B6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		18DF070116EF5EDC0049B1B6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		18DF070316EF5EDC0049B1B6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		18DF070516EF5EDC0049B1B6 /* WAMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAMasterViewController.h; sourceTree = "<group>"; };
-		18DF070616EF5EDC0049B1B6 /* WAMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WAMasterViewController.m; sourceTree = "<group>"; };
-		18DF070816EF5EDC0049B1B6 /* WADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WADetailViewController.h; sourceTree = "<group>"; };
-		18DF070916EF5EDC0049B1B6 /* WADetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WADetailViewController.m; sourceTree = "<group>"; };
-		18DF070C16EF5EDC0049B1B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WAMasterViewController.xib; sourceTree = "<group>"; };
-		18DF070F16EF5EDC0049B1B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WADetailViewController.xib; sourceTree = "<group>"; };
 		18DF071616EF5EDD0049B1B6 /* wordAssociationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wordAssociationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DF071716EF5EDD0049B1B6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		18DF071F16EF5EDD0049B1B6 /* wordAssociationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "wordAssociationTests-Info.plist"; sourceTree = "<group>"; };
 		18DF072116EF5EDD0049B1B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		18DF072316EF5EDD0049B1B6 /* wordAssociationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wordAssociationTests.h; sourceTree = "<group>"; };
 		18DF072416EF5EDD0049B1B6 /* wordAssociationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wordAssociationTests.m; sourceTree = "<group>"; };
+		18DF072E16EF5F8E0049B1B6 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		18DF072F16EF5F8E0049B1B6 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		18DF073116EF61300049B1B6 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		18DF073216EF61300049B1B6 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,12 +120,10 @@
 			children = (
 				18DF06FC16EF5EDC0049B1B6 /* WAAppDelegate.h */,
 				18DF06FD16EF5EDC0049B1B6 /* WAAppDelegate.m */,
-				18DF070516EF5EDC0049B1B6 /* WAMasterViewController.h */,
-				18DF070616EF5EDC0049B1B6 /* WAMasterViewController.m */,
-				18DF070816EF5EDC0049B1B6 /* WADetailViewController.h */,
-				18DF070916EF5EDC0049B1B6 /* WADetailViewController.m */,
-				18DF070B16EF5EDC0049B1B6 /* WAMasterViewController.xib */,
-				18DF070E16EF5EDC0049B1B6 /* WADetailViewController.xib */,
+				18DF072E16EF5F8E0049B1B6 /* HomeViewController.h */,
+				18DF072F16EF5F8E0049B1B6 /* HomeViewController.m */,
+				18DF073116EF61300049B1B6 /* GameViewController.h */,
+				18DF073216EF61300049B1B6 /* GameViewController.m */,
 				18DF06F416EF5EDC0049B1B6 /* Supporting Files */,
 			);
 			path = wordAssociation;
@@ -244,8 +238,6 @@
 				18DF070016EF5EDC0049B1B6 /* Default.png in Resources */,
 				18DF070216EF5EDC0049B1B6 /* Default@2x.png in Resources */,
 				18DF070416EF5EDC0049B1B6 /* Default-568h@2x.png in Resources */,
-				18DF070D16EF5EDC0049B1B6 /* WAMasterViewController.xib in Resources */,
-				18DF071016EF5EDC0049B1B6 /* WADetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +274,8 @@
 			files = (
 				18DF06FA16EF5EDC0049B1B6 /* main.m in Sources */,
 				18DF06FE16EF5EDC0049B1B6 /* WAAppDelegate.m in Sources */,
-				18DF070716EF5EDC0049B1B6 /* WAMasterViewController.m in Sources */,
-				18DF070A16EF5EDC0049B1B6 /* WADetailViewController.m in Sources */,
+				18DF073016EF5F8E0049B1B6 /* HomeViewController.m in Sources */,
+				18DF073316EF61300049B1B6 /* GameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,22 +304,6 @@
 				18DF06F716EF5EDC0049B1B6 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		18DF070B16EF5EDC0049B1B6 /* WAMasterViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18DF070C16EF5EDC0049B1B6 /* en */,
-			);
-			name = WAMasterViewController.xib;
-			sourceTree = "<group>";
-		};
-		18DF070E16EF5EDC0049B1B6 /* WADetailViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18DF070F16EF5EDC0049B1B6 /* en */,
-			);
-			name = WADetailViewController.xib;
 			sourceTree = "<group>";
 		};
 		18DF072016EF5EDD0049B1B6 /* InfoPlist.strings */ = {

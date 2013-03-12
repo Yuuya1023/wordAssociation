@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "GameViewController.h"
 
 @interface HomeViewController ()
 
@@ -14,11 +15,18 @@
 
 @implementation HomeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        self.title = @"連想ゲーム";
+        self.view.backgroundColor = [UIColor whiteColor];
+        
+        UIButton *startPlay = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        startPlay.frame = CGRectMake(110, 200, 100, 40);
+        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
+        [startPlay addTarget:self action:NSSelectorFromString(@"play:") forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:startPlay];
     }
     return self;
 }
@@ -27,6 +35,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+
+- (void)play:(UIButton *)b{
+    GameViewController *gameView = [[GameViewController alloc] init];
+    [self.navigationController pushViewController:gameView animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning
