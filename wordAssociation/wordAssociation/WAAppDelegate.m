@@ -8,7 +8,7 @@
 
 #import "WAAppDelegate.h"
 
-#import "WAMasterViewController.h"
+#import "HomeViewController.h"
 
 @implementation WAAppDelegate
 
@@ -17,7 +17,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
-    WAMasterViewController *masterViewController = [[WAMasterViewController alloc] initWithNibName:@"WAMasterViewController" bundle:nil];
+    HomeViewController *masterViewController = [[HomeViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
