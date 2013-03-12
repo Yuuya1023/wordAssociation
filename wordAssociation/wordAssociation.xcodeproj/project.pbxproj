@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18DF06EE16EF5EDC0049B1B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */; };
+		18DF06F016EF5EDC0049B1B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */; };
+		18DF06F216EF5EDC0049B1B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06F116EF5EDC0049B1B6 /* CoreGraphics.framework */; };
+		18DF06F816EF5EDC0049B1B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18DF06F616EF5EDC0049B1B6 /* InfoPlist.strings */; };
+		18DF06FA16EF5EDC0049B1B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF06F916EF5EDC0049B1B6 /* main.m */; };
+		18DF06FE16EF5EDC0049B1B6 /* WAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF06FD16EF5EDC0049B1B6 /* WAAppDelegate.m */; };
+		18DF070016EF5EDC0049B1B6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF06FF16EF5EDC0049B1B6 /* Default.png */; };
+		18DF070216EF5EDC0049B1B6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF070116EF5EDC0049B1B6 /* Default@2x.png */; };
+		18DF070416EF5EDC0049B1B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF070316EF5EDC0049B1B6 /* Default-568h@2x.png */; };
+		18DF070716EF5EDC0049B1B6 /* WAMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF070616EF5EDC0049B1B6 /* WAMasterViewController.m */; };
+		18DF070A16EF5EDC0049B1B6 /* WADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF070916EF5EDC0049B1B6 /* WADetailViewController.m */; };
+		18DF070D16EF5EDC0049B1B6 /* WAMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DF070B16EF5EDC0049B1B6 /* WAMasterViewController.xib */; };
+		18DF071016EF5EDC0049B1B6 /* WADetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DF070E16EF5EDC0049B1B6 /* WADetailViewController.xib */; };
+		18DF071816EF5EDD0049B1B6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF071716EF5EDD0049B1B6 /* SenTestingKit.framework */; };
+		18DF071916EF5EDD0049B1B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */; };
+		18DF071A16EF5EDD0049B1B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */; };
+		18DF072216EF5EDD0049B1B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18DF072016EF5EDD0049B1B6 /* InfoPlist.strings */; };
+		18DF072516EF5EDD0049B1B6 /* wordAssociationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF072416EF5EDD0049B1B6 /* wordAssociationTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18DF071B16EF5EDD0049B1B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18DF06E216EF5EDC0049B1B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18DF06E916EF5EDC0049B1B6;
+			remoteInfo = wordAssociation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18DF06EA16EF5EDC0049B1B6 /* wordAssociation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordAssociation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		18DF06F116EF5EDC0049B1B6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		18DF06F516EF5EDC0049B1B6 /* wordAssociation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "wordAssociation-Info.plist"; sourceTree = "<group>"; };
+		18DF06F716EF5EDC0049B1B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18DF06F916EF5EDC0049B1B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		18DF06FB16EF5EDC0049B1B6 /* wordAssociation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wordAssociation-Prefix.pch"; sourceTree = "<group>"; };
+		18DF06FC16EF5EDC0049B1B6 /* WAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAAppDelegate.h; sourceTree = "<group>"; };
+		18DF06FD16EF5EDC0049B1B6 /* WAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WAAppDelegate.m; sourceTree = "<group>"; };
+		18DF06FF16EF5EDC0049B1B6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		18DF070116EF5EDC0049B1B6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		18DF070316EF5EDC0049B1B6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		18DF070516EF5EDC0049B1B6 /* WAMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAMasterViewController.h; sourceTree = "<group>"; };
+		18DF070616EF5EDC0049B1B6 /* WAMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WAMasterViewController.m; sourceTree = "<group>"; };
+		18DF070816EF5EDC0049B1B6 /* WADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WADetailViewController.h; sourceTree = "<group>"; };
+		18DF070916EF5EDC0049B1B6 /* WADetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WADetailViewController.m; sourceTree = "<group>"; };
+		18DF070C16EF5EDC0049B1B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WAMasterViewController.xib; sourceTree = "<group>"; };
+		18DF070F16EF5EDC0049B1B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WADetailViewController.xib; sourceTree = "<group>"; };
+		18DF071616EF5EDD0049B1B6 /* wordAssociationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wordAssociationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18DF071716EF5EDD0049B1B6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		18DF071F16EF5EDD0049B1B6 /* wordAssociationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "wordAssociationTests-Info.plist"; sourceTree = "<group>"; };
+		18DF072116EF5EDD0049B1B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18DF072316EF5EDD0049B1B6 /* wordAssociationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wordAssociationTests.h; sourceTree = "<group>"; };
+		18DF072416EF5EDD0049B1B6 /* wordAssociationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wordAssociationTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18DF06E716EF5EDC0049B1B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DF06EE16EF5EDC0049B1B6 /* UIKit.framework in Frameworks */,
+				18DF06F016EF5EDC0049B1B6 /* Foundation.framework in Frameworks */,
+				18DF06F216EF5EDC0049B1B6 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DF071216EF5EDD0049B1B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DF071816EF5EDD0049B1B6 /* SenTestingKit.framework in Frameworks */,
+				18DF071916EF5EDD0049B1B6 /* UIKit.framework in Frameworks */,
+				18DF071A16EF5EDD0049B1B6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18DF06E116EF5EDC0049B1B6 = {
+			isa = PBXGroup;
+			children = (
+				18DF06F316EF5EDC0049B1B6 /* wordAssociation */,
+				18DF071D16EF5EDD0049B1B6 /* wordAssociationTests */,
+				18DF06EC16EF5EDC0049B1B6 /* Frameworks */,
+				18DF06EB16EF5EDC0049B1B6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18DF06EB16EF5EDC0049B1B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18DF06EA16EF5EDC0049B1B6 /* wordAssociation.app */,
+				18DF071616EF5EDD0049B1B6 /* wordAssociationTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18DF06EC16EF5EDC0049B1B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */,
+				18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */,
+				18DF06F116EF5EDC0049B1B6 /* CoreGraphics.framework */,
+				18DF071716EF5EDD0049B1B6 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		18DF06F316EF5EDC0049B1B6 /* wordAssociation */ = {
+			isa = PBXGroup;
+			children = (
+				18DF06FC16EF5EDC0049B1B6 /* WAAppDelegate.h */,
+				18DF06FD16EF5EDC0049B1B6 /* WAAppDelegate.m */,
+				18DF070516EF5EDC0049B1B6 /* WAMasterViewController.h */,
+				18DF070616EF5EDC0049B1B6 /* WAMasterViewController.m */,
+				18DF070816EF5EDC0049B1B6 /* WADetailViewController.h */,
+				18DF070916EF5EDC0049B1B6 /* WADetailViewController.m */,
+				18DF070B16EF5EDC0049B1B6 /* WAMasterViewController.xib */,
+				18DF070E16EF5EDC0049B1B6 /* WADetailViewController.xib */,
+				18DF06F416EF5EDC0049B1B6 /* Supporting Files */,
+			);
+			path = wordAssociation;
+			sourceTree = "<group>";
+		};
+		18DF06F416EF5EDC0049B1B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18DF06F516EF5EDC0049B1B6 /* wordAssociation-Info.plist */,
+				18DF06F616EF5EDC0049B1B6 /* InfoPlist.strings */,
+				18DF06F916EF5EDC0049B1B6 /* main.m */,
+				18DF06FB16EF5EDC0049B1B6 /* wordAssociation-Prefix.pch */,
+				18DF06FF16EF5EDC0049B1B6 /* Default.png */,
+				18DF070116EF5EDC0049B1B6 /* Default@2x.png */,
+				18DF070316EF5EDC0049B1B6 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18DF071D16EF5EDD0049B1B6 /* wordAssociationTests */ = {
+			isa = PBXGroup;
+			children = (
+				18DF072316EF5EDD0049B1B6 /* wordAssociationTests.h */,
+				18DF072416EF5EDD0049B1B6 /* wordAssociationTests.m */,
+				18DF071E16EF5EDD0049B1B6 /* Supporting Files */,
+			);
+			path = wordAssociationTests;
+			sourceTree = "<group>";
+		};
+		18DF071E16EF5EDD0049B1B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18DF071F16EF5EDD0049B1B6 /* wordAssociationTests-Info.plist */,
+				18DF072016EF5EDD0049B1B6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18DF06E916EF5EDC0049B1B6 /* wordAssociation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18DF072816EF5EDD0049B1B6 /* Build configuration list for PBXNativeTarget "wordAssociation" */;
+			buildPhases = (
+				18DF06E616EF5EDC0049B1B6 /* Sources */,
+				18DF06E716EF5EDC0049B1B6 /* Frameworks */,
+				18DF06E816EF5EDC0049B1B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = wordAssociation;
+			productName = wordAssociation;
+			productReference = 18DF06EA16EF5EDC0049B1B6 /* wordAssociation.app */;
+			productType = "com.apple.product-type.application";
+		};
+		18DF071516EF5EDD0049B1B6 /* wordAssociationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18DF072B16EF5EDD0049B1B6 /* Build configuration list for PBXNativeTarget "wordAssociationTests" */;
+			buildPhases = (
+				18DF071116EF5EDD0049B1B6 /* Sources */,
+				18DF071216EF5EDD0049B1B6 /* Frameworks */,
+				18DF071316EF5EDD0049B1B6 /* Resources */,
+				18DF071416EF5EDD0049B1B6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18DF071C16EF5EDD0049B1B6 /* PBXTargetDependency */,
+			);
+			name = wordAssociationTests;
+			productName = wordAssociationTests;
+			productReference = 18DF071616EF5EDD0049B1B6 /* wordAssociationTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18DF06E216EF5EDC0049B1B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WA;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Yuya Nambu";
+			};
+			buildConfigurationList = 18DF06E516EF5EDC0049B1B6 /* Build configuration list for PBXProject "wordAssociation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 18DF06E116EF5EDC0049B1B6;
+			productRefGroup = 18DF06EB16EF5EDC0049B1B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18DF06E916EF5EDC0049B1B6 /* wordAssociation */,
+				18DF071516EF5EDD0049B1B6 /* wordAssociationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18DF06E816EF5EDC0049B1B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DF06F816EF5EDC0049B1B6 /* InfoPlist.strings in Resources */,
+				18DF070016EF5EDC0049B1B6 /* Default.png in Resources */,
+				18DF070216EF5EDC0049B1B6 /* Default@2x.png in Resources */,
+				18DF070416EF5EDC0049B1B6 /* Default-568h@2x.png in Resources */,
+				18DF070D16EF5EDC0049B1B6 /* WAMasterViewController.xib in Resources */,
+				18DF071016EF5EDC0049B1B6 /* WADetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DF071316EF5EDD0049B1B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DF072216EF5EDD0049B1B6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18DF071416EF5EDD0049B1B6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18DF06E616EF5EDC0049B1B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DF06FA16EF5EDC0049B1B6 /* main.m in Sources */,
+				18DF06FE16EF5EDC0049B1B6 /* WAAppDelegate.m in Sources */,
+				18DF070716EF5EDC0049B1B6 /* WAMasterViewController.m in Sources */,
+				18DF070A16EF5EDC0049B1B6 /* WADetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18DF071116EF5EDD0049B1B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18DF072516EF5EDD0049B1B6 /* wordAssociationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18DF071C16EF5EDD0049B1B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18DF06E916EF5EDC0049B1B6 /* wordAssociation */;
+			targetProxy = 18DF071B16EF5EDD0049B1B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		18DF06F616EF5EDC0049B1B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18DF06F716EF5EDC0049B1B6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		18DF070B16EF5EDC0049B1B6 /* WAMasterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18DF070C16EF5EDC0049B1B6 /* en */,
+			);
+			name = WAMasterViewController.xib;
+			sourceTree = "<group>";
+		};
+		18DF070E16EF5EDC0049B1B6 /* WADetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18DF070F16EF5EDC0049B1B6 /* en */,
+			);
+			name = WADetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		18DF072016EF5EDD0049B1B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18DF072116EF5EDD0049B1B6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18DF072616EF5EDD0049B1B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		18DF072716EF5EDD0049B1B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18DF072916EF5EDD0049B1B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
+				INFOPLIST_FILE = "wordAssociation/wordAssociation-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		18DF072A16EF5EDD0049B1B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
+				INFOPLIST_FILE = "wordAssociation/wordAssociation-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		18DF072C16EF5EDD0049B1B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/wordAssociation.app/wordAssociation";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
+				INFOPLIST_FILE = "wordAssociationTests/wordAssociationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		18DF072D16EF5EDD0049B1B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/wordAssociation.app/wordAssociation";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
+				INFOPLIST_FILE = "wordAssociationTests/wordAssociationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18DF06E516EF5EDC0049B1B6 /* Build configuration list for PBXProject "wordAssociation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DF072616EF5EDD0049B1B6 /* Debug */,
+				18DF072716EF5EDD0049B1B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18DF072816EF5EDD0049B1B6 /* Build configuration list for PBXNativeTarget "wordAssociation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DF072916EF5EDD0049B1B6 /* Debug */,
+				18DF072A16EF5EDD0049B1B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		18DF072B16EF5EDD0049B1B6 /* Build configuration list for PBXNativeTarget "wordAssociationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DF072C16EF5EDD0049B1B6 /* Debug */,
+				18DF072D16EF5EDD0049B1B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18DF06E216EF5EDC0049B1B6 /* Project object */;
+}
