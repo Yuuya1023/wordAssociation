@@ -33,6 +33,11 @@
     
     UIButton *hint;
     UIButton *hint2;
+    
+    UIView *completeView;
+    UIButton *next;
+    
+    int tapCount;
 }
 
 @end

@@ -24,21 +24,31 @@
         //写真たち
         image1 = [[UIImageView alloc] initWithFrame:CGRectMake(40, 10, 120, 120)];
         image1.image = [UIImage imageNamed:@""];
+        image1.userInteractionEnabled = YES;
+        image1.tag = 100;
         image1.backgroundColor = [UIColor blackColor];
         
         image2 = [[UIImageView alloc] initWithFrame:CGRectMake(170, 10, 120, 120)];
         image2.image = [UIImage imageNamed:@""];
+        image2.userInteractionEnabled = YES;
+        image2.tag = 101;
         image2.backgroundColor = [UIColor blueColor];
         
         image3 = [[UIImageView alloc] initWithFrame:CGRectMake(40, 140, 120, 120)];
         image3.image = [UIImage imageNamed:@""];
+        image3.userInteractionEnabled = YES;
+        image3.tag = 102;
         image3.backgroundColor = [UIColor redColor];
         
         image4 = [[UIImageView alloc] initWithFrame:CGRectMake(170, 140, 120, 120)];
         image4.image = [UIImage imageNamed:@""];
+        image4.userInteractionEnabled = YES;
+        image4.tag = 103;
         image4.backgroundColor = [UIColor yellowColor];
         
         zoomImage = [[UIImageView alloc] initWithFrame:CGRectMake(40, 10, 250, 250)];
+        zoomImage.userInteractionEnabled = YES;
+        zoomImage.tag = 105;
         zoomImage.alpha = 0.0;
         zoomImage.backgroundColor = [UIColor grayColor];
         
@@ -131,6 +141,8 @@
         [self.view addSubview:button11];
         [self.view addSubview:button12];
         
+        
+        //ヒント用のボタン
         hint = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         hint.frame = CGRectMake(275, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
         [hint setTitle:@"h" forState:UIControlStateNormal];
@@ -144,6 +156,25 @@
         
         [self.view addSubview:hint];
         [self.view addSubview:hint2];
+        
+        
+        //クリアした時のビュー
+        completeView = [[UIView alloc] initWithFrame:self.view.bounds];
+        completeView.backgroundColor = [UIColor blackColor];
+        completeView.alpha = 0.0;
+//        [self.view bringSubviewToFront:completeView];
+        
+        next = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        next.frame = CGRectMake(90, 250, 150, 40);
+        next.alpha = 0.0;
+        [next setTitle:@"next" forState:UIControlStateNormal];
+        [next addTarget:self action:NSSelectorFromString(@"goToNextStage:") forControlEvents:UIControlEventTouchUpInside];
+        
+
+        [self.view addSubview:completeView];
+        [self.view addSubview:next];
+        
+        NSLog(@"%f",self.view.bounds.size.height);
     }
     return self;
 }
@@ -154,8 +185,51 @@
 	// Do any additional setup after loading the view.
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [[event allTouches] anyObject];
+    if (touch.view.tag >= 100 && touch.view.tag <= 103) {
+        [self zoomInImage:touch.view.tag];
+    }
+    else if(touch.view.tag == 105){
+        [self zoomOutImage];
+    }
+}
+
+- (void)zoomInImage:(int)tag{
+    NSLog(@"%d",tag);
+    switch (tag) {
+        case 100:
+            zoomImage.image = image1.image;
+            break;
+        case 101:
+            zoomImage.image = image2.image;
+            break;
+        case 102:
+            zoomImage.image = image3.image;
+            break;
+        case 103:
+            zoomImage.image = image4.image;
+            break;
+        default:
+            break;
+    }
+    [UIView animateWithDuration:0.5f animations:^(void) {
+        zoomImage.alpha = 1.0;
+    }];
+}
+
+- (void)zoomOutImage{
+    [UIView animateWithDuration:0.5f animations:^(void) {
+        zoomImage.alpha = 0.0;
+    }];
+}
+
+
 - (void)setWord:(UIButton *)b{
-    
+    tapCount++;
+    if (tapCount > 4) {
+        [self showCompleteView];
+    }
 }
 
 - (void)hint:(UIButton *)b{
@@ -164,6 +238,22 @@
 
 - (void)hint2:(UIButton *)b{
     
+}
+
+
+- (void)showCompleteView{
+    [UIView animateWithDuration:0.5f animations:^(void) {
+        completeView.alpha = 0.7;
+        next.alpha = 1.0;
+    }];
+}
+
+
+- (void)goToNextStage:(UIButton *)b{
+    [UIView animateWithDuration:0.5f animations:^(void) {
+        completeView.alpha = 0.0;
+        next.alpha = 0.0;
+    }];
 }
 
 - (void)didReceiveMemoryWarning
