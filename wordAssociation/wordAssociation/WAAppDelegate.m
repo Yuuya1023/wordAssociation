@@ -9,6 +9,7 @@
 #import "WAAppDelegate.h"
 
 #import "HomeViewController.h"
+#import "SBJson.h"
 
 @implementation WAAppDelegate
 
@@ -16,9 +17,31 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    //SBJson
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *path = [bundle pathForResource:@"word" ofType:@"json"];
+    NSString *jsonString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:path] encoding:NSUTF8StringEncoding];
+    NSArray *jsonArray = [jsonString JSONValue];
+    
+    NSLog(@"json %@",jsonArray);
 
     HomeViewController *masterViewController = [[HomeViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bar.jpg"] forBarMetrics:UIBarMetricsDefault];
+    }
+    // iOS 4.3用
+    else {
+//        UIImageView *navBGImageView = [[UIImageView alloc] initWithImage:navBGImage];
+//        navBGImageView.frame = self.navigationController.navigationBar.bounds;
+//        navBGImageView.autoresizingMask =
+//		UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//        navBGImageView.layer.zPosition = -FLT_MAX;
+//        [self.navigationController.navigationBar insertSubview:navBGImageView atIndex:0];
+//        [navBGImageView release];
+    }
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;

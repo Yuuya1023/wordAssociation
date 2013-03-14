@@ -7,6 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189C894916F14B100081103B /* Back_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C893E16F14B100081103B /* Back_btn.png */; };
+		189C894A16F14B100081103B /* Back_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C893E16F14B100081103B /* Back_btn.png */; };
+		189C894B16F14B100081103B /* badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C893F16F14B100081103B /* badge.png */; };
+		189C894C16F14B100081103B /* badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C893F16F14B100081103B /* badge.png */; };
+		189C894D16F14B100081103B /* bar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 189C894016F14B100081103B /* bar.jpg */; };
+		189C894E16F14B100081103B /* bar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 189C894016F14B100081103B /* bar.jpg */; };
+		189C894F16F14B100081103B /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 189C894116F14B100081103B /* bg.jpg */; };
+		189C895016F14B100081103B /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 189C894116F14B100081103B /* bg.jpg */; };
+		189C895116F14B100081103B /* hint_Btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894216F14B100081103B /* hint_Btn.png */; };
+		189C895216F14B100081103B /* hint_Btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894216F14B100081103B /* hint_Btn.png */; };
+		189C895316F14B100081103B /* kesigomu_Btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894316F14B100081103B /* kesigomu_Btn.png */; };
+		189C895416F14B100081103B /* kesigomu_Btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894316F14B100081103B /* kesigomu_Btn.png */; };
+		189C895516F14B100081103B /* money_Btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894416F14B100081103B /* money_Btn.png */; };
+		189C895616F14B100081103B /* money_Btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894416F14B100081103B /* money_Btn.png */; };
+		189C895716F14B100081103B /* num_Bg01.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894516F14B100081103B /* num_Bg01.png */; };
+		189C895816F14B100081103B /* num_Bg01.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894516F14B100081103B /* num_Bg01.png */; };
+		189C895916F14B100081103B /* num_Bg02.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894616F14B100081103B /* num_Bg02.png */; };
+		189C895A16F14B100081103B /* num_Bg02.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894616F14B100081103B /* num_Bg02.png */; };
+		189C895B16F14B100081103B /* number_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894716F14B100081103B /* number_bar.png */; };
+		189C895C16F14B100081103B /* number_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894716F14B100081103B /* number_bar.png */; };
+		189C895D16F14B100081103B /* play_Btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894816F14B100081103B /* play_Btn.png */; };
+		189C895E16F14B100081103B /* play_Btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C894816F14B100081103B /* play_Btn.png */; };
+		189C896016F14F2D0081103B /* bar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 189C895F16F14F2D0081103B /* bar@2x.jpg */; };
+		189C896116F14F2D0081103B /* bar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 189C895F16F14F2D0081103B /* bar@2x.jpg */; };
+		189C896B16F173590081103B /* word.json in Resources */ = {isa = PBXBuildFile; fileRef = 189C896A16F173590081103B /* word.json */; };
+		189C896C16F173590081103B /* word.json in Resources */ = {isa = PBXBuildFile; fileRef = 189C896A16F173590081103B /* word.json */; };
+		189C898816F173E00081103B /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897016F173E00081103B /* NSObject+SBJson.m */; };
+		189C898916F173E00081103B /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897016F173E00081103B /* NSObject+SBJson.m */; };
+		189C898A16F173E00081103B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897316F173E00081103B /* SBJsonParser.m */; };
+		189C898B16F173E00081103B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897316F173E00081103B /* SBJsonParser.m */; };
+		189C898C16F173E00081103B /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897516F173E00081103B /* SBJsonStreamParser.m */; };
+		189C898D16F173E00081103B /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897516F173E00081103B /* SBJsonStreamParser.m */; };
+		189C898E16F173E00081103B /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897716F173E00081103B /* SBJsonStreamParserAccumulator.m */; };
+		189C898F16F173E00081103B /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897716F173E00081103B /* SBJsonStreamParserAccumulator.m */; };
+		189C899016F173E00081103B /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897916F173E00081103B /* SBJsonStreamParserAdapter.m */; };
+		189C899116F173E00081103B /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897916F173E00081103B /* SBJsonStreamParserAdapter.m */; };
+		189C899216F173E00081103B /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897B16F173E00081103B /* SBJsonStreamParserState.m */; };
+		189C899316F173E00081103B /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897B16F173E00081103B /* SBJsonStreamParserState.m */; };
+		189C899416F173E00081103B /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897D16F173E00081103B /* SBJsonStreamWriter.m */; };
+		189C899516F173E00081103B /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897D16F173E00081103B /* SBJsonStreamWriter.m */; };
+		189C899616F173E00081103B /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897F16F173E00081103B /* SBJsonStreamWriterAccumulator.m */; };
+		189C899716F173E00081103B /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C897F16F173E00081103B /* SBJsonStreamWriterAccumulator.m */; };
+		189C899816F173E00081103B /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C898116F173E00081103B /* SBJsonStreamWriterState.m */; };
+		189C899916F173E00081103B /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C898116F173E00081103B /* SBJsonStreamWriterState.m */; };
+		189C899A16F173E00081103B /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C898316F173E00081103B /* SBJsonTokeniser.m */; };
+		189C899B16F173E00081103B /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C898316F173E00081103B /* SBJsonTokeniser.m */; };
+		189C899C16F173E00081103B /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C898516F173E00081103B /* SBJsonUTF8Stream.m */; };
+		189C899D16F173E00081103B /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C898516F173E00081103B /* SBJsonUTF8Stream.m */; };
+		189C899E16F173E00081103B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C898716F173E00081103B /* SBJsonWriter.m */; };
+		189C899F16F173E00081103B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C898716F173E00081103B /* SBJsonWriter.m */; };
 		18DF06EE16EF5EDC0049B1B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */; };
 		18DF06F016EF5EDC0049B1B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */; };
 		18DF06F216EF5EDC0049B1B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06F116EF5EDC0049B1B6 /* CoreGraphics.framework */; };
@@ -36,6 +86,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		189C893E16F14B100081103B /* Back_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back_btn.png; sourceTree = "<group>"; };
+		189C893F16F14B100081103B /* badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge.png; sourceTree = "<group>"; };
+		189C894016F14B100081103B /* bar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bar.jpg; sourceTree = "<group>"; };
+		189C894116F14B100081103B /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		189C894216F14B100081103B /* hint_Btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hint_Btn.png; sourceTree = "<group>"; };
+		189C894316F14B100081103B /* kesigomu_Btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kesigomu_Btn.png; sourceTree = "<group>"; };
+		189C894416F14B100081103B /* money_Btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = money_Btn.png; sourceTree = "<group>"; };
+		189C894516F14B100081103B /* num_Bg01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_Bg01.png; sourceTree = "<group>"; };
+		189C894616F14B100081103B /* num_Bg02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_Bg02.png; sourceTree = "<group>"; };
+		189C894716F14B100081103B /* number_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number_bar.png; sourceTree = "<group>"; };
+		189C894816F14B100081103B /* play_Btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_Btn.png; sourceTree = "<group>"; };
+		189C895F16F14F2D0081103B /* bar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bar@2x.jpg"; sourceTree = "<group>"; };
+		189C896A16F173590081103B /* word.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = word.json; sourceTree = "<group>"; };
+		189C896F16F173E00081103B /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		189C897016F173E00081103B /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		189C897116F173E00081103B /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		189C897216F173E00081103B /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		189C897316F173E00081103B /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		189C897416F173E00081103B /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		189C897516F173E00081103B /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		189C897616F173E00081103B /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		189C897716F173E00081103B /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		189C897816F173E00081103B /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		189C897916F173E00081103B /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		189C897A16F173E00081103B /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		189C897B16F173E00081103B /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		189C897C16F173E00081103B /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		189C897D16F173E00081103B /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		189C897E16F173E00081103B /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		189C897F16F173E00081103B /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		189C898016F173E00081103B /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		189C898116F173E00081103B /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		189C898216F173E00081103B /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		189C898316F173E00081103B /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		189C898416F173E00081103B /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		189C898516F173E00081103B /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		189C898616F173E00081103B /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		189C898716F173E00081103B /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		18DF06EA16EF5EDC0049B1B6 /* wordAssociation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordAssociation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,6 +173,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		189C893C16F14B100081103B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				189C896A16F173590081103B /* word.json */,
+				189C893D16F14B100081103B /* iamges */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		189C893D16F14B100081103B /* iamges */ = {
+			isa = PBXGroup;
+			children = (
+				189C893E16F14B100081103B /* Back_btn.png */,
+				189C893F16F14B100081103B /* badge.png */,
+				189C894016F14B100081103B /* bar.jpg */,
+				189C895F16F14F2D0081103B /* bar@2x.jpg */,
+				189C894116F14B100081103B /* bg.jpg */,
+				189C894216F14B100081103B /* hint_Btn.png */,
+				189C894316F14B100081103B /* kesigomu_Btn.png */,
+				189C894416F14B100081103B /* money_Btn.png */,
+				189C894516F14B100081103B /* num_Bg01.png */,
+				189C894616F14B100081103B /* num_Bg02.png */,
+				189C894716F14B100081103B /* number_bar.png */,
+				189C894816F14B100081103B /* play_Btn.png */,
+			);
+			path = iamges;
+			sourceTree = "<group>";
+		};
+		189C896D16F173E00081103B /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				189C896E16F173E00081103B /* SBJson */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		189C896E16F173E00081103B /* SBJson */ = {
+			isa = PBXGroup;
+			children = (
+				189C896F16F173E00081103B /* NSObject+SBJson.h */,
+				189C897016F173E00081103B /* NSObject+SBJson.m */,
+				189C897116F173E00081103B /* SBJson.h */,
+				189C897216F173E00081103B /* SBJsonParser.h */,
+				189C897316F173E00081103B /* SBJsonParser.m */,
+				189C897416F173E00081103B /* SBJsonStreamParser.h */,
+				189C897516F173E00081103B /* SBJsonStreamParser.m */,
+				189C897616F173E00081103B /* SBJsonStreamParserAccumulator.h */,
+				189C897716F173E00081103B /* SBJsonStreamParserAccumulator.m */,
+				189C897816F173E00081103B /* SBJsonStreamParserAdapter.h */,
+				189C897916F173E00081103B /* SBJsonStreamParserAdapter.m */,
+				189C897A16F173E00081103B /* SBJsonStreamParserState.h */,
+				189C897B16F173E00081103B /* SBJsonStreamParserState.m */,
+				189C897C16F173E00081103B /* SBJsonStreamWriter.h */,
+				189C897D16F173E00081103B /* SBJsonStreamWriter.m */,
+				189C897E16F173E00081103B /* SBJsonStreamWriterAccumulator.h */,
+				189C897F16F173E00081103B /* SBJsonStreamWriterAccumulator.m */,
+				189C898016F173E00081103B /* SBJsonStreamWriterState.h */,
+				189C898116F173E00081103B /* SBJsonStreamWriterState.m */,
+				189C898216F173E00081103B /* SBJsonTokeniser.h */,
+				189C898316F173E00081103B /* SBJsonTokeniser.m */,
+				189C898416F173E00081103B /* SBJsonUTF8Stream.h */,
+				189C898516F173E00081103B /* SBJsonUTF8Stream.m */,
+				189C898616F173E00081103B /* SBJsonWriter.h */,
+				189C898716F173E00081103B /* SBJsonWriter.m */,
+			);
+			path = SBJson;
+			sourceTree = "<group>";
+		};
 		18DF06E116EF5EDC0049B1B6 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +274,8 @@
 		18DF06F316EF5EDC0049B1B6 /* wordAssociation */ = {
 			isa = PBXGroup;
 			children = (
+				189C896D16F173E00081103B /* lib */,
+				189C893C16F14B100081103B /* Resources */,
 				18DF06FC16EF5EDC0049B1B6 /* WAAppDelegate.h */,
 				18DF06FD16EF5EDC0049B1B6 /* WAAppDelegate.m */,
 				18DF072E16EF5F8E0049B1B6 /* HomeViewController.h */,
@@ -238,6 +396,19 @@
 				18DF070016EF5EDC0049B1B6 /* Default.png in Resources */,
 				18DF070216EF5EDC0049B1B6 /* Default@2x.png in Resources */,
 				18DF070416EF5EDC0049B1B6 /* Default-568h@2x.png in Resources */,
+				189C894916F14B100081103B /* Back_btn.png in Resources */,
+				189C894B16F14B100081103B /* badge.png in Resources */,
+				189C894D16F14B100081103B /* bar.jpg in Resources */,
+				189C894F16F14B100081103B /* bg.jpg in Resources */,
+				189C895116F14B100081103B /* hint_Btn.png in Resources */,
+				189C895316F14B100081103B /* kesigomu_Btn.png in Resources */,
+				189C895516F14B100081103B /* money_Btn.png in Resources */,
+				189C895716F14B100081103B /* num_Bg01.png in Resources */,
+				189C895916F14B100081103B /* num_Bg02.png in Resources */,
+				189C895B16F14B100081103B /* number_bar.png in Resources */,
+				189C895D16F14B100081103B /* play_Btn.png in Resources */,
+				189C896016F14F2D0081103B /* bar@2x.jpg in Resources */,
+				189C896B16F173590081103B /* word.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +417,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DF072216EF5EDD0049B1B6 /* InfoPlist.strings in Resources */,
+				189C894A16F14B100081103B /* Back_btn.png in Resources */,
+				189C894C16F14B100081103B /* badge.png in Resources */,
+				189C894E16F14B100081103B /* bar.jpg in Resources */,
+				189C895016F14B100081103B /* bg.jpg in Resources */,
+				189C895216F14B100081103B /* hint_Btn.png in Resources */,
+				189C895416F14B100081103B /* kesigomu_Btn.png in Resources */,
+				189C895616F14B100081103B /* money_Btn.png in Resources */,
+				189C895816F14B100081103B /* num_Bg01.png in Resources */,
+				189C895A16F14B100081103B /* num_Bg02.png in Resources */,
+				189C895C16F14B100081103B /* number_bar.png in Resources */,
+				189C895E16F14B100081103B /* play_Btn.png in Resources */,
+				189C896116F14F2D0081103B /* bar@2x.jpg in Resources */,
+				189C896C16F173590081103B /* word.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +460,18 @@
 				18DF06FE16EF5EDC0049B1B6 /* WAAppDelegate.m in Sources */,
 				18DF073016EF5F8E0049B1B6 /* HomeViewController.m in Sources */,
 				18DF073316EF61300049B1B6 /* GameViewController.m in Sources */,
+				189C898816F173E00081103B /* NSObject+SBJson.m in Sources */,
+				189C898A16F173E00081103B /* SBJsonParser.m in Sources */,
+				189C898C16F173E00081103B /* SBJsonStreamParser.m in Sources */,
+				189C898E16F173E00081103B /* SBJsonStreamParserAccumulator.m in Sources */,
+				189C899016F173E00081103B /* SBJsonStreamParserAdapter.m in Sources */,
+				189C899216F173E00081103B /* SBJsonStreamParserState.m in Sources */,
+				189C899416F173E00081103B /* SBJsonStreamWriter.m in Sources */,
+				189C899616F173E00081103B /* SBJsonStreamWriterAccumulator.m in Sources */,
+				189C899816F173E00081103B /* SBJsonStreamWriterState.m in Sources */,
+				189C899A16F173E00081103B /* SBJsonTokeniser.m in Sources */,
+				189C899C16F173E00081103B /* SBJsonUTF8Stream.m in Sources */,
+				189C899E16F173E00081103B /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +480,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DF072516EF5EDD0049B1B6 /* wordAssociationTests.m in Sources */,
+				189C898916F173E00081103B /* NSObject+SBJson.m in Sources */,
+				189C898B16F173E00081103B /* SBJsonParser.m in Sources */,
+				189C898D16F173E00081103B /* SBJsonStreamParser.m in Sources */,
+				189C898F16F173E00081103B /* SBJsonStreamParserAccumulator.m in Sources */,
+				189C899116F173E00081103B /* SBJsonStreamParserAdapter.m in Sources */,
+				189C899316F173E00081103B /* SBJsonStreamParserState.m in Sources */,
+				189C899516F173E00081103B /* SBJsonStreamWriter.m in Sources */,
+				189C899716F173E00081103B /* SBJsonStreamWriterAccumulator.m in Sources */,
+				189C899916F173E00081103B /* SBJsonStreamWriterState.m in Sources */,
+				189C899B16F173E00081103B /* SBJsonTokeniser.m in Sources */,
+				189C899D16F173E00081103B /* SBJsonUTF8Stream.m in Sources */,
+				189C899F16F173E00081103B /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,10 +584,12 @@
 		18DF072916EF5EDD0049B1B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuya Nambu (Z672L5L4QF)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
 				INFOPLIST_FILE = "wordAssociation/wordAssociation-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AFAEBA61-439D-466E-9764-40CADF85874E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -448,6 +658,7 @@
 				18DF072A16EF5EDD0049B1B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18DF072B16EF5EDD0049B1B6 /* Build configuration list for PBXNativeTarget "wordAssociationTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +667,7 @@
 				18DF072D16EF5EDD0049B1B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

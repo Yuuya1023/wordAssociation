@@ -24,7 +24,8 @@
         
         UIButton *startPlay = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         startPlay.frame = CGRectMake(110, 200, 100, 40);
-        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
+//        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
+        [startPlay setImage:[UIImage imageNamed:@"play_Btn"] forState:UIControlStateNormal];
         [startPlay addTarget:self action:NSSelectorFromString(@"play:") forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:startPlay];
     }
