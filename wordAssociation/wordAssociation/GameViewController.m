@@ -666,6 +666,8 @@
 }
 
 - (void)showCompleteView{
+    nowStage++;
+    [USER_DEFAULT setInteger:nowStage forKey:@"nowStage"];
     [UIView animateWithDuration:0.5f animations:^(void) {
         completeView.alpha = 0.7;
         next.alpha = 1.0;
@@ -674,10 +676,37 @@
 
 
 - (void)goToNextStage:(UIButton *)b{
+    [self setQuestion:nowStage];
+    [self deselestAll];
     [UIView animateWithDuration:0.5f animations:^(void) {
+        self.title = [NSString stringWithFormat:@"Stage %d",nowStage];
         completeView.alpha = 0.0;
         next.alpha = 0.0;
     }];
+    
+}
+
+- (void)deselestAll{
+    [button1 setEnabled:YES];
+    [button2 setEnabled:YES];
+    [button3 setEnabled:YES];
+    [button4 setEnabled:YES];
+    [button5 setEnabled:YES];
+    [button6 setEnabled:YES];
+    [button7 setEnabled:YES];
+    [button8 setEnabled:YES];
+    [button9 setEnabled:YES];
+    [button10 setEnabled:YES];
+    [button11 setEnabled:YES];
+    [button12 setEnabled:YES];
+    
+    [answer1 setTitle:@"" forState:UIControlStateNormal];
+    [answer2 setTitle:@"" forState:UIControlStateNormal];
+    [answer3 setTitle:@"" forState:UIControlStateNormal];
+    [answer4 setTitle:@"" forState:UIControlStateNormal];
+    [answer5 setTitle:@"" forState:UIControlStateNormal];
+    [answer6 setTitle:@"" forState:UIControlStateNormal];
+    [answer7 setTitle:@"" forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
