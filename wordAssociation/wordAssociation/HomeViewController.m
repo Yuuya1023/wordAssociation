@@ -32,6 +32,15 @@
         [startPlay setImage:[UIImage imageNamed:@"play_Btn"] forState:UIControlStateNormal];
         [startPlay addTarget:self action:NSSelectorFromString(@"play:") forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:startPlay];
+        
+        
+        //リセット用
+        UIButton *reset = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        reset.frame = CGRectMake(110, 320, 100, 40);
+        //        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
+        [reset setImage:[UIImage imageNamed:@"play_Btn"] forState:UIControlStateNormal];
+        [reset addTarget:self action:NSSelectorFromString(@"reset:") forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:reset];
     }
     return self;
 }
@@ -47,6 +56,11 @@
     GameViewController *gameView = [[GameViewController alloc] init];
     [self.navigationController pushViewController:gameView animated:YES];
 
+}
+
+- (void)reset:(UIButton *)b{
+    [USER_DEFAULT setInteger:1 forKey:@"nowStage"];
+    [USER_DEFAULT synchronize];
 }
 
 - (void)didReceiveMemoryWarning
