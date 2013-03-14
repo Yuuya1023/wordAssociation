@@ -47,6 +47,12 @@
     
     int tapCount;
     int nowStage;
+    
+    NSMutableArray *answerArray;
+    
+    NSTimer *timer;
+    int timerCount;
+    int timerStatus;
 }
 
 @end

@@ -201,8 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				189C89A016F1B08D0081103B /* pictures */,
-				189C896A16F173590081103B /* word.json */,
 				189C893D16F14B100081103B /* images */,
+				189C896A16F173590081103B /* word.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

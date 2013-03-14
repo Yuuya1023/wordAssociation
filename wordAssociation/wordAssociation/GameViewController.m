@@ -86,42 +86,49 @@
         
         answer1 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer1.frame = CGRectMake(0, 0, 40, 40);
+        answer1.tag = 201;
         answer1.titleLabel.font = titleFont;
         [answer1 setTitleColor:titleColor forState:UIControlStateNormal];
         [answer1 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer1 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer2 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer2.frame = CGRectMake(40, 0, 40, 40);
+        answer2.tag = 202;
         answer2.titleLabel.font = titleFont;
         [answer2 setTitleColor:titleColor forState:UIControlStateNormal];
         [answer2 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer2 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer3 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer3.frame = CGRectMake(80, 0, 40, 40);
+        answer3.tag = 203;
         answer3.titleLabel.font = titleFont;
         [answer3 setTitleColor:titleColor forState:UIControlStateNormal];
         [answer3 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer3 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer4 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer4.frame = CGRectMake(120, 0, 40, 40);
+        answer4.tag = 204;
         answer4.titleLabel.font = titleFont;
         [answer4 setTitleColor:titleColor forState:UIControlStateNormal];
         [answer4 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer4 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer5 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer5.frame = CGRectMake(160, 0, 40, 40);
+        answer5.tag = 205;
         answer5.titleLabel.font = titleFont;
         [answer5 setTitleColor:titleColor forState:UIControlStateNormal];
         [answer5 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer5 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer6 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer6.frame = CGRectMake(200, 0, 40, 40);
+        answer6.tag = 206;
         answer6.titleLabel.font = titleFont;
         [answer6 setTitleColor:titleColor forState:UIControlStateNormal];
         [answer6 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer6 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer7 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer7.frame = CGRectMake(240, 0, 40, 40);
+        answer7.tag = 207;
         answer7.titleLabel.font = titleFont;
         [answer7 setTitleColor:titleColor forState:UIControlStateNormal];
         [answer7 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
@@ -137,6 +144,7 @@
         button1 = [UIButton buttonWithType:UIButtonTypeCustom];
         button1.frame = CGRectMake(5, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
         [button1 setTitleColor:titleColor forState:UIControlStateNormal];
+        button1.tag = 301;
         button1.titleLabel.font = titleFont;
         [button1 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button1 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -144,6 +152,7 @@
         button2 = [UIButton buttonWithType:UIButtonTypeCustom];
         button2.frame = CGRectMake(50, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
         [button2 setTitleColor:titleColor forState:UIControlStateNormal];
+        button2.tag = 302;
         button2.titleLabel.font = titleFont;
         [button2 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button2 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -151,6 +160,7 @@
         button3 = [UIButton buttonWithType:UIButtonTypeCustom];
         button3.frame = CGRectMake(95, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
         [button3 setTitleColor:titleColor forState:UIControlStateNormal];
+        button3.tag = 303;
         button3.titleLabel.font = titleFont;
         [button3 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button3 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -158,6 +168,7 @@
         button4 = [UIButton buttonWithType:UIButtonTypeCustom];
         button4.frame = CGRectMake(140, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
         [button4 setTitleColor:titleColor forState:UIControlStateNormal];
+        button4.tag = 304;
         button4.titleLabel.font = titleFont;
         [button4 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button4 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -165,6 +176,7 @@
         button5 = [UIButton buttonWithType:UIButtonTypeCustom];
         button5.frame = CGRectMake(185, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
         [button5 setTitleColor:titleColor forState:UIControlStateNormal];
+        button5.tag = 305;
         button5.titleLabel.font = titleFont;
         [button5 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button5 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -172,6 +184,7 @@
         button6 = [UIButton buttonWithType:UIButtonTypeCustom];
         button6.frame = CGRectMake(230, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
         [button6 setTitleColor:titleColor forState:UIControlStateNormal];
+        button6.tag = 306;
         button6.titleLabel.font = titleFont;
         [button6 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button6 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -181,6 +194,7 @@
         button7 = [UIButton buttonWithType:UIButtonTypeCustom];
         button7.frame = CGRectMake(5, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
         [button7 setTitleColor:titleColor forState:UIControlStateNormal];
+        button7.tag = 307;
         button7.titleLabel.font = titleFont;
         [button7 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button7 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -188,6 +202,7 @@
         button8 = [UIButton buttonWithType:UIButtonTypeCustom];
         button8.frame = CGRectMake(50, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
         [button8 setTitleColor:titleColor forState:UIControlStateNormal];
+        button8.tag = 308;
         button8.titleLabel.font = titleFont;
         [button8 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button8 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -195,6 +210,7 @@
         button9 = [UIButton buttonWithType:UIButtonTypeCustom];
         button9.frame = CGRectMake(95, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
         [button9 setTitleColor:titleColor forState:UIControlStateNormal];
+        button9.tag = 309;
         button9.titleLabel.font = titleFont;
         [button9 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button9 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -202,6 +218,7 @@
         button10 = [UIButton buttonWithType:UIButtonTypeCustom];
         button10.frame = CGRectMake(140, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
         [button10 setTitleColor:titleColor forState:UIControlStateNormal];
+        button10.tag = 310;
         button10.titleLabel.font = titleFont;
         [button10 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button10 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -209,6 +226,7 @@
         button11 = [UIButton buttonWithType:UIButtonTypeCustom];
         button11.frame = CGRectMake(185, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
         [button11 setTitleColor:titleColor forState:UIControlStateNormal];
+        button11.tag = 311;
         button11.titleLabel.font = titleFont;
         [button11 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button11 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -216,6 +234,7 @@
         button12 = [UIButton buttonWithType:UIButtonTypeCustom];
         button12.frame = CGRectMake(230, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
         [button12 setTitleColor:titleColor forState:UIControlStateNormal];
+        button12.tag = 312;
         button12.titleLabel.font = titleFont;
         [button12 setBackgroundImage:btnBg forState:UIControlStateNormal];
         [button12 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
@@ -268,6 +287,7 @@
         
         
         //文字列セット
+        answerArray = [[NSMutableArray alloc] init];
         [self setQuestion:nowStage];
     }
     return self;
@@ -328,14 +348,203 @@
 
 
 - (void)tapWord:(UIButton *)b{
-    tapCount++;
-    if (tapCount > 4) {
-        [self showCompleteView];
+    int insertStatus = 0;
+    for (int i = 0; i < [answerArray count]; i++) {
+        if ([[[answerArray objectAtIndex:i] objectForKey:@"string"] isEqualToString:@"-1"]) {
+            if (insertStatus == 0) {
+                insertStatus = 1;
+                
+                NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     b.titleLabel.text,@"string",
+                                     [NSString stringWithFormat:@"%d",b.tag],@"tag",
+                                     nil];
+                [answerArray replaceObjectAtIndex:i withObject:dic];
+                [b setEnabled:NO];
+                switch (i) {
+                    case 0:
+                        [answer1 setTitle:b.titleLabel.text forState:UIControlStateNormal];
+                        break;
+                    case 1:
+                        [answer2 setTitle:b.titleLabel.text forState:UIControlStateNormal];
+                        break;
+                    case 2:
+                        [answer3 setTitle:b.titleLabel.text forState:UIControlStateNormal];
+                        break;
+                    case 3:
+                        [answer4 setTitle:b.titleLabel.text forState:UIControlStateNormal];
+                        break;
+                    case 4:
+                        [answer5 setTitle:b.titleLabel.text forState:UIControlStateNormal];
+                        break;
+                    case 5:
+                        [answer6 setTitle:b.titleLabel.text forState:UIControlStateNormal];
+                        break;
+                    case 6:
+                        [answer7 setTitle:b.titleLabel.text forState:UIControlStateNormal];
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else{
+                //まだ空きがある
+                insertStatus = 2;
+            }
+        }
+    }
+    if (insertStatus == 1) {
+        NSLog(@"答え合わせ");
+        [self answerCheck];
     }
 }
 
 - (void)unsetWord:(UIButton *)b{
+    [b setTitle:@"" forState:UIControlStateNormal];
+    [self setColor:1];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                         @"-1",@"string",
+                         @"-1",@"tag",
+                         nil];
+    int tag = 0;
+    //答えのパネルから文字を解除する
+    switch (b.tag) {
+        case 201:
+            tag = [[[answerArray objectAtIndex:0] objectForKey:@"tag"] intValue];
+            [answerArray replaceObjectAtIndex:0 withObject:dic];
+            break;
+        case 202:
+            tag = [[[answerArray objectAtIndex:1] objectForKey:@"tag"] intValue];
+            [answerArray replaceObjectAtIndex:1 withObject:dic];
+            break;
+        case 203:
+            tag = [[[answerArray objectAtIndex:2] objectForKey:@"tag"] intValue];
+            [answerArray replaceObjectAtIndex:2 withObject:dic];
+            break;
+        case 204:
+            tag = [[[answerArray objectAtIndex:3] objectForKey:@"tag"] intValue];
+            [answerArray replaceObjectAtIndex:3 withObject:dic];
+            break;
+        case 205:
+            tag = [[[answerArray objectAtIndex:4] objectForKey:@"tag"] intValue];
+            [answerArray replaceObjectAtIndex:4 withObject:dic];
+            break;
+        case 206:
+            tag = [[[answerArray objectAtIndex:5] objectForKey:@"tag"] intValue];
+            [answerArray replaceObjectAtIndex:5 withObject:dic];
+            break;
+        case 207:
+            tag = [[[answerArray objectAtIndex:6] objectForKey:@"tag"] intValue];
+            [answerArray replaceObjectAtIndex:6 withObject:dic];
+            break;
+            
+        default:
+            break;
+    }
     
+
+    //12文字の選択されていた文字を復活させる
+    switch (tag) {
+        case 301:
+            [button1 setEnabled:YES];
+        break;
+        case 302:
+            [button2 setEnabled:YES];
+            break;
+        case 303:
+            [button3 setEnabled:YES];
+            break;
+        case 304:
+            [button4 setEnabled:YES];
+            break;
+        case 305:
+            [button5 setEnabled:YES];
+            break;
+        case 306:
+            [button6 setEnabled:YES];
+            break;
+        case 307:
+            [button7 setEnabled:YES];
+            break;
+        case 308:
+            [button8 setEnabled:YES];
+            break;
+        case 309:
+            [button9 setEnabled:YES];
+            break;
+        case 310:
+            [button10 setEnabled:YES];
+            break;
+        case 311:
+            [button11 setEnabled:YES];
+            break;
+        case 312:
+            [button12 setEnabled:YES];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)answerCheck{
+    NSMutableString *answer = [[NSMutableString alloc] initWithString:@""];
+    for (int i = 0; i < [answerArray count]; i++) {
+        [answer appendFormat:@"%@",[[answerArray objectAtIndex:i] objectForKey:@"string"]];
+    }
+    NSLog(@"どやっ %@",answer);
+    
+    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    if ([[dic objectForKey:@"answer"] isEqualToString:answer]) {
+        NSLog(@"正解！");
+        [self showCompleteView];
+    }
+    else{
+        NSLog(@"残念！");
+        timerStatus = 0;
+        timerCount = 0;
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.1f
+                                                          target:self
+                                                        selector:@selector(timerAnimation:)
+                                                        userInfo:nil
+                                                         repeats:YES
+                          ];
+        [timer fire];
+    }
+}
+
+- (void)timerAnimation:(NSTimer *)t{
+    if (timerStatus == 0) {
+        [self setColor:0];
+        timerStatus = 1;
+    }
+    else{
+        [self setColor:1];
+        timerStatus = 0;
+    }
+    timerCount++;
+    if (timerCount >= 7) {
+        [timer invalidate];
+    }
+}
+
+- (void)setColor:(int)type{
+    if (type == 0) {
+        [answer1 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [answer2 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [answer3 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [answer4 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [answer5 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [answer6 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [answer7 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    }
+    else if (type == 1) {
+        [answer1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [answer2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [answer3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [answer4 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [answer5 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [answer6 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [answer7 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
 }
 
 - (void)hint:(UIButton *)b{
@@ -382,7 +591,7 @@
     //画面サイズ判定
     CGRect frame = [[UIScreen mainScreen] applicationFrame];
     int rectY;
-    if (frame.size.height==548.0) {
+    if (frame.size.height == 548.0) {
         rectY = 310;
     }
     else{
@@ -434,8 +643,19 @@
         default:
             break;
     }
+    [self initiarizeArray:[ans length]];
 }
 
+- (void)initiarizeArray:(int)num{
+    [answerArray removeAllObjects];
+    for (int i = 0; i< num; i++) {
+        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                             @"-1",@"string",
+                             @"-1",@"tag",
+                             nil];
+        [answerArray addObject:dic];
+    }
+}
 
 - (void)back:(UIBarButtonItem *)b{
     [self.navigationController popViewControllerAnimated:YES];
