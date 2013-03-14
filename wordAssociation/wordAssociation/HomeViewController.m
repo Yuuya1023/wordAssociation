@@ -20,9 +20,13 @@
     self = [super init];
     if (self) {
         self.title = @"連想ゲーム";
-        self.view.backgroundColor = [UIColor whiteColor];
+//        self.view.backgroundColor = [UIColor whiteColor];
         
-        UIButton *startPlay = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        UIImageView *BG = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        BG.image = [UIImage imageNamed:@"bg.jpg"];
+        [self.view addSubview:BG];
+        
+        UIButton *startPlay = [UIButton buttonWithType:UIButtonTypeCustom];
         startPlay.frame = CGRectMake(110, 200, 100, 40);
 //        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
         [startPlay setImage:[UIImage imageNamed:@"play_Btn"] forState:UIControlStateNormal];

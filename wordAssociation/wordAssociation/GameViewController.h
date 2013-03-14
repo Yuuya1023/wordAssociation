@@ -34,10 +34,19 @@
     UIButton *hint;
     UIButton *hint2;
     
+    UIButton *answer1;
+    UIButton *answer2;
+    UIButton *answer3;
+    UIButton *answer4;
+    UIButton *answer5;
+    UIButton *answer6;
+    UIButton *answer7;
+    
     UIView *completeView;
     UIButton *next;
     
     int tapCount;
+    int nowStage;
 }
 
 @end

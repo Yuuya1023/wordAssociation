@@ -22,9 +22,25 @@
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *path = [bundle pathForResource:@"word" ofType:@"json"];
     NSString *jsonString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:path] encoding:NSUTF8StringEncoding];
-    NSArray *jsonArray = [jsonString JSONValue];
+//    NSArray *jsonArray = [jsonString JSONValue];
     
-    NSLog(@"json %@",jsonArray);
+    SBJsonParser* sbjsonparser =[[SBJsonParser alloc]init];
+    NSError* error;
+    error = nil;
+    NSDictionary* dic = [sbjsonparser objectWithString:jsonString
+                                                 error:&error];
+
+    
+//    NSLog(@"json %@",jsonArray);
+    [USER_DEFAULT setObject:dic forKey:@"json"];
+    [USER_DEFAULT synchronize];
+    
+    //ユーザーデフォルトに初期値を設定
+    NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
+    [defaults setObject:@"1" forKey:@"nowStage"];
+    [USER_DEFAULT registerDefaults:defaults];
+    [USER_DEFAULT synchronize];
+
 
     HomeViewController *masterViewController = [[HomeViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
