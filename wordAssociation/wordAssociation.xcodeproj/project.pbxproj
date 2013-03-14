@@ -202,12 +202,12 @@
 			children = (
 				189C89A016F1B08D0081103B /* pictures */,
 				189C896A16F173590081103B /* word.json */,
-				189C893D16F14B100081103B /* iamges */,
+				189C893D16F14B100081103B /* images */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		189C893D16F14B100081103B /* iamges */ = {
+		189C893D16F14B100081103B /* images */ = {
 			isa = PBXGroup;
 			children = (
 				189C893E16F14B100081103B /* Back_btn.png */,
@@ -223,7 +223,7 @@
 				189C894716F14B100081103B /* number_bar.png */,
 				189C894816F14B100081103B /* play_Btn.png */,
 			);
-			path = iamges;
+			path = images;
 			sourceTree = "<group>";
 		};
 		189C896D16F173E00081103B /* lib */ = {

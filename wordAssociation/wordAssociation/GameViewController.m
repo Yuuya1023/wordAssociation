@@ -28,7 +28,7 @@
         
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
         backButton.frame = CGRectMake(0, 0, 70, 30);
-        [backButton setImage:[UIImage imageNamed:@"Back_Btn"] forState:UIControlStateNormal];
+        [backButton setImage:[UIImage imageNamed:@"Back_btn"] forState:UIControlStateNormal];
         [backButton addTarget:self action:NSSelectorFromString(@"back:") forControlEvents:UIControlEventTouchUpInside];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -371,7 +371,6 @@
     [button12 setTitle:[str substringWithRange:NSMakeRange(11,1)] forState:UIControlStateNormal];
     
     //答えを埋め込むパネル
-    NSString *ans = [dic objectForKey:@"answer"];
     [answer1 removeFromSuperview];
     [answer2 removeFromSuperview];
     [answer3 removeFromSuperview];
@@ -382,14 +381,15 @@
     
     //画面サイズ判定
     CGRect frame = [[UIScreen mainScreen] applicationFrame];
-    
     int rectY;
     if (frame.size.height==548.0) {
-        rectY = 320;
+        rectY = 310;
     }
     else{
         rectY = 270;
     }
+    
+    NSString *ans = [dic objectForKey:@"answer"];
     switch ([ans length]) {
         case 3:
             panelBg.frame = CGRectMake(100, rectY, 120, 40);
