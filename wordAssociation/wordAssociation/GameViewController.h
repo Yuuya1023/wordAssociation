@@ -53,6 +53,9 @@
     NSTimer *timer;
     int timerCount;
     int timerStatus;
+    
+    UIView *grayView;
+    UIActivityIndicatorView *indicator;
 }
 
 @end

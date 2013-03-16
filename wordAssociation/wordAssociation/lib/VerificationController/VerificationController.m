@@ -376,7 +376,7 @@ static VerificationController *singleton;
         //Validation suceeded. Unlock content here.
         NSLog(@"VerificationController Validation suceeded.");
         IAPManager *manager = [IAPManager sharedInstance];
-        [manager completeTransaction:nil];
+        [manager completeTransactionWithData:data];
 
     }
 }

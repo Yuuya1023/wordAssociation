@@ -23,6 +23,10 @@
         self.title = [NSString stringWithFormat:@"Stage %d",nowStage];
 //        self.view.backgroundColor = [UIColor whiteColor];
         
+        //通知取得
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self selector:@selector(hideAnimation) name:IAP_FINISHED_NOTIFICATION_NAME object:nil];
+        
         UIImageView *BG = [[UIImageView alloc] initWithFrame:self.view.bounds];
         BG.image = [UIImage imageNamed:@"bg.jpg"];
         [self.view addSubview:BG];
@@ -269,23 +273,7 @@
         
         [self.view addSubview:hint];
         [self.view addSubview:hint2];
-        
-        
-        //クリアした時のビュー
-        completeView = [[UIView alloc] initWithFrame:self.view.bounds];
-        completeView.backgroundColor = [UIColor blackColor];
-        completeView.alpha = 0.0;
-        
-        next = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        next.frame = CGRectMake(90, 250, 150, 40);
-        next.alpha = 0.0;
-        [next setTitle:@"next" forState:UIControlStateNormal];
-        [next addTarget:self action:NSSelectorFromString(@"goToNextStage:") forControlEvents:UIControlEventTouchUpInside];
-        
 
-        [self.view addSubview:completeView];
-        [self.view addSubview:next];
-        
         
         //文字列セット
         answerArray = [[NSMutableArray alloc] init];
@@ -665,13 +653,56 @@
 - (void)inAppPurchase:(UIButton *)b{
     IAPManager *iapManager = [IAPManager sharedInstance];
     if ([iapManager checkCanMakePayment]) {
-        [iapManager startProductRequestWithItemType:2];
+        //ぐるぐるを出す
+        grayView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        grayView.backgroundColor = [UIColor blackColor];
+        grayView.alpha = 0.0;
+        
+        indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        indicator.center = self.navigationController.view.center;
+        [indicator startAnimating];
+        [grayView addSubview:indicator];
+        [self.navigationController.view addSubview:grayView];
+        
+        [UIView animateWithDuration:0.3f animations:^(void) {
+            grayView.alpha = 0.6;
+            
+        }completion:^(BOOL finished){
+            [iapManager startProductRequestWithItemType:2];
+        }];
+        
     }
+}
+
+- (void)hideAnimation{
+    [UIView animateWithDuration:0.3f animations:^(void) {
+        grayView.alpha = 0.0;
+        
+    }completion:^(BOOL finished){
+        [indicator removeFromSuperview];
+        [grayView removeFromSuperview];
+    }];
 }
 
 - (void)showCompleteView{
     nowStage++;
     [USER_DEFAULT setInteger:nowStage forKey:@"nowStage"];
+    [USER_DEFAULT synchronize];
+    
+    //クリアした時のビュー
+    completeView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    completeView.backgroundColor = [UIColor blackColor];
+    completeView.alpha = 0.0;
+    
+    next = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    next.frame = CGRectMake(90, 250, 150, 40);
+    next.alpha = 0.0;
+    [next setTitle:@"next" forState:UIControlStateNormal];
+    [next addTarget:self action:NSSelectorFromString(@"goToNextStage:") forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.navigationController.view addSubview:completeView];
+    [self.navigationController.view addSubview:next];
+    
     [UIView animateWithDuration:0.5f animations:^(void) {
         completeView.alpha = 0.7;
         next.alpha = 1.0;
@@ -686,6 +717,9 @@
         self.title = [NSString stringWithFormat:@"Stage %d",nowStage];
         completeView.alpha = 0.0;
         next.alpha = 0.0;
+        
+        [next removeFromSuperview];
+        [completeView removeFromSuperview];
     }];
     
 }

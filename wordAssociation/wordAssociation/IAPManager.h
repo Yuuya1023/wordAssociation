@@ -19,6 +19,7 @@
 
 - (BOOL)checkCanMakePayment;
 - (void)startProductRequestWithItemType:(int)type;
-- (void)completeTransaction: (SKPaymentTransaction *)transaction;
+- (void)completeTransactionWithData:(NSData *)data;
+- (void)completeTransaction:(SKPaymentTransaction *)transaction;
 
 @end

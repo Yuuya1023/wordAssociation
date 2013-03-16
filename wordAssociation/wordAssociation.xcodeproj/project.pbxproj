@@ -13,6 +13,10 @@
 		189C672316F431CB000E77C7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189C672216F431CB000E77C7 /* StoreKit.framework */; };
 		189C672616F43207000E77C7 /* IAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C672516F43207000E77C7 /* IAPManager.m */; };
 		189C672716F43207000E77C7 /* IAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C672516F43207000E77C7 /* IAPManager.m */; };
+		189C672A16F49CC7000E77C7 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C672916F49CC7000E77C7 /* Utilities.m */; };
+		189C672B16F49CC7000E77C7 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C672916F49CC7000E77C7 /* Utilities.m */; };
+		189C672E16F4A03F000E77C7 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C672D16F4A03E000E77C7 /* NSString+MD5.m */; };
+		189C672F16F4A03F000E77C7 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C672D16F4A03E000E77C7 /* NSString+MD5.m */; };
 		189C894916F14B100081103B /* Back_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C893E16F14B100081103B /* Back_btn.png */; };
 		189C894A16F14B100081103B /* Back_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C893E16F14B100081103B /* Back_btn.png */; };
 		189C894B16F14B100081103B /* badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C893F16F14B100081103B /* badge.png */; };
@@ -114,6 +118,10 @@
 		189C672216F431CB000E77C7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		189C672416F43207000E77C7 /* IAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPManager.h; sourceTree = "<group>"; };
 		189C672516F43207000E77C7 /* IAPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPManager.m; sourceTree = "<group>"; };
+		189C672816F49CC6000E77C7 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		189C672916F49CC7000E77C7 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		189C672C16F4A03E000E77C7 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5.h"; path = "../NSString+MD5.h"; sourceTree = "<group>"; };
+		189C672D16F4A03E000E77C7 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5.m"; path = "../NSString+MD5.m"; sourceTree = "<group>"; };
 		189C893E16F14B100081103B /* Back_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back_btn.png; sourceTree = "<group>"; };
 		189C893F16F14B100081103B /* badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge.png; sourceTree = "<group>"; };
 		189C894016F14B100081103B /* bar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bar.jpg; sourceTree = "<group>"; };
@@ -252,6 +260,8 @@
 		189C896D16F173E00081103B /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				189C672C16F4A03E000E77C7 /* NSString+MD5.h */,
+				189C672D16F4A03E000E77C7 /* NSString+MD5.m */,
 				189C671716F43047000E77C7 /* VerificationController */,
 				189C896E16F173E00081103B /* SBJson */,
 			);
@@ -350,6 +360,8 @@
 				18DF073216EF61300049B1B6 /* GameViewController.m */,
 				189C672416F43207000E77C7 /* IAPManager.h */,
 				189C672516F43207000E77C7 /* IAPManager.m */,
+				189C672816F49CC6000E77C7 /* Utilities.h */,
+				189C672916F49CC7000E77C7 /* Utilities.m */,
 				18DF06F416EF5EDC0049B1B6 /* Supporting Files */,
 			);
 			path = wordAssociation;
@@ -558,6 +570,8 @@
 				189C899E16F173E00081103B /* SBJsonWriter.m in Sources */,
 				189C671A16F43047000E77C7 /* VerificationController.m in Sources */,
 				189C672616F43207000E77C7 /* IAPManager.m in Sources */,
+				189C672A16F49CC7000E77C7 /* Utilities.m in Sources */,
+				189C672E16F4A03F000E77C7 /* NSString+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +594,8 @@
 				189C899F16F173E00081103B /* SBJsonWriter.m in Sources */,
 				189C671B16F43047000E77C7 /* VerificationController.m in Sources */,
 				189C672716F43207000E77C7 /* IAPManager.m in Sources */,
+				189C672B16F49CC7000E77C7 /* Utilities.m in Sources */,
+				189C672F16F4A03F000E77C7 /* NSString+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

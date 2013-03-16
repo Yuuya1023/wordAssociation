@@ -29,3 +29,8 @@
 #endif
 
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+#define HASH_STRING_KEY @"randomType"
+#define NOWSTAGE_KEY @"nowStage"
+#define COINS_KEY @"coins"
+
+#define IAP_FINISHED_NOTIFICATION_NAME @"IAPCompleteTransaction"

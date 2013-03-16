@@ -7,6 +7,8 @@
 //
 
 #import "IAPManager.h"
+#import "SBJson.h"
+#import "NSString+MD5.h"
 
 static IAPManager *singleton;
 
@@ -87,6 +89,7 @@ static IAPManager *singleton;
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil, nil];
         [alert show];
+        [self finishTransaction];
         return;
     }
     // 購入処理開始
@@ -112,12 +115,14 @@ static IAPManager *singleton;
             
             // 購入処理成功
             if([verificationController verifyPurchase:transaction]){
-                [self completeTransaction:transaction];
                 [queue finishTransaction:transaction];
+//                [self finishTransaction];
             }
+            
         } else if (transaction.transactionState == SKPaymentTransactionStateFailed) {
             // 購入処理エラー。ユーザが購入処理をキャンセルした場合もここにくる
             [queue finishTransaction:transaction];
+            [self finishTransaction];
             // エラーが発生したことをユーザに知らせる
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
                                                             message:[transaction.error localizedDescription]
@@ -130,7 +135,8 @@ static IAPManager *singleton;
             /*
              * アイテムの再付与を行う
              */
-//            [queue finishTransaction:transaction];
+            [queue finishTransaction:transaction];
+            [self finishTransaction];
         }
     }		
 }
@@ -140,9 +146,58 @@ static IAPManager *singleton;
     [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
 }
 
-
-- (void)completeTransaction: (SKPaymentTransaction *)transaction{
-    NSLog(@"completeTransaction %@",transaction.payment);
+- (void)completeTransactionWithData:(NSData *)data{
+    NSString *resString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"completeTransaction %@",resString);
     
+    SBJsonParser* sbjsonparser =[[SBJsonParser alloc]init];
+    NSError* error;
+    error = nil;
+    NSDictionary* dic = [sbjsonparser objectWithString:resString
+                                                 error:&error];
+    NSLog(@"%@",dic);
+    int point = 0;
+    if ([[dic objectForKey:@"status"] intValue] == 0) {
+        NSString *pid = [[dic objectForKey:@"receipt"] objectForKey:@"product_id"];
+        if ([pid isEqualToString:@"wa.350coins"]) {
+            point = 350;
+        }
+        else if ([pid isEqualToString:@"wa.750coins"]){
+            point = 750;
+        }
+        else if ([pid isEqualToString:@"wa.2000coins"]){
+            point = 2000;
+        }
+        else if ([pid isEqualToString:@"wa.4500coins"]){
+            point = 4500;
+        }
+        else if ([pid isEqualToString:@"wa.10000coins"]){
+            point = 10000;
+        }
+        NSLog(@"%d coins",point);
+    }
+//    NSString *pointStr = [NSString stringWithFormat:@"%d",point];
+//    NSString *MD5 = [pointStr md5String];
+//    NSLog(@"%@",MD5);
+    
+    int beforeCoins = [USER_DEFAULT integerForKey:COINS_KEY];
+    int afterCoins = beforeCoins + point;
+    NSLog(@"before %d",beforeCoins);
+    NSLog(@"after %d",afterCoins);
+    [USER_DEFAULT setInteger:afterCoins forKey:COINS_KEY];
+    [USER_DEFAULT synchronize];
+    
+    [self finishTransaction];
+}
+
+- (void)completeTransaction:(SKPaymentTransaction *)transaction{
+    NSLog(@"completeTransaction %@",transaction.payment);
+    [self finishTransaction];
+}
+
+
+- (void)finishTransaction{
+    NSNotification *n = [NSNotification notificationWithName:IAP_FINISHED_NOTIFICATION_NAME object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:n];
 }
 @end
