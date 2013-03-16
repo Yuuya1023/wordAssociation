@@ -14,4 +14,18 @@
 #endif
 
 
+#ifdef DEBUG
+
+#ifndef NSLog
+#define NSLog( m, args... ) NSLog( m, ##args )
+#endif
+
+#else
+
+#ifndef NSLog
+#define NSLog( m, args... )
+#endif
+
+#endif
+
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189C671A16F43047000E77C7 /* VerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C671916F43047000E77C7 /* VerificationController.m */; };
+		189C671B16F43047000E77C7 /* VerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C671916F43047000E77C7 /* VerificationController.m */; };
+		189C671D16F4305D000E77C7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189C671C16F4305D000E77C7 /* Security.framework */; };
+		189C672316F431CB000E77C7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189C672216F431CB000E77C7 /* StoreKit.framework */; };
+		189C672616F43207000E77C7 /* IAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C672516F43207000E77C7 /* IAPManager.m */; };
+		189C672716F43207000E77C7 /* IAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C672516F43207000E77C7 /* IAPManager.m */; };
 		189C894916F14B100081103B /* Back_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C893E16F14B100081103B /* Back_btn.png */; };
 		189C894A16F14B100081103B /* Back_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C893E16F14B100081103B /* Back_btn.png */; };
 		189C894B16F14B100081103B /* badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C893F16F14B100081103B /* badge.png */; };
@@ -102,6 +108,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		189C671816F43047000E77C7 /* VerificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationController.h; sourceTree = "<group>"; };
+		189C671916F43047000E77C7 /* VerificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationController.m; sourceTree = "<group>"; };
+		189C671C16F4305D000E77C7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		189C672216F431CB000E77C7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		189C672416F43207000E77C7 /* IAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPManager.h; sourceTree = "<group>"; };
+		189C672516F43207000E77C7 /* IAPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPManager.m; sourceTree = "<group>"; };
 		189C893E16F14B100081103B /* Back_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back_btn.png; sourceTree = "<group>"; };
 		189C893F16F14B100081103B /* badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge.png; sourceTree = "<group>"; };
 		189C894016F14B100081103B /* bar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bar.jpg; sourceTree = "<group>"; };
@@ -178,6 +190,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189C672316F431CB000E77C7 /* StoreKit.framework in Frameworks */,
+				189C671D16F4305D000E77C7 /* Security.framework in Frameworks */,
 				18DF06EE16EF5EDC0049B1B6 /* UIKit.framework in Frameworks */,
 				18DF06F016EF5EDC0049B1B6 /* Foundation.framework in Frameworks */,
 				18DF06F216EF5EDC0049B1B6 /* CoreGraphics.framework in Frameworks */,
@@ -197,6 +211,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		189C671716F43047000E77C7 /* VerificationController */ = {
+			isa = PBXGroup;
+			children = (
+				189C671816F43047000E77C7 /* VerificationController.h */,
+				189C671916F43047000E77C7 /* VerificationController.m */,
+			);
+			path = VerificationController;
+			sourceTree = "<group>";
+		};
 		189C893C16F14B100081103B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +252,7 @@
 		189C896D16F173E00081103B /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				189C671716F43047000E77C7 /* VerificationController */,
 				189C896E16F173E00081103B /* SBJson */,
 			);
 			path = lib;
@@ -303,6 +327,8 @@
 		18DF06EC16EF5EDC0049B1B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				189C672216F431CB000E77C7 /* StoreKit.framework */,
+				189C671C16F4305D000E77C7 /* Security.framework */,
 				18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */,
 				18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */,
 				18DF06F116EF5EDC0049B1B6 /* CoreGraphics.framework */,
@@ -322,6 +348,8 @@
 				18DF072F16EF5F8E0049B1B6 /* HomeViewController.m */,
 				18DF073116EF61300049B1B6 /* GameViewController.h */,
 				18DF073216EF61300049B1B6 /* GameViewController.m */,
+				189C672416F43207000E77C7 /* IAPManager.h */,
+				189C672516F43207000E77C7 /* IAPManager.m */,
 				18DF06F416EF5EDC0049B1B6 /* Supporting Files */,
 			);
 			path = wordAssociation;
@@ -528,6 +556,8 @@
 				189C899A16F173E00081103B /* SBJsonTokeniser.m in Sources */,
 				189C899C16F173E00081103B /* SBJsonUTF8Stream.m in Sources */,
 				189C899E16F173E00081103B /* SBJsonWriter.m in Sources */,
+				189C671A16F43047000E77C7 /* VerificationController.m in Sources */,
+				189C672616F43207000E77C7 /* IAPManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +578,8 @@
 				189C899B16F173E00081103B /* SBJsonTokeniser.m in Sources */,
 				189C899D16F173E00081103B /* SBJsonUTF8Stream.m in Sources */,
 				189C899F16F173E00081103B /* SBJsonWriter.m in Sources */,
+				189C671B16F43047000E77C7 /* VerificationController.m in Sources */,
+				189C672716F43207000E77C7 /* IAPManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,7 +677,7 @@
 				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
 				INFOPLIST_FILE = "wordAssociation/wordAssociation-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AFAEBA61-439D-466E-9764-40CADF85874E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4BCD4CA-5021-4A28-9E21-4E2526CC110D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -653,10 +685,12 @@
 		18DF072A16EF5EDD0049B1B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuya Nambu (Z672L5L4QF)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
 				INFOPLIST_FILE = "wordAssociation/wordAssociation-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4BCD4CA-5021-4A28-9E21-4E2526CC110D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

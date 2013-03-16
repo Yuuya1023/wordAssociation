@@ -7,6 +7,7 @@
 //
 
 #import "GameViewController.h"
+#import "IAPManager.h"
 
 @interface GameViewController ()
 
@@ -662,7 +663,10 @@
 }
 
 - (void)inAppPurchase:(UIButton *)b{
-    
+    IAPManager *iapManager = [IAPManager sharedInstance];
+    if ([iapManager checkCanMakePayment]) {
+        [iapManager startProductRequestWithItemType:2];
+    }
 }
 
 - (void)showCompleteView{
