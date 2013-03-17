@@ -37,9 +37,9 @@
         [backButton addTarget:self action:NSSelectorFromString(@"back:") forControlEvents:UIControlEventTouchUpInside];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(0, 0, 70, 30);
+        button.frame = CGRectMake(0, 0, 90, 30);
         [button setImage:[UIImage imageNamed:@"money_Btn"] forState:UIControlStateNormal];
-        [button addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:NSSelectorFromString(@"showItemList:") forControlEvents:UIControlEventTouchUpInside];
 
         UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:button];
@@ -277,6 +277,8 @@
         
         //文字列セット
         answerArray = [[NSMutableArray alloc] init];
+        wordHintArray = [[NSMutableArray alloc] init];
+        answerTagArray =[[NSMutableArray alloc] init];
         [self setQuestion:nowStage];
     }
     return self;
@@ -288,6 +290,14 @@
 	// Do any additional setup after loading the view.
 }
 
+
+
+
+
+
+
+//////写真のタップ判定
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *touch = [[event allTouches] anyObject];
     if (touch.view.tag >= 100 && touch.view.tag <= 103) {
@@ -297,6 +307,13 @@
         [self zoomOutImage];
     }
 }
+
+
+
+
+
+
+//////写真をタップした時にズームを行う
 
 - (void)zoomInImage:(int)tag{
     NSLog(@"%d",tag);
@@ -325,6 +342,14 @@
     }];
 }
 
+
+
+
+
+
+
+//////ズーム中の画像をズームアウトする
+
 - (void)zoomOutImage{
     [UIView animateWithDuration:0.5f animations:^(void) {
         zoomImage.alpha = 0.0;
@@ -336,6 +361,13 @@
 }
 
 
+
+
+
+
+
+//////12文字の文字列群から文字を選択したとき
+
 - (void)tapWord:(UIButton *)b{
     int insertStatus = 0;
     for (int i = 0; i < [answerArray count]; i++) {
@@ -346,34 +378,13 @@
                 NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      b.titleLabel.text,@"string",
                                      [NSString stringWithFormat:@"%d",b.tag],@"tag",
+                                     [[answerArray objectAtIndex:i] objectForKey:@"usedHint"],@"usedHint",
                                      nil];
                 [answerArray replaceObjectAtIndex:i withObject:dic];
                 [b setEnabled:NO];
-                switch (i) {
-                    case 0:
-                        [answer1 setTitle:b.titleLabel.text forState:UIControlStateNormal];
-                        break;
-                    case 1:
-                        [answer2 setTitle:b.titleLabel.text forState:UIControlStateNormal];
-                        break;
-                    case 2:
-                        [answer3 setTitle:b.titleLabel.text forState:UIControlStateNormal];
-                        break;
-                    case 3:
-                        [answer4 setTitle:b.titleLabel.text forState:UIControlStateNormal];
-                        break;
-                    case 4:
-                        [answer5 setTitle:b.titleLabel.text forState:UIControlStateNormal];
-                        break;
-                    case 5:
-                        [answer6 setTitle:b.titleLabel.text forState:UIControlStateNormal];
-                        break;
-                    case 6:
-                        [answer7 setTitle:b.titleLabel.text forState:UIControlStateNormal];
-                        break;
-                    default:
-                        break;
-                }
+                
+                //文字列セット
+                [self setWordWithTag:i title:b.titleLabel.text];
             }
             else{
                 //まだ空きがある
@@ -381,98 +392,157 @@
             }
         }
     }
-    if (insertStatus == 1) {
-        NSLog(@"答え合わせ");
+//    if (insertStatus == 1) {
+//        NSLog(@"答え合わせ");
+//        [self answerCheck];
+//    }
+}
+
+
+
+
+
+
+/////文字列セット
+
+- (void)setWordWithTag:(int)tag title:(NSString *)title{
+    switch (tag) {
+        case 0:
+            [answer1 setTitle:title forState:UIControlStateNormal];
+            break;
+        case 1:
+            [answer2 setTitle:title forState:UIControlStateNormal];
+            break;
+        case 2:
+            [answer3 setTitle:title forState:UIControlStateNormal];
+            break;
+        case 3:
+            [answer4 setTitle:title forState:UIControlStateNormal];
+            break;
+        case 4:
+            [answer5 setTitle:title forState:UIControlStateNormal];
+            break;
+        case 5:
+            [answer6 setTitle:title forState:UIControlStateNormal];
+            break;
+        case 6:
+            [answer7 setTitle:title forState:UIControlStateNormal];
+            break;
+        default:
+            break;
+    }
+    didSetWords++;
+    if(didSetWords == answerLength){
         [self answerCheck];
     }
 }
 
+
+
+
+
+
+//////答えとして選択した文字列を解除する
+
 - (void)unsetWord:(UIButton *)b{
     [b setTitle:@"" forState:UIControlStateNormal];
     [self setColor:1];
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
-                         @"-1",@"string",
-                         @"-1",@"tag",
-                         nil];
+    
     int tag = 0;
+    int index = 0;
     //答えのパネルから文字を解除する
     switch (b.tag) {
         case 201:
-            tag = [[[answerArray objectAtIndex:0] objectForKey:@"tag"] intValue];
-            [answerArray replaceObjectAtIndex:0 withObject:dic];
+            index = 0;
             break;
         case 202:
-            tag = [[[answerArray objectAtIndex:1] objectForKey:@"tag"] intValue];
-            [answerArray replaceObjectAtIndex:1 withObject:dic];
+            index = 1;
             break;
         case 203:
-            tag = [[[answerArray objectAtIndex:2] objectForKey:@"tag"] intValue];
-            [answerArray replaceObjectAtIndex:2 withObject:dic];
+            index = 2;
             break;
         case 204:
-            tag = [[[answerArray objectAtIndex:3] objectForKey:@"tag"] intValue];
-            [answerArray replaceObjectAtIndex:3 withObject:dic];
+            index = 3;
             break;
         case 205:
-            tag = [[[answerArray objectAtIndex:4] objectForKey:@"tag"] intValue];
-            [answerArray replaceObjectAtIndex:4 withObject:dic];
+            index = 4;
             break;
         case 206:
-            tag = [[[answerArray objectAtIndex:5] objectForKey:@"tag"] intValue];
-            [answerArray replaceObjectAtIndex:5 withObject:dic];
+            index = 5;
             break;
         case 207:
-            tag = [[[answerArray objectAtIndex:6] objectForKey:@"tag"] intValue];
-            [answerArray replaceObjectAtIndex:6 withObject:dic];
+            index = 6;
             break;
             
         default:
             break;
     }
-    
+    if ([[[answerArray objectAtIndex:index] objectForKey:@"tag"] intValue] != -1) {
+        didSetWords--;
+        
+        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                             @"-1",@"string",
+                             @"-1",@"tag",
+                             [[answerArray objectAtIndex:index] objectForKey:@"usedHint"],@"usedHint",
+                             nil];
+        tag = [[[answerArray objectAtIndex:index] objectForKey:@"tag"] intValue];
+        [answerArray replaceObjectAtIndex:index withObject:dic];
+    }
 
+    
     //12文字の選択されていた文字を復活させる
+    [self buttonSetEnabled:tag enable:YES];
+}
+
+
+
+
+- (void)buttonSetEnabled:(int)tag enable:(BOOL)enable{
     switch (tag) {
         case 301:
-            [button1 setEnabled:YES];
-        break;
+            [button1 setEnabled:enable];
+            break;
         case 302:
-            [button2 setEnabled:YES];
+            [button2 setEnabled:enable];
             break;
         case 303:
-            [button3 setEnabled:YES];
+            [button3 setEnabled:enable];
             break;
         case 304:
-            [button4 setEnabled:YES];
+            [button4 setEnabled:enable];
             break;
         case 305:
-            [button5 setEnabled:YES];
+            [button5 setEnabled:enable];
             break;
         case 306:
-            [button6 setEnabled:YES];
+            [button6 setEnabled:enable];
             break;
         case 307:
-            [button7 setEnabled:YES];
+            [button7 setEnabled:enable];
             break;
         case 308:
-            [button8 setEnabled:YES];
+            [button8 setEnabled:enable];
             break;
         case 309:
-            [button9 setEnabled:YES];
+            [button9 setEnabled:enable];
             break;
         case 310:
-            [button10 setEnabled:YES];
+            [button10 setEnabled:enable];
             break;
         case 311:
-            [button11 setEnabled:YES];
+            [button11 setEnabled:enable];
             break;
         case 312:
-            [button12 setEnabled:YES];
+            [button12 setEnabled:enable];
             break;
         default:
             break;
     }
 }
+
+
+
+//////解答をチェックする
 
 - (void)answerCheck{
     NSMutableString *answer = [[NSMutableString alloc] initWithString:@""];
@@ -500,6 +570,14 @@
     }
 }
 
+
+
+
+
+
+
+//////タイマーで文字色を点滅させる
+
 - (void)timerAnimation:(NSTimer *)t{
     if (timerStatus == 0) {
         [self setColor:0];
@@ -514,6 +592,13 @@
         [timer invalidate];
     }
 }
+
+
+
+
+
+
+//////問題が外れた時に文字色を変化させる
 
 - (void)setColor:(int)type{
     if (type == 0) {
@@ -536,13 +621,116 @@
     }
 }
 
+
+
+
+
+/////ランダムで文字をひとつ解放
+
 - (void)hint:(UIButton *)b{
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ヒント"
+                                                    message:@"正解を１文字だけひらくことができます。"
+                                                   delegate:self
+                                          cancelButtonTitle:@"キャンセル"
+                                          otherButtonTitles:@"OK", nil];
+    alert.tag = 400;
+    [alert show];
 }
 
+
+
+
+
+
+
+/////ランダムで候補から三文字削除
+
 - (void)hint2:(UIButton *)b{
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ヒント"
+                                                    message:@"候補から三文字消すことができます。"
+                                                   delegate:self
+                                          cancelButtonTitle:@"キャンセル"
+                                          otherButtonTitles:@"OK", nil];
+    alert.tag = 401;
+    [alert show];
 }
+
+
+
+
+
+
+
+/////UIAlertView Delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    if (alertView.tag == 400) {
+        NSString *ans = [dic objectForKey:@"answer"];
+        NSString *str = [dic objectForKey:@"string"];
+        
+        BOOL isOK = YES;
+        while (isOK) {
+            int rand = arc4random() % [ans length];
+            NSMutableDictionary *inDic = [[NSMutableDictionary alloc] initWithDictionary:[answerArray objectAtIndex:rand]];
+            if ([[inDic objectForKey:@"usedHint"] intValue] == -1) {
+                int setTag = [[answerTagArray objectAtIndex:rand] intValue];
+                
+                [inDic setObject:@"1" forKey:@"usedHint"];
+                [inDic setObject:[str substringWithRange:NSMakeRange(setTag,1)] forKey:@"string"];
+                [inDic setObject:[NSString stringWithFormat:@"%d",setTag] forKey:@"tag"];
+                [answerArray replaceObjectAtIndex:rand withObject:inDic];
+                
+                //答えのボタンをロックする
+                switch (rand) {
+                    case 0:
+                        [answer1 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+                        [answer1 setEnabled:NO];
+                        break;
+                    case 1:
+                        [answer2 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+                        [answer2 setEnabled:NO];
+                        break;
+                    case 2:
+                        [answer3 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+                        [answer3 setEnabled:NO];
+                        break;
+                    case 3:
+                        [answer4 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+                        [answer4 setEnabled:NO];
+                        break;
+                    case 4:
+                        [answer5 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+                        [answer5 setEnabled:NO];
+                        break;
+                    case 5:
+                        [answer6 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+                        [answer6 setEnabled:NO];
+                        break;
+                    case 6:
+                        [answer7 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+                        [answer7 setEnabled:NO];
+                        break;
+                    default:
+                        break;
+                }
+                [self buttonSetEnabled:setTag + 301 enable:NO];
+                [self setWordWithTag:rand title:[str substringWithRange:NSMakeRange(setTag,1)]];
+                isOK = NO;
+            }
+        }
+    }
+    else if (alertView.tag == 401){
+        
+    }
+}
+
+
+
+
+
+
+//////問題をセット
 
 - (void)setQuestion:(int)stage{
     NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:stage - 1];
@@ -568,6 +756,7 @@
     [button11 setTitle:[str substringWithRange:NSMakeRange(10,1)] forState:UIControlStateNormal];
     [button12 setTitle:[str substringWithRange:NSMakeRange(11,1)] forState:UIControlStateNormal];
     
+    
     //答えを埋め込むパネル
     [answer1 removeFromSuperview];
     [answer2 removeFromSuperview];
@@ -588,6 +777,7 @@
     }
     
     NSString *ans = [dic objectForKey:@"answer"];
+    answerLength = [ans length];
     switch ([ans length]) {
         case 3:
             panelBg.frame = CGRectMake(100, rectY, 120, 40);
@@ -633,7 +823,27 @@
             break;
     }
     [self initiarizeArray:[ans length]];
+    
+    //答えのタグを配列に記憶
+    for (int i = 0; i < [ans length]; i++) {
+        for (int j = 0; j < 12; j++) {
+            
+            NSString *tmpStr = [str substringWithRange:NSMakeRange(j,1)];
+            NSString *tmpAns = [ans substringWithRange:NSMakeRange(i,1)];
+            if ([tmpStr isEqualToString:tmpAns]) {
+                [answerTagArray replaceObjectAtIndex:i withObject:[NSString stringWithFormat:@"%d",j]];
+            }
+        }
+    }
+    NSLog(@"answerTagArray %@",answerTagArray);
 }
+
+
+
+
+
+
+//////配列を初期化する
 
 - (void)initiarizeArray:(int)num{
     [answerArray removeAllObjects];
@@ -641,38 +851,136 @@
         NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
                              @"-1",@"string",
                              @"-1",@"tag",
+                             @"-1",@"usedHint",
                              nil];
         [answerArray addObject:dic];
     }
+    
+    //答えのタグのみを格納する配列
+    [answerTagArray removeAllObjects];
+    for (int i = 0; i< num; i++) {
+        [answerTagArray addObject:@"-1"];
+    }
+    
+    [wordHintArray removeAllObjects];
+    for (int i = 0; i< 12; i++) {
+        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                             @"-1",@"string",
+                             @"-1",@"tag",
+                             @"-1",@"usedHint",
+                             nil];
+        [wordHintArray addObject:dic];
+    }
+    
+    
+    
 }
+
+
+
+
+//////ナビゲーションバーのもどるボタンを押した時
 
 - (void)back:(UIBarButtonItem *)b{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+
+
+
+//////課金アイテムの一覧を表示
+
+- (void)showItemList:(UIButton *)b{
+    grayView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    grayView.backgroundColor = [UIColor blackColor];
+    grayView.alpha = 0.6;
+    
+    itemListView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+    itemListView.frame = CGRectMake(30, 60, 260, 380);
+    itemListView.backgroundColor = [UIColor blueColor];
+    itemListView.userInteractionEnabled = YES;
+    
+    [self.navigationController.view addSubview:grayView];
+    [self.navigationController.view addSubview:itemListView];
+    
+    //ボタン
+    UIImage *answerBtnBg = [UIImage imageNamed:@"num_Bg02"];
+    
+    item1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    item1.frame = CGRectMake(0, 0, 40, 40);
+    item1.tag = 0;
+    [item1 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
+    [item1 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
+    
+    item2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    item2.frame = CGRectMake(0, 50, 40, 40);
+    item2.tag = 1;
+    [item2 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
+    [item2 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
+    
+    item3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    item3.frame = CGRectMake(0, 100, 40, 40);
+    item3.tag = 2;
+    [item3 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
+    [item3 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
+    
+    item4 = [UIButton buttonWithType:UIButtonTypeCustom];
+    item4.frame = CGRectMake(0, 150, 40, 40);
+    item4.tag = 3;
+    [item4 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
+    [item4 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
+    
+    item5 = [UIButton buttonWithType:UIButtonTypeCustom];
+    item5.frame = CGRectMake(0, 200, 40, 40);
+    item5.tag = 4;
+    [item5 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
+    [item5 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
+    
+    [itemListView addSubview:item1];
+    [itemListView addSubview:item2];
+    [itemListView addSubview:item3];
+    [itemListView addSubview:item4];
+    [itemListView addSubview:item5];
+}
+
+
+
+
+
+//////課金アイテムを選択した時
+
 - (void)inAppPurchase:(UIButton *)b{
+    [self cancel:nil];
     IAPManager *iapManager = [IAPManager sharedInstance];
     if ([iapManager checkCanMakePayment]) {
         //ぐるぐるを出す
-        grayView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        grayView.backgroundColor = [UIColor blackColor];
-        grayView.alpha = 0.0;
-        
         indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         indicator.center = self.navigationController.view.center;
         [indicator startAnimating];
         [grayView addSubview:indicator];
-        [self.navigationController.view addSubview:grayView];
         
-        [UIView animateWithDuration:0.3f animations:^(void) {
-            grayView.alpha = 0.6;
-            
-        }completion:^(BOOL finished){
-            [iapManager startProductRequestWithItemType:2];
-        }];
-        
+        [iapManager startProductRequestWithItemType:b.tag];
     }
 }
+
+
+
+
+//////アイテム選択画面を消す
+
+- (void)cancel:(UIButton *)b{
+    [item1 removeFromSuperview];
+    [item2 removeFromSuperview];
+    [item3 removeFromSuperview];
+    [item4 removeFromSuperview];
+    [item5 removeFromSuperview];
+    [itemListView removeFromSuperview];
+}
+
+
+
+//////課金終了後にアニメーションを見えなくする
 
 - (void)hideAnimation{
     [UIView animateWithDuration:0.3f animations:^(void) {
@@ -683,6 +991,11 @@
         [grayView removeFromSuperview];
     }];
 }
+
+
+
+
+//////クリア画面表示
 
 - (void)showCompleteView{
     nowStage++;
@@ -710,6 +1023,11 @@
 }
 
 
+
+
+
+//////次ページへ遷移
+
 - (void)goToNextStage:(UIButton *)b{
     [self setQuestion:nowStage];
     [self deselestAll];
@@ -724,7 +1042,12 @@
     
 }
 
+
+
+//////選択中の文字を全て解除
+
 - (void)deselestAll{
+    didSetWords = 0;
     [button1 setEnabled:YES];
     [button2 setEnabled:YES];
     [button3 setEnabled:YES];
@@ -738,6 +1061,14 @@
     [button11 setEnabled:YES];
     [button12 setEnabled:YES];
     
+    [answer1 setEnabled:YES];
+    [answer2 setEnabled:YES];
+    [answer3 setEnabled:YES];
+    [answer4 setEnabled:YES];
+    [answer5 setEnabled:YES];
+    [answer6 setEnabled:YES];
+    [answer7 setEnabled:YES];
+    
     [answer1 setTitle:@"" forState:UIControlStateNormal];
     [answer2 setTitle:@"" forState:UIControlStateNormal];
     [answer3 setTitle:@"" forState:UIControlStateNormal];
@@ -745,6 +1076,14 @@
     [answer5 setTitle:@"" forState:UIControlStateNormal];
     [answer6 setTitle:@"" forState:UIControlStateNormal];
     [answer7 setTitle:@"" forState:UIControlStateNormal];
+    
+    [answer1 setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
+    [answer2 setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
+    [answer3 setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
+    [answer4 setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
+    [answer5 setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
+    [answer6 setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
+    [answer7 setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
 }
 
 - (void)didReceiveMemoryWarning

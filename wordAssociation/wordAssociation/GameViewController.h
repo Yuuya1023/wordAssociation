@@ -49,6 +49,8 @@
     int nowStage;
     
     NSMutableArray *answerArray;
+    NSMutableArray *answerTagArray;
+    NSMutableArray *wordHintArray;
     
     NSTimer *timer;
     int timerCount;
@@ -56,6 +58,16 @@
     
     UIView *grayView;
     UIActivityIndicatorView *indicator;
+    
+    UIImageView *itemListView;
+    UIButton *item1;
+    UIButton *item2;
+    UIButton *item3;
+    UIButton *item4;
+    UIButton *item5;
+    
+    int didSetWords;
+    int answerLength;
 }
 
 @end
