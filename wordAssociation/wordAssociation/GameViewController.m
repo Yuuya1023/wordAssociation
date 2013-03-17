@@ -40,6 +40,13 @@
         button.frame = CGRectMake(0, 0, 90, 30);
         [button setImage:[UIImage imageNamed:@"money_Btn"] forState:UIControlStateNormal];
         [button addTarget:self action:NSSelectorFromString(@"showItemList:") forControlEvents:UIControlEventTouchUpInside];
+        
+        moneyLabel = [[UILabel alloc] initWithFrame:CGRectMake(33, 0, 45, 30)];
+        moneyLabel.text = [USER_DEFAULT stringForKey:COINS_KEY];
+        moneyLabel.adjustsFontSizeToFitWidth = YES;
+        moneyLabel.textAlignment = NSTextAlignmentRight;
+        moneyLabel.backgroundColor = [UIColor clearColor];
+        [button addSubview:moneyLabel];
 
         UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:button];
@@ -278,7 +285,8 @@
         //文字列セット
         answerArray = [[NSMutableArray alloc] init];
         wordHintArray = [[NSMutableArray alloc] init];
-        answerTagArray =[[NSMutableArray alloc] init];
+        answerTagArray = [[NSMutableArray alloc] init];
+        didDeleteWordsTagArray = [[NSMutableArray alloc] init];
         [self setQuestion:nowStage];
     }
     return self;
@@ -375,6 +383,9 @@
             if (insertStatus == 0) {
                 insertStatus = 1;
                 
+                //文字列セット
+                [self setWordWithTag:i title:b.titleLabel.text];
+                
                 NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      b.titleLabel.text,@"string",
                                      [NSString stringWithFormat:@"%d",b.tag],@"tag",
@@ -383,8 +394,10 @@
                 [answerArray replaceObjectAtIndex:i withObject:dic];
                 [b setEnabled:NO];
                 
-                //文字列セット
-                [self setWordWithTag:i title:b.titleLabel.text];
+                //答え合わせ
+                if(didSetWords == answerLength){
+                    [self answerCheck];
+                }
             }
             else{
                 //まだ空きがある
@@ -431,10 +444,13 @@
         default:
             break;
     }
-    didSetWords++;
-    if(didSetWords == answerLength){
-        [self answerCheck];
+    if ([[[answerArray objectAtIndex:tag] objectForKey:@"tag"] intValue] == -1) {
+        didSetWords++;
     }
+    else{
+        [self buttonSetEnabled:[[[answerArray objectAtIndex:tag] objectForKey:@"tag"] intValue] enable:YES];
+    }
+    NSLog(@"%d",didSetWords);
 }
 
 
@@ -497,6 +513,10 @@
 
 
 
+
+
+/////答えのボタンを有効or無効にする
+
 - (void)buttonSetEnabled:(int)tag enable:(BOOL)enable{
     switch (tag) {
         case 301:
@@ -539,6 +559,61 @@
             break;
     }
 }
+
+
+
+
+
+
+
+/////ボタンにアルファ値をセットする
+
+- (void)buttonSetAlpha:(int)tag alpha:(float)alpha{
+    switch (tag) {
+        case 0:
+            button1.alpha = alpha;
+            break;
+        case 1:
+            button2.alpha = alpha;
+            break;
+        case 2:
+            button3.alpha = alpha;
+            break;
+        case 3:
+            button4.alpha = alpha;
+            break;
+        case 4:
+            button5.alpha = alpha;
+            break;
+        case 5:
+            button6.alpha = alpha;
+            break;
+        case 6:
+            button7.alpha = alpha;
+            break;
+        case 7:
+            button8.alpha = alpha;
+            break;
+        case 8:
+            button9.alpha = alpha;
+            break;
+        case 9:
+            button10.alpha = alpha;
+            break;
+        case 10:
+            button11.alpha = alpha;
+            break;
+        case 11:
+            button12.alpha = alpha;
+            break;
+        default:
+            break;
+    }
+}
+
+
+
+
 
 
 
@@ -629,7 +704,7 @@
 
 - (void)hint:(UIButton *)b{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ヒント"
-                                                    message:@"正解を１文字だけひらくことができます。"
+                                                    message:@"正解を１文字だけひらくことができます。(60coins)"
                                                    delegate:self
                                           cancelButtonTitle:@"キャンセル"
                                           otherButtonTitles:@"OK", nil];
@@ -646,13 +721,29 @@
 /////ランダムで候補から三文字削除
 
 - (void)hint2:(UIButton *)b{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ヒント"
-                                                    message:@"候補から三文字消すことができます。"
-                                                   delegate:self
-                                          cancelButtonTitle:@"キャンセル"
-                                          otherButtonTitles:@"OK", nil];
-    alert.tag = 401;
-    [alert show];
+    if (canDeleteWords == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ヒント"
+                                                        message:@"もう文字を消せません。"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    else{
+        int deleteWords = 3;
+        if (canDeleteWords < 3) {
+            deleteWords = canDeleteWords;
+        }
+
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ヒント"
+                                                        message:[NSString stringWithFormat:@"候補から%d文字消すことができます。(%dcoins)",deleteWords,deleteWords * 30]
+                                                       delegate:self
+                                              cancelButtonTitle:@"キャンセル"
+                                              otherButtonTitles:@"OK", nil];
+        alert.tag = 401;
+        [alert show];
+    }
 }
 
 
@@ -665,7 +756,7 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
-    if (alertView.tag == 400) {
+    if (alertView.tag == 400 && buttonIndex == 1) {
         NSString *ans = [dic objectForKey:@"answer"];
         NSString *str = [dic objectForKey:@"string"];
         
@@ -676,6 +767,12 @@
             if ([[inDic objectForKey:@"usedHint"] intValue] == -1) {
                 int setTag = [[answerTagArray objectAtIndex:rand] intValue];
                 
+                //ボタンに文字をセット
+//                [self buttonSetEnabled:setTag + 301 enable:NO];
+                [self buttonSetAlpha:setTag alpha:0.0];
+                [self setWordWithTag:rand title:[str substringWithRange:NSMakeRange(setTag,1)]];
+                
+                //配列に記憶
                 [inDic setObject:@"1" forKey:@"usedHint"];
                 [inDic setObject:[str substringWithRange:NSMakeRange(setTag,1)] forKey:@"string"];
                 [inDic setObject:[NSString stringWithFormat:@"%d",setTag] forKey:@"tag"];
@@ -714,16 +811,61 @@
                     default:
                         break;
                 }
-                [self buttonSetEnabled:setTag + 301 enable:NO];
-                [self setWordWithTag:rand title:[str substringWithRange:NSMakeRange(setTag,1)]];
+                
+                //答え合わせ
+                if(didSetWords == answerLength){
+                    [self answerCheck];
+                }
+                
+                [self setCoins:-60];
                 isOK = NO;
             }
         }
     }
-    else if (alertView.tag == 401){
-        
+    else if (alertView.tag == 401 && buttonIndex == 1){
+        NSLog(@"%d",canDeleteWords);
+        int deleteWords = 3;
+        if (canDeleteWords < 3) {
+            deleteWords = canDeleteWords;
+        }
+        canDeleteWords-=deleteWords;
+        NSLog(@"%d",canDeleteWords);
+        //消せる文字分繰り返す
+        for (int i = 0; i < deleteWords; i ++) {
+            BOOL isOK = YES;
+            while (isOK) {
+                int rand = arc4random() % 12;
+                NSString *randIntStr = [NSString stringWithFormat:@"%d",rand];
+                if(![answerTagArray containsObject:randIntStr] && ![didDeleteWordsTagArray containsObject:randIntStr]){
+                    [self buttonSetAlpha:rand alpha:0.0];
+                    [didDeleteWordsTagArray addObject:[NSString stringWithFormat:@"%d",rand]];
+                    isOK = NO;
+                }
+            }
+        }
+        [self setCoins:-30 * deleteWords];
     }
 }
+
+
+
+
+
+
+/////差分のコインをセットする
+
+- (void)setCoins:(int)margin{
+    int coins = [USER_DEFAULT integerForKey:COINS_KEY];
+    NSLog(@"before coins %d",coins);
+    coins+=margin;
+    NSLog(@"after coins %d",coins);
+    [USER_DEFAULT setInteger:coins forKey:COINS_KEY];
+    [USER_DEFAULT synchronize];
+    
+    moneyLabel.text = [USER_DEFAULT stringForKey:COINS_KEY];
+}
+
+
 
 
 
@@ -778,6 +920,7 @@
     
     NSString *ans = [dic objectForKey:@"answer"];
     answerLength = [ans length];
+    canDeleteWords = 12 - answerLength;
     switch ([ans length]) {
         case 3:
             panelBg.frame = CGRectMake(100, rectY, 120, 40);
@@ -872,7 +1015,7 @@
         [wordHintArray addObject:dic];
     }
     
-    
+    [didDeleteWordsTagArray removeAllObjects];
     
 }
 
@@ -985,6 +1128,7 @@
 - (void)hideAnimation{
     [UIView animateWithDuration:0.3f animations:^(void) {
         grayView.alpha = 0.0;
+        moneyLabel.text = [USER_DEFAULT stringForKey:COINS_KEY];
         
     }completion:^(BOOL finished){
         [indicator removeFromSuperview];
@@ -1060,6 +1204,19 @@
     [button10 setEnabled:YES];
     [button11 setEnabled:YES];
     [button12 setEnabled:YES];
+    
+    button1.alpha = 1.0;
+    button2.alpha = 1.0;
+    button3.alpha = 1.0;
+    button4.alpha = 1.0;
+    button5.alpha = 1.0;
+    button6.alpha = 1.0;
+    button7.alpha = 1.0;
+    button8.alpha = 1.0;
+    button9.alpha = 1.0;
+    button10.alpha = 1.0;
+    button11.alpha = 1.0;
+    button12.alpha = 1.0;
     
     [answer1 setEnabled:YES];
     [answer2 setEnabled:YES];

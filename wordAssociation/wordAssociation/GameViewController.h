@@ -42,6 +42,8 @@
     UIButton *answer6;
     UIButton *answer7;
     
+    UILabel *moneyLabel;
+    
     UIView *completeView;
     UIButton *next;
     
@@ -68,6 +70,8 @@
     
     int didSetWords;
     int answerLength;
+    int canDeleteWords;
+    NSMutableArray *didDeleteWordsTagArray;
 }
 
 @end
