@@ -921,7 +921,13 @@
     NSString *ans = [dic objectForKey:@"answer"];
     answerLength = [ans length];
     canDeleteWords = 12 - answerLength;
+    NSLog(@"length %d",answerLength);
     switch ([ans length]) {
+        case 2:
+            panelBg.frame = CGRectMake(120, rectY, 80, 40);
+            [panelBg addSubview:answer1];
+            [panelBg addSubview:answer2];
+            break;
         case 3:
             panelBg.frame = CGRectMake(100, rectY, 120, 40);
             [panelBg addSubview:answer1];
