@@ -27,7 +27,12 @@
         [self.view addSubview:BG];
         
         UIButton *startPlay = [UIButton buttonWithType:UIButtonTypeCustom];
-        startPlay.frame = CGRectMake(95, 330, 174 /4*3, 52 /4*3);
+        if ([Utilities isDevice5thGen]) {
+            startPlay.frame = CGRectMake(95, 410, 174 /4*3, 52 /4*3);
+        }
+        else{
+            startPlay.frame = CGRectMake(95, 330, 174 /4*3, 52 /4*3);
+        }
 //        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
         [startPlay setImage:[UIImage imageNamed:@"Start_Btn"] forState:UIControlStateNormal];
         [startPlay addTarget:self action:NSSelectorFromString(@"play:") forControlEvents:UIControlEventTouchUpInside];
