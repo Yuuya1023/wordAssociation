@@ -28,7 +28,7 @@
         [nc addObserver:self selector:@selector(hideAnimation) name:IAP_FINISHED_NOTIFICATION_NAME object:nil];
         
         UIImageView *BG = [[UIImageView alloc] initWithFrame:self.view.bounds];
-        BG.image = [UIImage imageNamed:@"bg.jpg"];
+        BG.image = [UIImage imageNamed:@"Bg"];
         [self.view addSubview:BG];
         
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -37,11 +37,11 @@
         [backButton addTarget:self action:NSSelectorFromString(@"back:") forControlEvents:UIControlEventTouchUpInside];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(0, 0, 90, 30);
-        [button setImage:[UIImage imageNamed:@"money_Btn"] forState:UIControlStateNormal];
+        button.frame = CGRectMake(0, 0, 70, 30);
+        [button setImage:[UIImage imageNamed:@"Coin_Btn"] forState:UIControlStateNormal];
         [button addTarget:self action:NSSelectorFromString(@"showItemList:") forControlEvents:UIControlEventTouchUpInside];
         
-        moneyLabel = [[UILabel alloc] initWithFrame:CGRectMake(33, 0, 45, 30)];
+        moneyLabel = [[UILabel alloc] initWithFrame:CGRectMake(17, 0, 45, 30)];
         moneyLabel.text = [USER_DEFAULT stringForKey:COINS_KEY];
         moneyLabel.adjustsFontSizeToFitWidth = YES;
         moneyLabel.textAlignment = NSTextAlignmentRight;
@@ -92,65 +92,65 @@
         [self.view addSubview:panelBg];
         
         //答え用のボタンを用意
-        UIImage *answerBtnBg = [UIImage imageNamed:@"num_Bg02"];
-        UIColor *titleColor = [UIColor blackColor];
+        UIImage *answerBtnBg = [UIImage imageNamed:@"Answer_Btn"];
+        UIColor *titleColor_Ans = [UIColor whiteColor];
         UIFont *titleFont = [UIFont fontWithName:@"GillSans" size:18];
         
         answer1 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer1.frame = CGRectMake(0, 0, 40, 40);
         answer1.tag = 201;
         answer1.titleLabel.font = titleFont;
-        [answer1 setTitleColor:titleColor forState:UIControlStateNormal];
+        [answer1 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer1 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer1 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer2 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer2.frame = CGRectMake(40, 0, 40, 40);
         answer2.tag = 202;
         answer2.titleLabel.font = titleFont;
-        [answer2 setTitleColor:titleColor forState:UIControlStateNormal];
+        [answer2 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer2 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer2 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer3 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer3.frame = CGRectMake(80, 0, 40, 40);
         answer3.tag = 203;
         answer3.titleLabel.font = titleFont;
-        [answer3 setTitleColor:titleColor forState:UIControlStateNormal];
+        [answer3 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer3 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer3 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer4 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer4.frame = CGRectMake(120, 0, 40, 40);
         answer4.tag = 204;
         answer4.titleLabel.font = titleFont;
-        [answer4 setTitleColor:titleColor forState:UIControlStateNormal];
+        [answer4 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer4 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer4 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer5 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer5.frame = CGRectMake(160, 0, 40, 40);
         answer5.tag = 205;
         answer5.titleLabel.font = titleFont;
-        [answer5 setTitleColor:titleColor forState:UIControlStateNormal];
+        [answer5 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer5 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer5 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer6 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer6.frame = CGRectMake(200, 0, 40, 40);
         answer6.tag = 206;
         answer6.titleLabel.font = titleFont;
-        [answer6 setTitleColor:titleColor forState:UIControlStateNormal];
+        [answer6 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer6 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer6 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer7 = [UIButton buttonWithType:UIButtonTypeCustom];
         answer7.frame = CGRectMake(240, 0, 40, 40);
         answer7.tag = 207;
         answer7.titleLabel.font = titleFont;
-        [answer7 setTitleColor:titleColor forState:UIControlStateNormal];
+        [answer7 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer7 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer7 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         
         
         
         //文字たち
-        UIImage *btnBg = [UIImage imageNamed:@"num_Bg01"];
-//        UIColor *titleColor = [UIColor blackColor];
+        UIImage *btnBg = [UIImage imageNamed:@"Word_Btn"];
+        UIColor *titleColor = [UIColor blackColor];
 //        UIFont *titleFont = [UIFont fontWithName:@"GillSans" size:18];
 
         button1 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -267,14 +267,16 @@
         
         
         //ヒント用のボタン
-        hint = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        hint = [UIButton buttonWithType:UIButtonTypeCustom];
         hint.frame = CGRectMake(275, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
-        [hint setBackgroundImage:[UIImage imageNamed:@"hint_Btn"] forState:UIControlStateNormal];
+        [hint setImage:[UIImage imageNamed:@"Hitomoji_Btn_on"] forState:UIControlStateNormal];
+//        [hint setBackgroundImage:[UIImage imageNamed:@"Hitomoji_on_Btn"] forState:UIControlStateNormal];
         [hint addTarget:self action:NSSelectorFromString(@"hint:") forControlEvents:UIControlEventTouchUpInside];
         
-        hint2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        hint2 = [UIButton buttonWithType:UIButtonTypeCustom];
         hint2.frame = CGRectMake(275, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
-        [hint2 setBackgroundImage:[UIImage imageNamed:@"kesigomu_Btn"] forState:UIControlStateNormal];
+        [hint2 setImage:[UIImage imageNamed:@"Mojikeshi_Btn_on"] forState:UIControlStateNormal];
+//        [hint2 setBackgroundImage:[UIImage imageNamed:@"Mojikeshi_on_Btn"] forState:UIControlStateNormal];
         [hint2 addTarget:self action:NSSelectorFromString(@"hint2:") forControlEvents:UIControlEventTouchUpInside];
 
         
@@ -299,6 +301,18 @@
 }
 
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Bar"] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Title_Bar"] forBarMetrics:UIBarMetricsDefault];
+}
 
 
 
@@ -686,13 +700,13 @@
         [answer7 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     }
     else if (type == 1) {
-        [answer1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [answer2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [answer3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [answer4 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [answer5 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [answer6 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [answer7 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [answer1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [answer2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [answer3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [answer4 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [answer5 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [answer6 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [answer7 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
 }
 
@@ -1045,16 +1059,16 @@
     grayView.backgroundColor = [UIColor blackColor];
     grayView.alpha = 0.6;
     
-    itemListView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-    itemListView.frame = CGRectMake(30, 60, 260, 380);
-    itemListView.backgroundColor = [UIColor blueColor];
+    itemListView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Item_Board"]];
+    itemListView.frame = CGRectMake(12, 30, 296, 412);
+//    itemListView.backgroundColor = [UIColor blueColor];
     itemListView.userInteractionEnabled = YES;
     
     [self.navigationController.view addSubview:grayView];
     [self.navigationController.view addSubview:itemListView];
     
     //ボタン
-    UIImage *answerBtnBg = [UIImage imageNamed:@"num_Bg02"];
+    UIImage *answerBtnBg = [UIImage imageNamed:@""];
     
     item1 = [UIButton buttonWithType:UIButtonTypeCustom];
     item1.frame = CGRectMake(0, 0, 40, 40);
@@ -1091,6 +1105,14 @@
     [itemListView addSubview:item3];
     [itemListView addSubview:item4];
     [itemListView addSubview:item5];
+    
+    cancel = [UIButton buttonWithType:UIButtonTypeCustom];
+    cancel.frame = CGRectMake(95, 330, 100 * 1.1, 30 * 1.1);
+    [cancel setBackgroundImage:[UIImage imageNamed:@"Cancel_Btn"] forState:UIControlStateNormal];
+    [cancel addTarget:self action:NSSelectorFromString(@"cancel:") forControlEvents:UIControlEventTouchUpInside];
+    
+    [itemListView addSubview:cancel];
+    
 }
 
 
@@ -1116,6 +1138,8 @@
 
 
 
+
+
 //////アイテム選択画面を消す
 
 - (void)cancel:(UIButton *)b{
@@ -1124,6 +1148,8 @@
     [item3 removeFromSuperview];
     [item4 removeFromSuperview];
     [item5 removeFromSuperview];
+    [cancel removeFromSuperview];
+    [grayView removeFromSuperview];
     [itemListView removeFromSuperview];
 }
 
@@ -1157,10 +1183,11 @@
     completeView.backgroundColor = [UIColor blackColor];
     completeView.alpha = 0.0;
     
-    next = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    next.frame = CGRectMake(90, 250, 150, 40);
+    next = [UIButton buttonWithType:UIButtonTypeCustom];
+    next.frame = CGRectMake(95, 330, 174 /4*3, 52 /4*3);
     next.alpha = 0.0;
-    [next setTitle:@"next" forState:UIControlStateNormal];
+//    [next setTitle:@"next" forState:UIControlStateNormal];
+    [next setImage:[UIImage imageNamed:@"Next_Btn"] forState:UIControlStateNormal];
     [next addTarget:self action:NSSelectorFromString(@"goToNextStage:") forControlEvents:UIControlEventTouchUpInside];
     
     [self.navigationController.view addSubview:completeView];

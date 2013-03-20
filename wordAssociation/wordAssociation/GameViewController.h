@@ -68,6 +68,8 @@
     UIButton *item4;
     UIButton *item5;
     
+    UIButton *cancel;
+    
     int didSetWords;
     int answerLength;
     int canDeleteWords;

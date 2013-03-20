@@ -48,7 +48,10 @@
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     
     if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"bar.jpg"] forBarMetrics:UIBarMetricsDefault];
+//        [self.navigationController.navigationBar setAlpha:0.0];
+//        [self.navigationController.navigationBar setTranslucent:NO];
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Title_Bar"] forBarMetrics:UIBarMetricsDefault];
+//        [self.navigationController.navigationBar setHidden:YES];
     }
     // iOS 4.3用
     else {
