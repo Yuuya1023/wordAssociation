@@ -10,4 +10,7 @@
 
 @interface Utilities : NSObject
 
+
++ (BOOL)isDevice5thGen;
+
 @end

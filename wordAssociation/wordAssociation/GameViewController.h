@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface GameViewController : UIViewController{
+    
+//    UINavigationBar *navBar;
+    UIImageView *naviBarImageView;
+    UILabel *titleLabel;
+    
     UIImageView *image1;
     UIImageView *image2;
     UIImageView *image3;

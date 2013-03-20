@@ -154,9 +154,6 @@
 		18DF06F816EF5EDC0049B1B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18DF06F616EF5EDC0049B1B6 /* InfoPlist.strings */; };
 		18DF06FA16EF5EDC0049B1B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF06F916EF5EDC0049B1B6 /* main.m */; };
 		18DF06FE16EF5EDC0049B1B6 /* WAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF06FD16EF5EDC0049B1B6 /* WAAppDelegate.m */; };
-		18DF070016EF5EDC0049B1B6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF06FF16EF5EDC0049B1B6 /* Default.png */; };
-		18DF070216EF5EDC0049B1B6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF070116EF5EDC0049B1B6 /* Default@2x.png */; };
-		18DF070416EF5EDC0049B1B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DF070316EF5EDC0049B1B6 /* Default-568h@2x.png */; };
 		18DF071816EF5EDD0049B1B6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF071716EF5EDD0049B1B6 /* SenTestingKit.framework */; };
 		18DF071916EF5EDD0049B1B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */; };
 		18DF071A16EF5EDD0049B1B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */; };
@@ -277,9 +274,6 @@
 		18DF06FB16EF5EDC0049B1B6 /* wordAssociation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wordAssociation-Prefix.pch"; sourceTree = "<group>"; };
 		18DF06FC16EF5EDC0049B1B6 /* WAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAAppDelegate.h; sourceTree = "<group>"; };
 		18DF06FD16EF5EDC0049B1B6 /* WAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WAAppDelegate.m; sourceTree = "<group>"; };
-		18DF06FF16EF5EDC0049B1B6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		18DF070116EF5EDC0049B1B6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		18DF070316EF5EDC0049B1B6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		18DF071616EF5EDD0049B1B6 /* wordAssociationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wordAssociationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DF071716EF5EDD0049B1B6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		18DF071F16EF5EDD0049B1B6 /* wordAssociationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "wordAssociationTests-Info.plist"; sourceTree = "<group>"; };
@@ -512,9 +506,6 @@
 				18DF06F616EF5EDC0049B1B6 /* InfoPlist.strings */,
 				18DF06F916EF5EDC0049B1B6 /* main.m */,
 				18DF06FB16EF5EDC0049B1B6 /* wordAssociation-Prefix.pch */,
-				18DF06FF16EF5EDC0049B1B6 /* Default.png */,
-				18DF070116EF5EDC0049B1B6 /* Default@2x.png */,
-				18DF070316EF5EDC0049B1B6 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -611,9 +602,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DF06F816EF5EDC0049B1B6 /* InfoPlist.strings in Resources */,
-				18DF070016EF5EDC0049B1B6 /* Default.png in Resources */,
-				18DF070216EF5EDC0049B1B6 /* Default@2x.png in Resources */,
-				18DF070416EF5EDC0049B1B6 /* Default-568h@2x.png in Resources */,
 				189C896B16F173590081103B /* word.json in Resources */,
 				189B275E16F9779400A1CB9E /* Answer_Btn@2x.png in Resources */,
 				189B276016F9779400A1CB9E /* Back_Btn@2x.png in Resources */,

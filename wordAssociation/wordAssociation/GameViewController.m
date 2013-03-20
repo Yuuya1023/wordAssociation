@@ -20,24 +20,39 @@
     self = [super init];
     if (self) {
         nowStage = [USER_DEFAULT integerForKey:@"nowStage"];
-        self.title = [NSString stringWithFormat:@"Stage %d",nowStage];
+//        self.title = [NSString stringWithFormat:@"Stage %d",nowStage];
 //        self.view.backgroundColor = [UIColor whiteColor];
+        
+        naviBarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+        naviBarImageView.image = [UIImage imageNamed:@"Bar"];
+        naviBarImageView.userInteractionEnabled = YES;
+        [self.view addSubview:naviBarImageView];
+        
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 6, 200, 30)];
+        titleLabel.text = [NSString stringWithFormat:@"Stage %d",nowStage];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        
+        [naviBarImageView addSubview:titleLabel];
+        
+        int navbarHeight = 44;
         
         //通知取得
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
         [nc addObserver:self selector:@selector(hideAnimation) name:IAP_FINISHED_NOTIFICATION_NAME object:nil];
         
-        UIImageView *BG = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        UIImageView *BG = [[UIImageView alloc] initWithFrame:CGRectMake(0, navbarHeight, 320, self.view.bounds.size.height - navbarHeight)];
         BG.image = [UIImage imageNamed:@"Bg"];
         [self.view addSubview:BG];
         
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        backButton.frame = CGRectMake(0, 0, 70, 30);
-        [backButton setImage:[UIImage imageNamed:@"Back_btn"] forState:UIControlStateNormal];
+        backButton.frame = CGRectMake(8, 7, 47, 28);
+        [backButton setImage:[UIImage imageNamed:@"Back_Btn"] forState:UIControlStateNormal];
         [backButton addTarget:self action:NSSelectorFromString(@"back:") forControlEvents:UIControlEventTouchUpInside];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(0, 0, 70, 30);
+        button.frame = CGRectMake(250, 6, 70, 30);
         [button setImage:[UIImage imageNamed:@"Coin_Btn"] forState:UIControlStateNormal];
         [button addTarget:self action:NSSelectorFromString(@"showItemList:") forControlEvents:UIControlEventTouchUpInside];
         
@@ -47,34 +62,37 @@
         moneyLabel.textAlignment = NSTextAlignmentRight;
         moneyLabel.backgroundColor = [UIColor clearColor];
         [button addSubview:moneyLabel];
+        
+        [naviBarImageView addSubview:backButton];
+        [naviBarImageView addSubview:button];
 
-        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:button];
-        self.navigationItem.leftBarButtonItem = leftButton;
-        self.navigationItem.rightBarButtonItem = rightButton;
+//        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+//        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+//        self.navigationItem.leftBarButtonItem = leftButton;
+//        self.navigationItem.rightBarButtonItem = rightButton;
         
         //写真たち
-        image1 = [[UIImageView alloc] initWithFrame:CGRectMake(30, 10, 120, 120)];
+        image1 = [[UIImageView alloc] initWithFrame:CGRectMake(30, 10 + navbarHeight, 120, 120)];
         image1.userInteractionEnabled = YES;
         image1.tag = 100;
         image1.backgroundColor = [UIColor blackColor];
         
-        image2 = [[UIImageView alloc] initWithFrame:CGRectMake(170, 10, 120, 120)];
+        image2 = [[UIImageView alloc] initWithFrame:CGRectMake(170, 10 + navbarHeight, 120, 120)];
         image2.userInteractionEnabled = YES;
         image2.tag = 101;
         image2.backgroundColor = [UIColor blueColor];
         
-        image3 = [[UIImageView alloc] initWithFrame:CGRectMake(30, 140, 120, 120)];
+        image3 = [[UIImageView alloc] initWithFrame:CGRectMake(30, 140 + navbarHeight, 120, 120)];
         image3.userInteractionEnabled = YES;
         image3.tag = 102;
         image3.backgroundColor = [UIColor redColor];
         
-        image4 = [[UIImageView alloc] initWithFrame:CGRectMake(170, 140, 120, 120)];
+        image4 = [[UIImageView alloc] initWithFrame:CGRectMake(170, 140 + navbarHeight, 120, 120)];
         image4.userInteractionEnabled = YES;
         image4.tag = 103;
         image4.backgroundColor = [UIColor yellowColor];
         
-        zoomImage = [[UIImageView alloc] initWithFrame:CGRectMake(35, 10, 250, 250)];
+        zoomImage = [[UIImageView alloc] initWithFrame:CGRectMake(35, 10 + navbarHeight, 250, 250)];
         zoomImage.userInteractionEnabled = YES;
         zoomImage.tag = 105;
         zoomImage.alpha = 0.0;
@@ -149,12 +167,12 @@
         
         
         //文字たち
-        UIImage *btnBg = [UIImage imageNamed:@"Word_Btn"];
+        UIImage *btnBg = [UIImage imageNamed:@"Word_btn"];
         UIColor *titleColor = [UIColor blackColor];
 //        UIFont *titleFont = [UIFont fontWithName:@"GillSans" size:18];
 
         button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button1.frame = CGRectMake(5, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
+        button1.frame = CGRectMake(5, [UIScreen mainScreen].bounds.size.height - 160 + navbarHeight, 40, 40);
         [button1 setTitleColor:titleColor forState:UIControlStateNormal];
         button1.tag = 301;
         button1.titleLabel.font = titleFont;
@@ -162,7 +180,7 @@
         [button1 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button2.frame = CGRectMake(50, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
+        button2.frame = CGRectMake(50, [UIScreen mainScreen].bounds.size.height - 160 + navbarHeight, 40, 40);
         [button2 setTitleColor:titleColor forState:UIControlStateNormal];
         button2.tag = 302;
         button2.titleLabel.font = titleFont;
@@ -170,7 +188,7 @@
         [button2 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
 
         button3 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button3.frame = CGRectMake(95, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
+        button3.frame = CGRectMake(95, [UIScreen mainScreen].bounds.size.height - 160 + navbarHeight, 40, 40);
         [button3 setTitleColor:titleColor forState:UIControlStateNormal];
         button3.tag = 303;
         button3.titleLabel.font = titleFont;
@@ -178,7 +196,7 @@
         [button3 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button4 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button4.frame = CGRectMake(140, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
+        button4.frame = CGRectMake(140, [UIScreen mainScreen].bounds.size.height - 160 + navbarHeight, 40, 40);
         [button4 setTitleColor:titleColor forState:UIControlStateNormal];
         button4.tag = 304;
         button4.titleLabel.font = titleFont;
@@ -186,7 +204,7 @@
         [button4 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button5 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button5.frame = CGRectMake(185, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
+        button5.frame = CGRectMake(185, [UIScreen mainScreen].bounds.size.height - 160 + navbarHeight, 40, 40);
         [button5 setTitleColor:titleColor forState:UIControlStateNormal];
         button5.tag = 305;
         button5.titleLabel.font = titleFont;
@@ -194,7 +212,7 @@
         [button5 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button6 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button6.frame = CGRectMake(230, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
+        button6.frame = CGRectMake(230, [UIScreen mainScreen].bounds.size.height - 160 + navbarHeight, 40, 40);
         [button6 setTitleColor:titleColor forState:UIControlStateNormal];
         button6.tag = 306;
         button6.titleLabel.font = titleFont;
@@ -204,7 +222,7 @@
 
         
         button7 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button7.frame = CGRectMake(5, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
+        button7.frame = CGRectMake(5, [UIScreen mainScreen].bounds.size.height - 115 + navbarHeight, 40, 40);
         [button7 setTitleColor:titleColor forState:UIControlStateNormal];
         button7.tag = 307;
         button7.titleLabel.font = titleFont;
@@ -212,7 +230,7 @@
         [button7 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button8 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button8.frame = CGRectMake(50, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
+        button8.frame = CGRectMake(50, [UIScreen mainScreen].bounds.size.height - 115 + navbarHeight, 40, 40);
         [button8 setTitleColor:titleColor forState:UIControlStateNormal];
         button8.tag = 308;
         button8.titleLabel.font = titleFont;
@@ -220,7 +238,7 @@
         [button8 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button9 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button9.frame = CGRectMake(95, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
+        button9.frame = CGRectMake(95, [UIScreen mainScreen].bounds.size.height - 115 + navbarHeight, 40, 40);
         [button9 setTitleColor:titleColor forState:UIControlStateNormal];
         button9.tag = 309;
         button9.titleLabel.font = titleFont;
@@ -228,7 +246,7 @@
         [button9 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button10 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button10.frame = CGRectMake(140, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
+        button10.frame = CGRectMake(140, [UIScreen mainScreen].bounds.size.height - 115 + navbarHeight, 40, 40);
         [button10 setTitleColor:titleColor forState:UIControlStateNormal];
         button10.tag = 310;
         button10.titleLabel.font = titleFont;
@@ -236,7 +254,7 @@
         [button10 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button11 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button11.frame = CGRectMake(185, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
+        button11.frame = CGRectMake(185, [UIScreen mainScreen].bounds.size.height - 115 + navbarHeight, 40, 40);
         [button11 setTitleColor:titleColor forState:UIControlStateNormal];
         button11.tag = 311;
         button11.titleLabel.font = titleFont;
@@ -244,7 +262,7 @@
         [button11 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
 
         button12 = [UIButton buttonWithType:UIButtonTypeCustom];
-        button12.frame = CGRectMake(230, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
+        button12.frame = CGRectMake(230, [UIScreen mainScreen].bounds.size.height - 115 + navbarHeight, 40, 40);
         [button12 setTitleColor:titleColor forState:UIControlStateNormal];
         button12.tag = 312;
         button12.titleLabel.font = titleFont;
@@ -268,13 +286,13 @@
         
         //ヒント用のボタン
         hint = [UIButton buttonWithType:UIButtonTypeCustom];
-        hint.frame = CGRectMake(275, [UIScreen mainScreen].bounds.size.height - 160, 40, 40);
+        hint.frame = CGRectMake(275, [UIScreen mainScreen].bounds.size.height - 160 + navbarHeight, 40, 40);
         [hint setImage:[UIImage imageNamed:@"Hitomoji_Btn_on"] forState:UIControlStateNormal];
 //        [hint setBackgroundImage:[UIImage imageNamed:@"Hitomoji_on_Btn"] forState:UIControlStateNormal];
         [hint addTarget:self action:NSSelectorFromString(@"hint:") forControlEvents:UIControlEventTouchUpInside];
         
         hint2 = [UIButton buttonWithType:UIButtonTypeCustom];
-        hint2.frame = CGRectMake(275, [UIScreen mainScreen].bounds.size.height - 115, 40, 40);
+        hint2.frame = CGRectMake(275, [UIScreen mainScreen].bounds.size.height - 115 + navbarHeight, 40, 40);
         [hint2 setImage:[UIImage imageNamed:@"Mojikeshi_Btn_on"] forState:UIControlStateNormal];
 //        [hint2 setBackgroundImage:[UIImage imageNamed:@"Mojikeshi_on_Btn"] forState:UIControlStateNormal];
         [hint2 addTarget:self action:NSSelectorFromString(@"hint2:") forControlEvents:UIControlEventTouchUpInside];
@@ -475,6 +493,7 @@
 //////答えとして選択した文字列を解除する
 
 - (void)unsetWord:(UIButton *)b{
+    NSLog(@"unsetWord");
     [b setTitle:@"" forState:UIControlStateNormal];
     [self setColor:1];
     
@@ -923,13 +942,12 @@
     [answer7 removeFromSuperview];
     
     //画面サイズ判定
-    CGRect frame = [[UIScreen mainScreen] applicationFrame];
     int rectY;
-    if (frame.size.height == 548.0) {
-        rectY = 310;
+    if ([Utilities isDevice5thGen]) {
+        rectY = 354;
     }
     else{
-        rectY = 270;
+        rectY = 314;
     }
     
     NSString *ans = [dic objectForKey:@"answer"];

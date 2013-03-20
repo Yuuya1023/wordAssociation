@@ -46,23 +46,27 @@
 
     HomeViewController *masterViewController = [[HomeViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    [self.navigationController.navigationBar setHidden:YES];
     
-    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
-//        [self.navigationController.navigationBar setAlpha:0.0];
-//        [self.navigationController.navigationBar setTranslucent:NO];
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Title_Bar"] forBarMetrics:UIBarMetricsDefault];
+    
+//    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+////        [self.navigationController.navigationBar setAlpha:0.0];
+////        [self.navigationController.navigationBar setTranslucent:NO];
+////        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Title_Bar"] forBarMetrics:UIBarMetricsDefault];
 //        [self.navigationController.navigationBar setHidden:YES];
-    }
-    // iOS 4.3用
-    else {
-//        UIImageView *navBGImageView = [[UIImageView alloc] initWithImage:navBGImage];
-//        navBGImageView.frame = self.navigationController.navigationBar.bounds;
-//        navBGImageView.autoresizingMask =
-//		UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//        navBGImageView.layer.zPosition = -FLT_MAX;
-//        [self.navigationController.navigationBar insertSubview:navBGImageView atIndex:0];
-//        [navBGImageView release];
-    }
+//    }
+//    // iOS 4.3用
+//    else {
+////        UIImageView *navBGImageView = [[UIImageView alloc] initWithImage:navBGImage];
+////        navBGImageView.frame = self.navigationController.navigationBar.bounds;
+////        navBGImageView.autoresizingMask =
+////		UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+////        navBGImageView.layer.zPosition = -FLT_MAX;
+////        [self.navigationController.navigationBar insertSubview:navBGImageView atIndex:0];
+////        [navBGImageView release];
+//    }
+    
+    
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;

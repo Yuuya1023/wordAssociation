@@ -23,7 +23,7 @@
 //        self.view.backgroundColor = [UIColor whiteColor];
         
         UIImageView *BG = [[UIImageView alloc] initWithFrame:self.view.bounds];
-        BG.image = [UIImage imageNamed:@"title_bg"];
+        BG.image = [UIImage imageNamed:@"title_bg-2"];
         [self.view addSubview:BG];
         
         UIButton *startPlay = [UIButton buttonWithType:UIButtonTypeCustom];
