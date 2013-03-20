@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 #import "GameViewController.h"
 
+#import "FacebookManager.h"
+
 @interface HomeViewController ()
 
 @end
@@ -40,12 +42,12 @@
         
         
 //        //リセット用
-//        UIButton *reset = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        reset.frame = CGRectMake(110, 320, 100, 40);
-//        //        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
-//        [reset setImage:[UIImage imageNamed:@"play_Btn"] forState:UIControlStateNormal];
-//        [reset addTarget:self action:NSSelectorFromString(@"reset:") forControlEvents:UIControlEventTouchUpInside];
-//        [self.view addSubview:reset];
+        UIButton *reset = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        reset.frame = CGRectMake(110, 320, 100, 40);
+        //        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
+        [reset setImage:[UIImage imageNamed:@"play_Btn"] forState:UIControlStateNormal];
+        [reset addTarget:self action:NSSelectorFromString(@"reset:") forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:reset];
     }
     return self;
 }
@@ -64,8 +66,11 @@
 }
 
 - (void)reset:(UIButton *)b{
-    [USER_DEFAULT setInteger:1 forKey:@"nowStage"];
-    [USER_DEFAULT synchronize];
+//    [USER_DEFAULT setInteger:1 forKey:@"nowStage"];
+//    [USER_DEFAULT synchronize];
+    
+    FacebookManager *fbManager = [FacebookManager sharedInstance];
+    [fbManager publish];
 }
 
 - (void)didReceiveMemoryWarning
