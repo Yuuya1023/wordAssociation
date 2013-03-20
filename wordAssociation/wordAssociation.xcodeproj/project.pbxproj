@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189B268A16F968D200A1CB9E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189B268916F968D200A1CB9E /* FacebookSDK.framework */; };
+		189B268B16F968D200A1CB9E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189B268916F968D200A1CB9E /* FacebookSDK.framework */; };
+		189B268E16F9694000A1CB9E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189B268C16F9694000A1CB9E /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		189B268F16F9694000A1CB9E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189B268D16F9694000A1CB9E /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		189B269116F9694800A1CB9E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189B269016F9694800A1CB9E /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		189C671A16F43047000E77C7 /* VerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C671916F43047000E77C7 /* VerificationController.m */; };
 		189C671B16F43047000E77C7 /* VerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C671916F43047000E77C7 /* VerificationController.m */; };
 		189C671D16F4305D000E77C7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189C671C16F4305D000E77C7 /* Security.framework */; };
@@ -96,6 +101,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		189B268916F968D200A1CB9E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = wordAssociation/framework/FacebookSDK.framework; sourceTree = "<group>"; };
+		189B268C16F9694000A1CB9E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		189B268D16F9694000A1CB9E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		189B269016F9694800A1CB9E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		189C671816F43047000E77C7 /* VerificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationController.h; sourceTree = "<group>"; };
 		189C671916F43047000E77C7 /* VerificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationController.m; sourceTree = "<group>"; };
 		189C671C16F4305D000E77C7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -174,11 +183,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189B269116F9694800A1CB9E /* Social.framework in Frameworks */,
+				189B268E16F9694000A1CB9E /* Accounts.framework in Frameworks */,
+				189B268F16F9694000A1CB9E /* AdSupport.framework in Frameworks */,
 				189C672316F431CB000E77C7 /* StoreKit.framework in Frameworks */,
 				189C671D16F4305D000E77C7 /* Security.framework in Frameworks */,
 				18DF06EE16EF5EDC0049B1B6 /* UIKit.framework in Frameworks */,
 				18DF06F016EF5EDC0049B1B6 /* Foundation.framework in Frameworks */,
 				18DF06F216EF5EDC0049B1B6 /* CoreGraphics.framework in Frameworks */,
+				189B268A16F968D200A1CB9E /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +202,7 @@
 				18DF071816EF5EDD0049B1B6 /* SenTestingKit.framework in Frameworks */,
 				18DF071916EF5EDD0049B1B6 /* UIKit.framework in Frameworks */,
 				18DF071A16EF5EDD0049B1B6 /* Foundation.framework in Frameworks */,
+				189B268B16F968D200A1CB9E /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +311,10 @@
 		18DF06EC16EF5EDC0049B1B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				189B269016F9694800A1CB9E /* Social.framework */,
+				189B268C16F9694000A1CB9E /* Accounts.framework */,
+				189B268D16F9694000A1CB9E /* AdSupport.framework */,
+				189B268916F968D200A1CB9E /* FacebookSDK.framework */,
 				189C672216F431CB000E77C7 /* StoreKit.framework */,
 				189C671C16F4305D000E77C7 /* Security.framework */,
 				18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */,
@@ -633,6 +651,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuya Nambu (Z672L5L4QF)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/wordAssociation/framework\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
 				INFOPLIST_FILE = "wordAssociation/wordAssociation-Info.plist";
@@ -646,6 +668,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuya Nambu (Z672L5L4QF)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/wordAssociation/framework\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
 				INFOPLIST_FILE = "wordAssociation/wordAssociation-Info.plist";
@@ -662,6 +688,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/wordAssociation/framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
@@ -679,6 +706,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/wordAssociation/framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wordAssociation/wordAssociation-Prefix.pch";
