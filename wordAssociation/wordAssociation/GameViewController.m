@@ -60,6 +60,7 @@
         moneyLabel.text = [USER_DEFAULT stringForKey:COINS_KEY];
         moneyLabel.adjustsFontSizeToFitWidth = YES;
         moneyLabel.textAlignment = NSTextAlignmentRight;
+        moneyLabel.textColor = [UIColor whiteColor];
         moneyLabel.backgroundColor = [UIColor clearColor];
         [button addSubview:moneyLabel];
         
@@ -72,31 +73,47 @@
 //        self.navigationItem.rightBarButtonItem = rightButton;
         
         //写真たち
-        image1 = [[UIImageView alloc] initWithFrame:CGRectMake(30, 10 + navbarHeight, 120, 120)];
+        image1 = [[UIImageView alloc] init];
         image1.userInteractionEnabled = YES;
         image1.tag = 100;
         image1.backgroundColor = [UIColor blackColor];
         
-        image2 = [[UIImageView alloc] initWithFrame:CGRectMake(170, 10 + navbarHeight, 120, 120)];
+        image2 = [[UIImageView alloc] init];
         image2.userInteractionEnabled = YES;
         image2.tag = 101;
         image2.backgroundColor = [UIColor blueColor];
         
-        image3 = [[UIImageView alloc] initWithFrame:CGRectMake(30, 140 + navbarHeight, 120, 120)];
+        image3 = [[UIImageView alloc] init];
         image3.userInteractionEnabled = YES;
         image3.tag = 102;
         image3.backgroundColor = [UIColor redColor];
         
-        image4 = [[UIImageView alloc] initWithFrame:CGRectMake(170, 140 + navbarHeight, 120, 120)];
+        image4 = [[UIImageView alloc] init];
         image4.userInteractionEnabled = YES;
         image4.tag = 103;
         image4.backgroundColor = [UIColor yellowColor];
         
-        zoomImage = [[UIImageView alloc] initWithFrame:CGRectMake(35, 10 + navbarHeight, 250, 250)];
+        zoomImage = [[UIImageView alloc] init];
         zoomImage.userInteractionEnabled = YES;
         zoomImage.tag = 105;
         zoomImage.alpha = 0.0;
         zoomImage.backgroundColor = [UIColor grayColor];
+        
+        if ([Utilities isDevice5thGen]) {
+            image1.frame = CGRectMake(30, 30 + navbarHeight, 120, 120);
+            image2.frame = CGRectMake(170, 30 + navbarHeight, 120, 120);
+            image3.frame = CGRectMake(30, 160 + navbarHeight, 120, 120);
+            image4.frame = CGRectMake(170, 160 + navbarHeight, 120, 120);
+            zoomImage.frame = CGRectMake(35, 30 + navbarHeight, 250, 250);
+        }
+        else{
+            image1.frame = CGRectMake(30, 10 + navbarHeight, 120, 120);
+            image2.frame = CGRectMake(170, 10 + navbarHeight, 120, 120);
+            image3.frame = CGRectMake(30, 140 + navbarHeight, 120, 120);
+            image4.frame = CGRectMake(170, 140 + navbarHeight, 120, 120);
+            zoomImage.frame = CGRectMake(35, 10 + navbarHeight, 250, 250);
+        }
+
         
         [self.view addSubview:image1];
         [self.view addSubview:image2];
@@ -944,7 +961,7 @@
     //画面サイズ判定
     int rectY;
     if ([Utilities isDevice5thGen]) {
-        rectY = 354;
+        rectY = 384;
     }
     else{
         rectY = 314;

@@ -25,15 +25,20 @@
 //        self.view.backgroundColor = [UIColor whiteColor];
         
         UIImageView *BG = [[UIImageView alloc] initWithFrame:self.view.bounds];
-        BG.image = [UIImage imageNamed:@"title_bg-2"];
+        if ([Utilities isDevice5thGen]) {
+            BG.image = [UIImage imageNamed:@"Title_bg-568h"];
+        }
+        else{
+            BG.image = [UIImage imageNamed:@"Title_bg"];
+        }
         [self.view addSubview:BG];
         
         UIButton *startPlay = [UIButton buttonWithType:UIButtonTypeCustom];
         if ([Utilities isDevice5thGen]) {
-            startPlay.frame = CGRectMake(95, 410, 174 /4*3, 52 /4*3);
+            startPlay.frame = CGRectMake(95, 420, 174 /4*3, 52 /4*3);
         }
         else{
-            startPlay.frame = CGRectMake(95, 330, 174 /4*3, 52 /4*3);
+            startPlay.frame = CGRectMake(95, 390, 174 /4*3, 52 /4*3);
         }
 //        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
         [startPlay setImage:[UIImage imageNamed:@"Start_Btn"] forState:UIControlStateNormal];
@@ -42,12 +47,12 @@
         
         
 //        //リセット用
-        UIButton *reset = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        reset.frame = CGRectMake(110, 320, 100, 40);
-        //        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
-        [reset setImage:[UIImage imageNamed:@"play_Btn"] forState:UIControlStateNormal];
-        [reset addTarget:self action:NSSelectorFromString(@"reset:") forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:reset];
+//        UIButton *reset = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        reset.frame = CGRectMake(110, 320, 100, 40);
+//        //        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
+//        [reset setImage:[UIImage imageNamed:@"play_Btn"] forState:UIControlStateNormal];
+//        [reset addTarget:self action:NSSelectorFromString(@"reset:") forControlEvents:UIControlEventTouchUpInside];
+//        [self.view addSubview:reset];
     }
     return self;
 }

@@ -9,7 +9,7 @@
 #import "FacebookManager.h"
 
 static FacebookManager *singleton;
-static NSString* APPLICATION_ID = @"XXXXXXXXXXXXXXX";
+static NSString* APPLICATION_ID = @"141530622690643";
 
 @implementation FacebookManager
 
