@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "IAPManager.h"
+#import "FacebookManager.h"
 
 @interface GameViewController ()
 
@@ -181,7 +182,10 @@
         [answer7 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer7 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         
-        
+        facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [facebookButton setBackgroundImage:[UIImage imageNamed:@"Facebook_Btn"] forState:UIControlStateNormal];
+        [facebookButton addTarget:self action:NSSelectorFromString(@"facebookShare:") forControlEvents:UIControlEventTouchUpInside];
+        [panelBg addSubview:facebookButton];
         
         //文字たち
         UIImage *btnBg = [UIImage imageNamed:@"Word_btn"];
@@ -340,13 +344,13 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Bar"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Bar"] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Title_Bar"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Title_Bar"] forBarMetrics:UIBarMetricsDefault];
 }
 
 
@@ -973,41 +977,36 @@
     NSLog(@"length %d",answerLength);
     switch ([ans length]) {
         case 2:
-            panelBg.frame = CGRectMake(120, rectY, 80, 40);
-            [panelBg addSubview:answer1];
-            [panelBg addSubview:answer2];
-            break;
-        case 3:
             panelBg.frame = CGRectMake(100, rectY, 120, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
-            [panelBg addSubview:answer3];
+            facebookButton.frame = CGRectMake(90, 0, 40, 40);
             break;
-        case 4:
+        case 3:
             panelBg.frame = CGRectMake(80, rectY, 160, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
             [panelBg addSubview:answer3];
-            [panelBg addSubview:answer4];
+            facebookButton.frame = CGRectMake(130, 0, 40, 40);
             break;
-        case 5:
+        case 4:
             panelBg.frame = CGRectMake(60, rectY, 200, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
             [panelBg addSubview:answer3];
             [panelBg addSubview:answer4];
-            [panelBg addSubview:answer5];
+            facebookButton.frame = CGRectMake(170, 0, 40, 40);
             break;
-        case 6:
+        case 5:
             panelBg.frame = CGRectMake(40, rectY, 240, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
             [panelBg addSubview:answer3];
             [panelBg addSubview:answer4];
             [panelBg addSubview:answer5];
-            [panelBg addSubview:answer6];
+            facebookButton.frame = CGRectMake(210, 0, 40, 40);
             break;
-        case 7:
+        case 6:
             panelBg.frame = CGRectMake(20, rectY, 280, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
@@ -1015,11 +1014,23 @@
             [panelBg addSubview:answer4];
             [panelBg addSubview:answer5];
             [panelBg addSubview:answer6];
+            facebookButton.frame = CGRectMake(250, 0, 40, 40);
+            break;
+        case 7:
+            panelBg.frame = CGRectMake(0, rectY, 320, 40);
+            [panelBg addSubview:answer1];
+            [panelBg addSubview:answer2];
+            [panelBg addSubview:answer3];
+            [panelBg addSubview:answer4];
+            [panelBg addSubview:answer5];
+            [panelBg addSubview:answer6];
             [panelBg addSubview:answer7];
+            facebookButton.frame = CGRectMake(280, 0, 40, 40);
             break;
         default:
             break;
     }
+//    [panelBg addSubview:facebookButton];
     [self initiarizeArray:[ans length]];
     
     //答えのタグを配列に記憶
@@ -1099,38 +1110,39 @@
 //    itemListView.backgroundColor = [UIColor blueColor];
     itemListView.userInteractionEnabled = YES;
     
-    [self.navigationController.view addSubview:grayView];
-    [self.navigationController.view addSubview:itemListView];
+    [self.view addSubview:grayView];
+    [self.view addSubview:itemListView];
     
     //ボタン
     UIImage *answerBtnBg = [UIImage imageNamed:@""];
     
     item1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    item1.frame = CGRectMake(0, 0, 40, 40);
+    item1.frame = CGRectMake(20, 80, 255, 50);
     item1.tag = 0;
+//    [item1 setBackgroundColor:[UIColor grayColor]];
     [item1 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
     [item1 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
     
     item2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    item2.frame = CGRectMake(0, 50, 40, 40);
+    item2.frame = CGRectMake(20, 130, 255, 50);
     item2.tag = 1;
     [item2 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
     [item2 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
     
     item3 = [UIButton buttonWithType:UIButtonTypeCustom];
-    item3.frame = CGRectMake(0, 100, 40, 40);
+    item3.frame = CGRectMake(20, 180, 255, 50);
     item3.tag = 2;
     [item3 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
     [item3 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
     
     item4 = [UIButton buttonWithType:UIButtonTypeCustom];
-    item4.frame = CGRectMake(0, 150, 40, 40);
+    item4.frame = CGRectMake(20, 230, 255, 50);
     item4.tag = 3;
     [item4 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
     [item4 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
     
     item5 = [UIButton buttonWithType:UIButtonTypeCustom];
-    item5.frame = CGRectMake(0, 200, 40, 40);
+    item5.frame = CGRectMake(20, 280, 255, 50);
     item5.tag = 4;
     [item5 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
     [item5 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
@@ -1157,12 +1169,19 @@
 //////課金アイテムを選択した時
 
 - (void)inAppPurchase:(UIButton *)b{
-    [self cancel:nil];
+    [item1 removeFromSuperview];
+    [item2 removeFromSuperview];
+    [item3 removeFromSuperview];
+    [item4 removeFromSuperview];
+    [item5 removeFromSuperview];
+    [cancel removeFromSuperview];
+    [itemListView removeFromSuperview];
+    
     IAPManager *iapManager = [IAPManager sharedInstance];
     if ([iapManager checkCanMakePayment]) {
         //ぐるぐるを出す
         indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        indicator.center = self.navigationController.view.center;
+        indicator.center = self.view.center;
         [indicator startAnimating];
         [grayView addSubview:indicator];
         
@@ -1309,6 +1328,12 @@
     [answer5 setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
     [answer6 setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
     [answer7 setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
+}
+
+
+- (void)facebookShare:(UIButton *)b{
+    FacebookManager *fbManager = [FacebookManager sharedInstance];
+    [fbManager publish];
 }
 
 - (void)didReceiveMemoryWarning

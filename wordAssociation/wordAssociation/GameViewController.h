@@ -47,6 +47,8 @@
     UIButton *answer6;
     UIButton *answer7;
     
+    UIButton *facebookButton;
+    
     UILabel *moneyLabel;
     
     UIView *completeView;
