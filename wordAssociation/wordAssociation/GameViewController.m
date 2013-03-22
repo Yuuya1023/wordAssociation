@@ -810,7 +810,17 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    int coins = [USER_DEFAULT integerForKey:COINS_KEY];
     if (alertView.tag == 400 && buttonIndex == 1) {
+        if (coins < 60) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                            message:@"コインが足りないよ！"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
         NSString *ans = [dic objectForKey:@"answer"];
         NSString *str = [dic objectForKey:@"string"];
         
@@ -881,6 +891,15 @@
         int deleteWords = 3;
         if (canDeleteWords < 3) {
             deleteWords = canDeleteWords;
+        }
+        if (coins < (deleteWords * 30)) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                            message:@"コインが足りないよ！"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return;
         }
         canDeleteWords-=deleteWords;
         NSLog(@"%d",canDeleteWords);
@@ -1333,7 +1352,10 @@
 
 - (void)facebookShare:(UIButton *)b{
     FacebookManager *fbManager = [FacebookManager sharedInstance];
-    [fbManager publish];
+//    [fbManager publish];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"Mojikeshi_Btn_on" ofType:@"png"];
+//    NSLog(@"%@",path);
+    [fbManager publishWithDescription:@"testtest" filePath:@"http://blog-imgs-54.fc2.com/d/0/9/d09325/img_387733_4701749_0.jpg"];
 }
 
 - (void)didReceiveMemoryWarning

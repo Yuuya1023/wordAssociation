@@ -61,6 +61,29 @@ static NSString* APPLICATION_ID = @"141530622690643";//@"139919176180822";
          andDelegate:self];
 }
 
+- (void)publishWithDescription:(NSString *)description filePath:(NSString *)filePath {
+    NSDictionary *img = [[NSDictionary alloc] initWithObjectsAndKeys:
+                         @"image",@"type",
+                         @"https://itunes.apple.com/us/app/fotoren/id621883285?l=ja&ls=1&mt=8",@"href",
+                         filePath,@"src",
+                         nil];
+    NSDictionary *attachment = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                @"フォトれん",@"name",
+                                @"https://itunes.apple.com/us/app/fotoren/id621883285?l=ja&ls=1&mt=8",@"href",
+                                description,@"description",
+                                [[NSArray alloc]initWithObjects:img,nil],
+                                @"media",nil];
+//    NSArray *attachmentList = [[NSArray alloc]initWithObjects:attachment, nil];
+//    NSLog([attachmentList JSONRepresentation]);
+    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   [attachment JSONRepresentation],@"attachment",
+                                   nil];
+    
+    [facebook dialog:@"stream.publish"
+           andParams:params
+         andDelegate:self];
+    
+}
 
 - (void)fbDidLogin {
     NSLog(@"HelloFbViewController.fbDidLogin");

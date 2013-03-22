@@ -22,6 +22,7 @@ UITextFieldDelegate>{
 
 - (void)login;
 - (void)publish;
+- (void)publishWithDescription:(NSString *)description filePath:(NSString *)filePath;
 
 
 @end
