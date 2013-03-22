@@ -53,11 +53,11 @@
         [backButton addTarget:self action:NSSelectorFromString(@"back:") forControlEvents:UIControlEventTouchUpInside];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(250, 6, 70, 30);
+        button.frame = CGRectMake(245, 6, 70, 30);
         [button setImage:[UIImage imageNamed:@"Coin_Btn"] forState:UIControlStateNormal];
         [button addTarget:self action:NSSelectorFromString(@"showItemList:") forControlEvents:UIControlEventTouchUpInside];
         
-        moneyLabel = [[UILabel alloc] initWithFrame:CGRectMake(17, 0, 45, 30)];
+        moneyLabel = [[UILabel alloc] initWithFrame:CGRectMake(21, -1, 45, 30)];
         moneyLabel.text = [USER_DEFAULT stringForKey:COINS_KEY];
         moneyLabel.adjustsFontSizeToFitWidth = YES;
         moneyLabel.textAlignment = NSTextAlignmentRight;
@@ -757,8 +757,8 @@
 /////ランダムで文字をひとつ解放
 
 - (void)hint:(UIButton *)b{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ヒント"
-                                                    message:@"正解を１文字だけひらくことができます。(60coins)"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"いちもんじはかせ"
+                                                    message:@"ふぉっふぉっふぉ、「60コイン」をくれればわしの発明で答えを一つおしえてやろう"
                                                    delegate:self
                                           cancelButtonTitle:@"キャンセル"
                                           otherButtonTitles:@"OK", nil];
@@ -776,8 +776,8 @@
 
 - (void)hint2:(UIButton *)b{
     if (canDeleteWords == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ヒント"
-                                                        message:@"もう文字を消せません。"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"もじけしすないぱー"
+                                                        message:@"もう消せる文字がないぜ！"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -790,8 +790,8 @@
         }
 
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ヒント"
-                                                        message:[NSString stringWithFormat:@"候補から%d文字消すことができます。(%dcoins)",deleteWords,deleteWords * 30]
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"もじけしすないぱー"
+                                                        message:[NSString stringWithFormat:@"「%dコイン」でやとってくれれば「%d文字」消してやるぜ！",deleteWords * 30,deleteWords]
                                                        delegate:self
                                               cancelButtonTitle:@"キャンセル"
                                               otherButtonTitles:@"OK", nil];
@@ -814,7 +814,7 @@
     if (alertView.tag == 400 && buttonIndex == 1) {
         if (coins < 60) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                            message:@"コインが足りないよ！"
+                                                            message:@"コインがたりないようじゃのぉ"
                                                            delegate:self
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
@@ -894,7 +894,7 @@
         }
         if (coins < (deleteWords * 30)) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                            message:@"コインが足りないよ！"
+                                                            message:@"コインが足りないぜ！出直してきな！"
                                                            delegate:self
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
@@ -1120,6 +1120,9 @@
 //////課金アイテムの一覧を表示
 
 - (void)showItemList:(UIButton *)b{
+    //購入履歴のチェックを行うためインスタンスを取得
+    [IAPManager sharedInstance];
+    
     grayView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     grayView.backgroundColor = [UIColor blackColor];
     grayView.alpha = 0.6;

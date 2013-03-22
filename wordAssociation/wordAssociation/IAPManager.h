@@ -13,6 +13,7 @@
 
 @interface IAPManager : NSObject <SKRequestDelegate,SKPaymentTransactionObserver,SKProductsRequestDelegate>{
     VerificationController *verificationController;
+    BOOL purchasing;
 }
 
 + (IAPManager *)sharedInstance;

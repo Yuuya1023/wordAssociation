@@ -30,7 +30,10 @@ static IAPManager *singleton;
 	self = [super init];
 	if (self != nil)
     {
+        purchasing = NO;
         verificationController = [VerificationController sharedInstance];
+        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+        NSLog(@"defaultQueue %@",[SKPaymentQueue defaultQueue].transactions);
 	}
 	return self;
 }
@@ -77,6 +80,10 @@ static IAPManager *singleton;
     }
     SKProductsRequest *productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:set];
     productsRequest.delegate = self;
+    
+    //アプリ内課金中かどうかのフラグを保存
+    purchasing = YES;
+    
     [productsRequest start];
 }
 
@@ -93,7 +100,6 @@ static IAPManager *singleton;
         return;
     }
     // 購入処理開始
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     for (SKProduct *product in response.products) {
         SKPayment *payment = [SKPayment paymentWithProduct:product];
         [[SKPaymentQueue defaultQueue] addPayment:payment];
@@ -106,44 +112,58 @@ static IAPManager *singleton;
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
     for (SKPaymentTransaction *transaction in transactions) {
-        if (transaction.transactionState == SKPaymentTransactionStatePurchasing) {
-            // 購入処理中
-            /*
-             * 基本何もしなくてよい。処理中であることがわかるようにインジケータをだすなど。
-             */
-        } else if (transaction.transactionState == SKPaymentTransactionStatePurchased) {
-            
-            // 購入処理成功
-            if([verificationController verifyPurchase:transaction]){
+        switch (transaction.transactionState) {
+            case SKPaymentTransactionStatePurchasing:
+                
+                // 購入処理中
+                /*
+                 * 基本何もしなくてよい。処理中であることがわかるようにインジケータをだすなど。
+                 */
+                
+                break;
+            case SKPaymentTransactionStatePurchased:
+                
+                // 購入処理成功
+                if([verificationController verifyPurchase:transaction]){
+                    [queue finishTransaction:transaction];
+                }
+                
+                break;
+            case SKPaymentTransactionStateFailed:{
+                
+                // 購入処理エラー。ユーザが購入処理をキャンセルした場合もここにくる
                 [queue finishTransaction:transaction];
-//                [self finishTransaction];
+                [self finishTransaction];
+                // エラーが発生したことをユーザに知らせる
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
+                                                                message:[transaction.error localizedDescription]
+                                                               delegate:nil
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"OK", nil];
+                [alert show];
             }
-            
-        } else if (transaction.transactionState == SKPaymentTransactionStateFailed) {
-            // 購入処理エラー。ユーザが購入処理をキャンセルした場合もここにくる
-            [queue finishTransaction:transaction];
-            [self finishTransaction];
-            // エラーが発生したことをユーザに知らせる
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
-                                                            message:[transaction.error localizedDescription]
-                                                           delegate:nil
-                                                  cancelButtonTitle:nil
-                                                  otherButtonTitles:@"OK", nil];
-            [alert show];
-        } else {
-            // リストア処理完了
-            /*
-             * アイテムの再付与を行う
-             */
-            [queue finishTransaction:transaction];
-            [self finishTransaction];
+                
+                break;
+            case SKPaymentTransactionStateRestored:
+                
+                // リストア処理完了
+                /*
+                 * アイテムの再付与を行う
+                 */
+                [queue finishTransaction:transaction];
+                [self finishTransaction];
+                
+                break;
+                
+            default:
+                break;
         }
     }		
 }
 
 - (void)paymentQueue:(SKPaymentQueue *)queue removedTransactions:(NSArray *)transactions
 {
-    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
+//    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
 }
 
 - (void)completeTransactionWithData:(NSData *)data{
@@ -187,16 +207,37 @@ static IAPManager *singleton;
     [USER_DEFAULT setInteger:afterCoins forKey:COINS_KEY];
     [USER_DEFAULT synchronize];
     
-    [self finishTransaction];
+    [self finishTransactionWithCoins:point];
 }
 
-- (void)completeTransaction:(SKPaymentTransaction *)transaction{
-    NSLog(@"completeTransaction %@",transaction.payment);
-    [self finishTransaction];
-}
-
+//- (void)completeTransaction:(SKPaymentTransaction *)transaction{
+//    NSLog(@"completeTransaction %@",transaction.payment);
+//    [self finishTransaction];
+//}
 
 - (void)finishTransaction{
+    purchasing = NO;
+    NSNotification *n = [NSNotification notificationWithName:IAP_FINISHED_NOTIFICATION_NAME object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:n];
+}
+
+- (void)finishTransactionWithCoins:(NSInteger)coins{
+    
+    NSString *message = @"";
+    if (purchasing) {
+        message = [NSString stringWithFormat:@"%dコインゲットしました！",coins];
+    }
+    else{
+        message = [NSString stringWithFormat:@"%dコインゲットしました！\n※この購入は前回完了できなかった決済を復元した可能性があります",coins];
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"成功！"
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    purchasing = NO;
     NSNotification *n = [NSNotification notificationWithName:IAP_FINISHED_NOTIFICATION_NAME object:self];
     [[NSNotificationCenter defaultCenter] postNotification:n];
 }
