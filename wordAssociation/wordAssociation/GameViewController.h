@@ -75,6 +75,12 @@
     UIButton *item4;
     UIButton *item5;
     
+    UILabel *item1_price;
+    UILabel *item2_price;
+    UILabel *item3_price;
+    UILabel *item4_price;
+    UILabel *item5_price;
+    
     UIButton *cancel;
     
     int didSetWords;

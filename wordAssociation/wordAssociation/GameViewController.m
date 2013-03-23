@@ -1196,6 +1196,13 @@
     [self.view addSubview:grayView];
     [self.view addSubview:itemListView];
     
+    //値段表記
+//    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+//    [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+//    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+//    [numberFormatter setLocale:product.priceLocale];
+//    NSString *formattedString = [numberFormatter stringFromNumber:product.price];
+    
     //ボタン
     UIImage *item1_image = [UIImage imageNamed:@"item1_Btn"];
     UIImage *item2_image = [UIImage imageNamed:@"item2_Btn"];
@@ -1206,7 +1213,6 @@
     item1 = [UIButton buttonWithType:UIButtonTypeCustom];
     item1.frame = CGRectMake(22, 79, 250, 50);
     item1.tag = 0;
-//    [item1 setBackgroundColor:[UIColor grayColor]];
     [item1 setBackgroundImage:item1_image forState:UIControlStateNormal];
     [item1 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
     
@@ -1240,8 +1246,45 @@
     [itemListView addSubview:item4];
     [itemListView addSubview:item5];
     
+    item1_price = [[UILabel alloc] initWithFrame:CGRectMake(160, 9, 60, 30)];
+    item1_price.text = NSLocalizedString(@"price1Price", @"値段1");
+    item1_price.textAlignment = NSTextAlignmentRight;
+    item1_price.backgroundColor = [UIColor clearColor];
+    item1_price.textColor = [UIColor darkGrayColor];
+    
+    item2_price = [[UILabel alloc] initWithFrame:CGRectMake(160, 9, 60, 30)];
+    item2_price.text = NSLocalizedString(@"price2Price", @"値段2");
+    item2_price.textAlignment = NSTextAlignmentRight;
+    item2_price.backgroundColor = [UIColor clearColor];
+    item2_price.textColor = [UIColor darkGrayColor];
+    
+    item3_price = [[UILabel alloc] initWithFrame:CGRectMake(160, 9, 60, 30)];
+    item3_price.text = NSLocalizedString(@"price3Price", @"値段3");
+    item3_price.textAlignment = NSTextAlignmentRight;
+    item3_price.backgroundColor = [UIColor clearColor];
+    item3_price.textColor = [UIColor darkGrayColor];
+    
+    item4_price = [[UILabel alloc] initWithFrame:CGRectMake(160, 9, 60, 30)];
+    item4_price.text = NSLocalizedString(@"price4Price", @"値段4");
+    item4_price.textAlignment = NSTextAlignmentRight;
+    item4_price.backgroundColor = [UIColor clearColor];
+    item4_price.textColor = [UIColor darkGrayColor];
+    
+    item5_price = [[UILabel alloc] initWithFrame:CGRectMake(160, 9, 60, 30)];
+    item5_price.text = NSLocalizedString(@"price5Price", @"値段5");
+    item5_price.textAlignment = NSTextAlignmentRight;
+    item5_price.backgroundColor = [UIColor clearColor];
+    item5_price.textColor = [UIColor darkGrayColor];
+    
+    
+    [item1 addSubview:item1_price];
+    [item2 addSubview:item2_price];
+    [item3 addSubview:item3_price];
+    [item4 addSubview:item4_price];
+    [item5 addSubview:item5_price];
+    
     cancel = [UIButton buttonWithType:UIButtonTypeCustom];
-    cancel.frame = CGRectMake(95, 330, 100 * 1.1, 30 * 1.1);
+    cancel.frame = CGRectMake(95, 335, 100 * 1.1, 30 * 1.1);
     [cancel setBackgroundImage:[UIImage imageNamed:@"Cancel_Btn"] forState:UIControlStateNormal];
     [cancel addTarget:self action:NSSelectorFromString(@"cancel:") forControlEvents:UIControlEventTouchUpInside];
     

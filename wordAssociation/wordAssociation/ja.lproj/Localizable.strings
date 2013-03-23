@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  wordAssociation
+
+  Created by 南部 祐耶 on 2013/03/23.
+  Copyright (c) 2013年 Yuya Nambu. All rights reserved.
+*/
+
+
+
+"price1Price" = "¥85";
+"price2Price" = "¥170";
+"price3Price" = "¥450";
+"price4Price" = "¥850";
+"price5Price" = "¥1,700";
