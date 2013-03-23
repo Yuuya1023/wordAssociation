@@ -38,7 +38,7 @@
     //ユーザーデフォルトに初期値を設定
     NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
     [defaults setObject:@"1" forKey:NOWSTAGE_KEY];
-    [defaults setObject:@"0" forKey:COINS_KEY];
+    [defaults setObject:@"60" forKey:COINS_KEY];
     [defaults setObject:@"0" forKey:HASH_STRING_KEY];
     [USER_DEFAULT registerDefaults:defaults];
     [USER_DEFAULT synchronize];

@@ -53,6 +53,7 @@
     
     UIView *completeView;
     UIButton *next;
+    UIImageView *textImageView;
     
     int tapCount;
     int nowStage;

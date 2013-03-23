@@ -53,7 +53,7 @@
         [backButton addTarget:self action:NSSelectorFromString(@"back:") forControlEvents:UIControlEventTouchUpInside];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(245, 6, 70, 30);
+        button.frame = CGRectMake(240, 6, 70, 30);
         [button setImage:[UIImage imageNamed:@"Coin_Btn"] forState:UIControlStateNormal];
         [button addTarget:self action:NSSelectorFromString(@"showItemList:") forControlEvents:UIControlEventTouchUpInside];
         
@@ -132,50 +132,52 @@
         UIColor *titleColor_Ans = [UIColor whiteColor];
         UIFont *titleFont = [UIFont fontWithName:@"GillSans" size:18];
         
+        int buttonSize = 35;
+        
         answer1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        answer1.frame = CGRectMake(0, 0, 40, 40);
+        answer1.frame = CGRectMake(0, 0, buttonSize, buttonSize);
         answer1.tag = 201;
         answer1.titleLabel.font = titleFont;
         [answer1 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer1 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer1 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer2 = [UIButton buttonWithType:UIButtonTypeCustom];
-        answer2.frame = CGRectMake(40, 0, 40, 40);
+        answer2.frame = CGRectMake(39, 0, buttonSize, buttonSize);
         answer2.tag = 202;
         answer2.titleLabel.font = titleFont;
         [answer2 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer2 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer2 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer3 = [UIButton buttonWithType:UIButtonTypeCustom];
-        answer3.frame = CGRectMake(80, 0, 40, 40);
+        answer3.frame = CGRectMake(78, 0, buttonSize, buttonSize);
         answer3.tag = 203;
         answer3.titleLabel.font = titleFont;
         [answer3 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer3 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer3 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer4 = [UIButton buttonWithType:UIButtonTypeCustom];
-        answer4.frame = CGRectMake(120, 0, 40, 40);
+        answer4.frame = CGRectMake(117, 0, buttonSize, buttonSize);
         answer4.tag = 204;
         answer4.titleLabel.font = titleFont;
         [answer4 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer4 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer4 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer5 = [UIButton buttonWithType:UIButtonTypeCustom];
-        answer5.frame = CGRectMake(160, 0, 40, 40);
+        answer5.frame = CGRectMake(156, 0, buttonSize, buttonSize);
         answer5.tag = 205;
         answer5.titleLabel.font = titleFont;
         [answer5 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer5 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer5 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer6 = [UIButton buttonWithType:UIButtonTypeCustom];
-        answer6.frame = CGRectMake(200, 0, 40, 40);
+        answer6.frame = CGRectMake(195, 0, buttonSize, buttonSize);
         answer6.tag = 206;
         answer6.titleLabel.font = titleFont;
         [answer6 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
         [answer6 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
         [answer6 addTarget:self action:NSSelectorFromString(@"unsetWord:") forControlEvents:UIControlEventTouchUpInside];
         answer7 = [UIButton buttonWithType:UIButtonTypeCustom];
-        answer7.frame = CGRectMake(240, 0, 40, 40);
+        answer7.frame = CGRectMake(234, 0, buttonSize, buttonSize);
         answer7.tag = 207;
         answer7.titleLabel.font = titleFont;
         [answer7 setTitleColor:titleColor_Ans forState:UIControlStateNormal];
@@ -984,7 +986,7 @@
     //画面サイズ判定
     int rectY;
     if ([Utilities isDevice5thGen]) {
-        rectY = 384;
+        rectY = 390;
     }
     else{
         rectY = 314;
@@ -994,49 +996,50 @@
     answerLength = [ans length];
     canDeleteWords = 12 - answerLength;
     NSLog(@"length %d",answerLength);
+    int buttonSize = 35;
     switch ([ans length]) {
         case 2:
-            panelBg.frame = CGRectMake(100, rectY, 120, 40);
+            panelBg.frame = CGRectMake(105, rectY, 120, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
-            facebookButton.frame = CGRectMake(90, 0, 40, 40);
+            facebookButton.frame = CGRectMake(87, 1, buttonSize, buttonSize);
             break;
         case 3:
-            panelBg.frame = CGRectMake(80, rectY, 160, 40);
+            panelBg.frame = CGRectMake(85, rectY, 160, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
             [panelBg addSubview:answer3];
-            facebookButton.frame = CGRectMake(130, 0, 40, 40);
+            facebookButton.frame = CGRectMake(127, 1, buttonSize, buttonSize);
             break;
         case 4:
-            panelBg.frame = CGRectMake(60, rectY, 200, 40);
+            panelBg.frame = CGRectMake(65, rectY, 200, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
             [panelBg addSubview:answer3];
             [panelBg addSubview:answer4];
-            facebookButton.frame = CGRectMake(170, 0, 40, 40);
+            facebookButton.frame = CGRectMake(167, 1, buttonSize, buttonSize);
             break;
         case 5:
-            panelBg.frame = CGRectMake(40, rectY, 240, 40);
+            panelBg.frame = CGRectMake(45, rectY, 240, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
             [panelBg addSubview:answer3];
             [panelBg addSubview:answer4];
             [panelBg addSubview:answer5];
-            facebookButton.frame = CGRectMake(210, 0, 40, 40);
+            facebookButton.frame = CGRectMake(207, 1, buttonSize, buttonSize);
             break;
         case 6:
-            panelBg.frame = CGRectMake(20, rectY, 280, 40);
+            panelBg.frame = CGRectMake(25, rectY, 280, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
             [panelBg addSubview:answer3];
             [panelBg addSubview:answer4];
             [panelBg addSubview:answer5];
             [panelBg addSubview:answer6];
-            facebookButton.frame = CGRectMake(250, 0, 40, 40);
+            facebookButton.frame = CGRectMake(247, 1, buttonSize, buttonSize);
             break;
         case 7:
-            panelBg.frame = CGRectMake(0, rectY, 320, 40);
+            panelBg.frame = CGRectMake(5, rectY, 320, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
             [panelBg addSubview:answer3];
@@ -1044,7 +1047,7 @@
             [panelBg addSubview:answer5];
             [panelBg addSubview:answer6];
             [panelBg addSubview:answer7];
-            facebookButton.frame = CGRectMake(280, 0, 40, 40);
+            facebookButton.frame = CGRectMake(277, 1, buttonSize, buttonSize);
             break;
         default:
             break;
@@ -1136,37 +1139,41 @@
     [self.view addSubview:itemListView];
     
     //ボタン
-    UIImage *answerBtnBg = [UIImage imageNamed:@""];
+    UIImage *item1_image = [UIImage imageNamed:@"item1_Btn"];
+    UIImage *item2_image = [UIImage imageNamed:@"item2_Btn"];
+    UIImage *item3_image = [UIImage imageNamed:@"item3_Btn"];
+    UIImage *item4_image = [UIImage imageNamed:@"item4_Btn"];
+    UIImage *item5_image = [UIImage imageNamed:@"item5_Btn"];
     
     item1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    item1.frame = CGRectMake(20, 80, 255, 50);
+    item1.frame = CGRectMake(22, 79, 250, 50);
     item1.tag = 0;
 //    [item1 setBackgroundColor:[UIColor grayColor]];
-    [item1 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
+    [item1 setBackgroundImage:item1_image forState:UIControlStateNormal];
     [item1 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
     
     item2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    item2.frame = CGRectMake(20, 130, 255, 50);
+    item2.frame = CGRectMake(22, 130, 250, 50);
     item2.tag = 1;
-    [item2 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
+    [item2 setBackgroundImage:item2_image forState:UIControlStateNormal];
     [item2 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
     
     item3 = [UIButton buttonWithType:UIButtonTypeCustom];
-    item3.frame = CGRectMake(20, 180, 255, 50);
+    item3.frame = CGRectMake(22, 180, 250, 50);
     item3.tag = 2;
-    [item3 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
+    [item3 setBackgroundImage:item3_image forState:UIControlStateNormal];
     [item3 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
     
     item4 = [UIButton buttonWithType:UIButtonTypeCustom];
-    item4.frame = CGRectMake(20, 230, 255, 50);
+    item4.frame = CGRectMake(22, 230, 250, 50);
     item4.tag = 3;
-    [item4 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
+    [item4 setBackgroundImage:item4_image forState:UIControlStateNormal];
     [item4 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
     
     item5 = [UIButton buttonWithType:UIButtonTypeCustom];
-    item5.frame = CGRectMake(20, 280, 255, 50);
+    item5.frame = CGRectMake(22, 280, 250, 50);
     item5.tag = 4;
-    [item5 setBackgroundImage:answerBtnBg forState:UIControlStateNormal];
+    [item5 setBackgroundImage:item5_image forState:UIControlStateNormal];
     [item5 addTarget:self action:NSSelectorFromString(@"inAppPurchase:") forControlEvents:UIControlEventTouchUpInside];
     
     [itemListView addSubview:item1];
@@ -1259,6 +1266,12 @@
     completeView.backgroundColor = [UIColor blackColor];
     completeView.alpha = 0.0;
     
+    textImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"text_clear"]];
+    textImageView.backgroundColor = [UIColor clearColor];
+    textImageView.alpha = 0.0;
+    textImageView.frame = CGRectMake(60, 100, 200, 50);
+    
+    
     next = [UIButton buttonWithType:UIButtonTypeCustom];
     next.frame = CGRectMake(95, 330, 174 /4*3, 52 /4*3);
     next.alpha = 0.0;
@@ -1267,10 +1280,12 @@
     [next addTarget:self action:NSSelectorFromString(@"goToNextStage:") forControlEvents:UIControlEventTouchUpInside];
     
     [self.navigationController.view addSubview:completeView];
+    [self.navigationController.view addSubview:textImageView];
     [self.navigationController.view addSubview:next];
     
     [UIView animateWithDuration:0.5f animations:^(void) {
         completeView.alpha = 0.7;
+        textImageView.alpha = 1.0;
         next.alpha = 1.0;
     }];
 }
@@ -1285,11 +1300,13 @@
     [self setQuestion:nowStage];
     [self deselestAll];
     [UIView animateWithDuration:0.5f animations:^(void) {
-        self.title = [NSString stringWithFormat:@"Stage %d",nowStage];
+        titleLabel.text = [NSString stringWithFormat:@"Stage %d",nowStage];
         completeView.alpha = 0.0;
+        textImageView.alpha = 0.0;
         next.alpha = 0.0;
         
         [next removeFromSuperview];
+        [textImageView removeFromSuperview];
         [completeView removeFromSuperview];
     }];
     
