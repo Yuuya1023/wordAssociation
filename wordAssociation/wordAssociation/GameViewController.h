@@ -55,6 +55,15 @@
     UIButton *next;
     UIImageView *textImageView;
     
+    UIImageView *compPanel;
+    UIButton *compButton1;
+    UIButton *compButton2;
+    UIButton *compButton3;
+    UIButton *compButton4;
+    UIButton *compButton5;
+    UIButton *compButton6;
+    UIButton *compButton7;
+    
     int tapCount;
     int nowStage;
     

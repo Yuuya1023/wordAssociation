@@ -1358,11 +1358,6 @@
 //////クリア画面表示
 
 - (void)showCompleteView{
-    nowStage++;
-    [USER_DEFAULT setInteger:nowStage forKey:@"nowStage"];
-    [USER_DEFAULT setObject:nil forKey:ANSWER_RESTORE_KEY];
-    [USER_DEFAULT setObject:nil forKey:WORDS_RESTORE_KEY];
-    [USER_DEFAULT synchronize];
     
     //クリアした時のビュー
     completeView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -1374,11 +1369,9 @@
     textImageView.alpha = 0.0;
     textImageView.frame = CGRectMake(60, 100, 200, 50);
     
-    
     next = [UIButton buttonWithType:UIButtonTypeCustom];
     next.frame = CGRectMake(95, 330, 174 /4*3, 52 /4*3);
     next.alpha = 0.0;
-//    [next setTitle:@"next" forState:UIControlStateNormal];
     [next setImage:[UIImage imageNamed:@"Next_Btn"] forState:UIControlStateNormal];
     [next addTarget:self action:NSSelectorFromString(@"goToNextStage:") forControlEvents:UIControlEventTouchUpInside];
     
@@ -1386,9 +1379,156 @@
     [self.navigationController.view addSubview:textImageView];
     [self.navigationController.view addSubview:next];
     
+    
+    compPanel = [[UIImageView alloc] init];
+    compPanel.alpha = 0.0;
+    [self.navigationController.view addSubview:compPanel];
+    
+    //ボタンたち
+    UIImage *buttonImage = [UIImage imageNamed:@"Answer_Btn"];
+    int size = 40;
+    
+    compButton1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    compButton1.frame = CGRectMake(0, 0, size, size);
+    [compButton1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    compButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    compButton2.frame = CGRectMake(size, 0, size, size);
+    [compButton2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    compButton3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    compButton3.frame = CGRectMake(size * 2, 0, size, size);
+    [compButton3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    compButton4 = [UIButton buttonWithType:UIButtonTypeCustom];
+    compButton4.frame = CGRectMake(size * 3, 0, size, size);
+    [compButton4 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    compButton5 = [UIButton buttonWithType:UIButtonTypeCustom];
+    compButton5.frame = CGRectMake(size * 4, 0, size, size);
+    [compButton5 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    compButton6 = [UIButton buttonWithType:UIButtonTypeCustom];
+    compButton6.frame = CGRectMake(size * 5, 0, size, size);
+    [compButton6 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    compButton7 = [UIButton buttonWithType:UIButtonTypeCustom];
+    compButton7.frame = CGRectMake(size * 6, 0, size, size);
+    [compButton7 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    
+    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    NSString *answer = [dic objectForKey:@"answer"];
+    
+    int rectY = 200;
+    switch ([answer length]) {
+        case 2:
+            compPanel.frame = CGRectMake(120, rectY, 120, 40);
+            [compPanel addSubview:compButton1];
+            [compPanel addSubview:compButton2];
+            //            facebookButton.frame = CGRectMake(87, 2, size, size);
+            
+            [compButton1 setTitle:[answer substringWithRange:NSMakeRange(0,1)] forState:UIControlStateNormal];
+            [compButton2 setTitle:[answer substringWithRange:NSMakeRange(1,1)] forState:UIControlStateNormal];
+            break;
+        case 3:
+            compPanel.frame = CGRectMake(100, rectY, 160, 40);
+            [compPanel addSubview:compButton1];
+            [compPanel addSubview:compButton2];
+            [compPanel addSubview:compButton3];
+            //            facebookButton.frame = CGRectMake(127, 2, size, size);
+            
+            [compButton1 setTitle:[answer substringWithRange:NSMakeRange(0,1)] forState:UIControlStateNormal];
+            [compButton2 setTitle:[answer substringWithRange:NSMakeRange(1,1)] forState:UIControlStateNormal];
+            [compButton3 setTitle:[answer substringWithRange:NSMakeRange(2,1)] forState:UIControlStateNormal];
+            break;
+        case 4:
+            compPanel.frame = CGRectMake(80, rectY, 200, 40);
+            [compPanel addSubview:compButton1];
+            [compPanel addSubview:compButton2];
+            [compPanel addSubview:compButton3];
+            [compPanel addSubview:compButton4];
+            //            facebookButton.frame = CGRectMake(167, 2, size, size);
+            
+            [compButton1 setTitle:[answer substringWithRange:NSMakeRange(0,1)] forState:UIControlStateNormal];
+            [compButton2 setTitle:[answer substringWithRange:NSMakeRange(1,1)] forState:UIControlStateNormal];
+            [compButton3 setTitle:[answer substringWithRange:NSMakeRange(2,1)] forState:UIControlStateNormal];
+            [compButton4 setTitle:[answer substringWithRange:NSMakeRange(3,1)] forState:UIControlStateNormal];
+            break;
+        case 5:
+            compPanel.frame = CGRectMake(60, rectY, 240, 40);
+            [compPanel addSubview:compButton1];
+            [compPanel addSubview:compButton2];
+            [compPanel addSubview:compButton3];
+            [compPanel addSubview:compButton4];
+            [compPanel addSubview:compButton5];
+            //            facebookButton.frame = CGRectMake(207, 2, size, size);
+            
+            [compButton1 setTitle:[answer substringWithRange:NSMakeRange(0,1)] forState:UIControlStateNormal];
+            [compButton2 setTitle:[answer substringWithRange:NSMakeRange(1,1)] forState:UIControlStateNormal];
+            [compButton3 setTitle:[answer substringWithRange:NSMakeRange(2,1)] forState:UIControlStateNormal];
+            [compButton4 setTitle:[answer substringWithRange:NSMakeRange(3,1)] forState:UIControlStateNormal];
+            [compButton5 setTitle:[answer substringWithRange:NSMakeRange(4,1)] forState:UIControlStateNormal];
+            break;
+        case 6:
+            compPanel.frame = CGRectMake(40, rectY, 280, 40);
+            [compPanel addSubview:compButton1];
+            [compPanel addSubview:compButton2];
+            [compPanel addSubview:compButton3];
+            [compPanel addSubview:compButton4];
+            [compPanel addSubview:compButton5];
+            [compPanel addSubview:compButton6];
+            //            facebookButton.frame = CGRectMake(247, 2, size, size);
+            
+            [compButton1 setTitle:[answer substringWithRange:NSMakeRange(0,1)] forState:UIControlStateNormal];
+            [compButton2 setTitle:[answer substringWithRange:NSMakeRange(1,1)] forState:UIControlStateNormal];
+            [compButton3 setTitle:[answer substringWithRange:NSMakeRange(2,1)] forState:UIControlStateNormal];
+            [compButton4 setTitle:[answer substringWithRange:NSMakeRange(3,1)] forState:UIControlStateNormal];
+            [compButton5 setTitle:[answer substringWithRange:NSMakeRange(4,1)] forState:UIControlStateNormal];
+            [compButton6 setTitle:[answer substringWithRange:NSMakeRange(5,1)] forState:UIControlStateNormal];
+            break;
+        case 7:
+            compPanel.frame = CGRectMake(20, rectY, 320, 40);
+            [compPanel addSubview:compButton1];
+            [compPanel addSubview:compButton2];
+            [compPanel addSubview:compButton3];
+            [compPanel addSubview:compButton4];
+            [compPanel addSubview:compButton5];
+            [compPanel addSubview:compButton6];
+            [compPanel addSubview:compButton7];
+            //            facebookButton.frame = CGRectMake(277, 2, size, size);
+            
+            [compButton1 setTitle:[answer substringWithRange:NSMakeRange(0,1)] forState:UIControlStateNormal];
+            [compButton2 setTitle:[answer substringWithRange:NSMakeRange(1,1)] forState:UIControlStateNormal];
+            [compButton3 setTitle:[answer substringWithRange:NSMakeRange(2,1)] forState:UIControlStateNormal];
+            [compButton4 setTitle:[answer substringWithRange:NSMakeRange(3,1)] forState:UIControlStateNormal];
+            [compButton5 setTitle:[answer substringWithRange:NSMakeRange(4,1)] forState:UIControlStateNormal];
+            [compButton6 setTitle:[answer substringWithRange:NSMakeRange(5,1)] forState:UIControlStateNormal];
+            [compButton7 setTitle:[answer substringWithRange:NSMakeRange(6,1)] forState:UIControlStateNormal];
+            break;
+        default:
+            break;
+    }
+    
+    [compButton1 setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [compButton2 setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [compButton3 setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [compButton4 setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [compButton5 setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [compButton6 setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [compButton7 setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    
+    //次ステージの準備
+    nowStage++;
+    [USER_DEFAULT setInteger:nowStage forKey:@"nowStage"];
+    [USER_DEFAULT setObject:nil forKey:ANSWER_RESTORE_KEY];
+    [USER_DEFAULT setObject:nil forKey:WORDS_RESTORE_KEY];
+    [USER_DEFAULT synchronize];
+    
     [UIView animateWithDuration:0.5f animations:^(void) {
         completeView.alpha = 0.7;
         textImageView.alpha = 1.0;
+        compPanel.alpha = 1.0;
         next.alpha = 1.0;
     }];
 }
@@ -1406,9 +1546,18 @@
         titleLabel.text = [NSString stringWithFormat:@"Stage %d",nowStage];
         completeView.alpha = 0.0;
         textImageView.alpha = 0.0;
+        compPanel.alpha = 0.0;
         next.alpha = 0.0;
         
         [next removeFromSuperview];
+        [compButton1 removeFromSuperview];
+        [compButton2 removeFromSuperview];
+        [compButton3 removeFromSuperview];
+        [compButton4 removeFromSuperview];
+        [compButton5 removeFromSuperview];
+        [compButton6 removeFromSuperview];
+        [compButton7 removeFromSuperview];
+        [compPanel removeFromSuperview];
         [textImageView removeFromSuperview];
         [completeView removeFromSuperview];
     }];
