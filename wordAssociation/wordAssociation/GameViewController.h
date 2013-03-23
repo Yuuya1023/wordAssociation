@@ -60,7 +60,6 @@
     
     NSMutableArray *answerArray;
     NSMutableArray *answerTagArray;
-    NSMutableArray *wordHintArray;
     
     NSTimer *timer;
     int timerCount;

@@ -34,4 +34,7 @@
 #define NOWSTAGE_KEY @"nowStage"
 #define COINS_KEY @"coins"
 
+#define ANSWER_RESTORE_KEY @"answersTag"
+#define WORDS_RESTORE_KEY @"wordsTag"
+
 #define IAP_FINISHED_NOTIFICATION_NAME @"IAPCompleteTransaction"

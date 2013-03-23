@@ -327,7 +327,6 @@
         
         //文字列セット
         answerArray = [[NSMutableArray alloc] init];
-        wordHintArray = [[NSMutableArray alloc] init];
         answerTagArray = [[NSMutableArray alloc] init];
         didDeleteWordsTagArray = [[NSMutableArray alloc] init];
         [self setQuestion:nowStage];
@@ -505,7 +504,7 @@
     else{
         [self buttonSetEnabled:[[[answerArray objectAtIndex:tag] objectForKey:@"tag"] intValue] enable:YES];
     }
-    NSLog(@"%d",didSetWords);
+    NSLog(@"didSetWords %d",didSetWords);
 }
 
 
@@ -844,39 +843,11 @@
                 [inDic setObject:[NSString stringWithFormat:@"%d",setTag] forKey:@"tag"];
                 [answerArray replaceObjectAtIndex:rand withObject:inDic];
                 
+                [USER_DEFAULT setObject:answerArray forKey:ANSWER_RESTORE_KEY];
+                [USER_DEFAULT synchronize];
+                
                 //答えのボタンをロックする
-                switch (rand) {
-                    case 0:
-                        [answer1 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
-                        [answer1 setEnabled:NO];
-                        break;
-                    case 1:
-                        [answer2 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
-                        [answer2 setEnabled:NO];
-                        break;
-                    case 2:
-                        [answer3 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
-                        [answer3 setEnabled:NO];
-                        break;
-                    case 3:
-                        [answer4 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
-                        [answer4 setEnabled:NO];
-                        break;
-                    case 4:
-                        [answer5 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
-                        [answer5 setEnabled:NO];
-                        break;
-                    case 5:
-                        [answer6 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
-                        [answer6 setEnabled:NO];
-                        break;
-                    case 6:
-                        [answer7 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
-                        [answer7 setEnabled:NO];
-                        break;
-                    default:
-                        break;
-                }
+                [self answerButtonLockWithTag:rand];
                 
                 //答え合わせ
                 if(didSetWords == answerLength){
@@ -914,6 +885,10 @@
                 if(![answerTagArray containsObject:randIntStr] && ![didDeleteWordsTagArray containsObject:randIntStr]){
                     [self buttonSetAlpha:rand alpha:0.0];
                     [didDeleteWordsTagArray addObject:[NSString stringWithFormat:@"%d",rand]];
+                    
+                    [USER_DEFAULT setObject:didDeleteWordsTagArray forKey:WORDS_RESTORE_KEY];
+                    [USER_DEFAULT synchronize];
+                    
                     isOK = NO;
                 }
             }
@@ -921,6 +896,89 @@
         [self setCoins:-30 * deleteWords];
     }
 }
+
+
+
+
+
+
+/////答えのボタンをロック
+
+- (void)answerButtonLockWithTag:(int)tag{
+    switch (tag) {
+        case 0:
+            [answer1 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+            [answer1 setEnabled:NO];
+            break;
+        case 1:
+            [answer2 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+            [answer2 setEnabled:NO];
+            break;
+        case 2:
+            [answer3 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+            [answer3 setEnabled:NO];
+            break;
+        case 3:
+            [answer4 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+            [answer4 setEnabled:NO];
+            break;
+        case 4:
+            [answer5 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+            [answer5 setEnabled:NO];
+            break;
+        case 5:
+            [answer6 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+            [answer6 setEnabled:NO];
+            break;
+        case 6:
+            [answer7 setTitleColor:[UIColor greenColor] forState:UIControlStateDisabled];
+            [answer7 setEnabled:NO];
+            break;
+        default:
+            break;
+    }
+}
+
+
+
+
+
+
+
+/////消した文字、答えを復元する
+
+- (void)restoreAnswers{
+    NSLog(@"%@",[USER_DEFAULT objectForKey:ANSWER_RESTORE_KEY]);
+    
+    [answerArray setArray:[USER_DEFAULT objectForKey:ANSWER_RESTORE_KEY]];
+    for (int i = 0; i < [answerArray count]; i++) {
+        NSMutableDictionary *inDic = [[NSMutableDictionary alloc] initWithDictionary:[answerArray objectAtIndex:i]];
+        if ([[inDic objectForKey:@"usedHint"] intValue] == 1) {
+            didSetWords++;
+            [self buttonSetAlpha:[[inDic objectForKey:@"tag"] intValue] alpha:0.0];
+            [self setWordWithTag:i title:[inDic objectForKey:@"string"]];
+            
+            //答えのボタンをロック
+            [self answerButtonLockWithTag:i];
+        }
+        else{
+            [inDic setObject:@"-1" forKey:@"usedHint"];
+            [inDic setObject:@"-1" forKey:@"string"];
+            [inDic setObject:@"-1" forKey:@"tag"];
+            [answerArray replaceObjectAtIndex:i withObject:inDic];
+        }
+    }
+}
+- (void)restoreWords{
+    NSLog(@"%@",[USER_DEFAULT objectForKey:WORDS_RESTORE_KEY]);
+    
+//    didDeleteWordsTagArray = [USER_DEFAULT objectForKey:WORDS_RESTORE_KEY];
+    [didDeleteWordsTagArray setArray:[USER_DEFAULT objectForKey:WORDS_RESTORE_KEY]];
+    for (int i = 0; i < [didDeleteWordsTagArray count]; i++) {
+        [self buttonSetAlpha:[[didDeleteWordsTagArray objectAtIndex:i] intValue] alpha:0.0];
+    }
+}
+
 
 
 
@@ -1002,14 +1060,14 @@
             panelBg.frame = CGRectMake(105, rectY, 120, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
-            facebookButton.frame = CGRectMake(87, 1, buttonSize, buttonSize);
+            facebookButton.frame = CGRectMake(87, 2, buttonSize, buttonSize);
             break;
         case 3:
             panelBg.frame = CGRectMake(85, rectY, 160, 40);
             [panelBg addSubview:answer1];
             [panelBg addSubview:answer2];
             [panelBg addSubview:answer3];
-            facebookButton.frame = CGRectMake(127, 1, buttonSize, buttonSize);
+            facebookButton.frame = CGRectMake(127, 2, buttonSize, buttonSize);
             break;
         case 4:
             panelBg.frame = CGRectMake(65, rectY, 200, 40);
@@ -1017,7 +1075,7 @@
             [panelBg addSubview:answer2];
             [panelBg addSubview:answer3];
             [panelBg addSubview:answer4];
-            facebookButton.frame = CGRectMake(167, 1, buttonSize, buttonSize);
+            facebookButton.frame = CGRectMake(167, 2, buttonSize, buttonSize);
             break;
         case 5:
             panelBg.frame = CGRectMake(45, rectY, 240, 40);
@@ -1026,7 +1084,7 @@
             [panelBg addSubview:answer3];
             [panelBg addSubview:answer4];
             [panelBg addSubview:answer5];
-            facebookButton.frame = CGRectMake(207, 1, buttonSize, buttonSize);
+            facebookButton.frame = CGRectMake(207, 2, buttonSize, buttonSize);
             break;
         case 6:
             panelBg.frame = CGRectMake(25, rectY, 280, 40);
@@ -1036,7 +1094,7 @@
             [panelBg addSubview:answer4];
             [panelBg addSubview:answer5];
             [panelBg addSubview:answer6];
-            facebookButton.frame = CGRectMake(247, 1, buttonSize, buttonSize);
+            facebookButton.frame = CGRectMake(247, 2, buttonSize, buttonSize);
             break;
         case 7:
             panelBg.frame = CGRectMake(5, rectY, 320, 40);
@@ -1047,7 +1105,7 @@
             [panelBg addSubview:answer5];
             [panelBg addSubview:answer6];
             [panelBg addSubview:answer7];
-            facebookButton.frame = CGRectMake(277, 1, buttonSize, buttonSize);
+            facebookButton.frame = CGRectMake(277, 2, buttonSize, buttonSize);
             break;
         default:
             break;
@@ -1077,14 +1135,19 @@
 //////配列を初期化する
 
 - (void)initiarizeArray:(int)num{
-    [answerArray removeAllObjects];
-    for (int i = 0; i< num; i++) {
-        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
-                             @"-1",@"string",
-                             @"-1",@"tag",
-                             @"-1",@"usedHint",
-                             nil];
-        [answerArray addObject:dic];
+    if ([USER_DEFAULT objectForKey:ANSWER_RESTORE_KEY] == nil) {
+        [answerArray removeAllObjects];
+        for (int i = 0; i< num; i++) {
+            NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 @"-1",@"string",
+                                 @"-1",@"tag",
+                                 @"-1",@"usedHint",
+                                 nil];
+            [answerArray addObject:dic];
+        }
+    }
+    else{
+        [self restoreAnswers];
     }
     
     //答えのタグのみを格納する配列
@@ -1093,17 +1156,12 @@
         [answerTagArray addObject:@"-1"];
     }
     
-    [wordHintArray removeAllObjects];
-    for (int i = 0; i< 12; i++) {
-        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
-                             @"-1",@"string",
-                             @"-1",@"tag",
-                             @"-1",@"usedHint",
-                             nil];
-        [wordHintArray addObject:dic];
+    if ([USER_DEFAULT objectForKey:WORDS_RESTORE_KEY] == nil) {
+        [didDeleteWordsTagArray removeAllObjects];
     }
-    
-    [didDeleteWordsTagArray removeAllObjects];
+    else{
+        [self restoreWords];
+    }
     
 }
 
@@ -1259,6 +1317,8 @@
 - (void)showCompleteView{
     nowStage++;
     [USER_DEFAULT setInteger:nowStage forKey:@"nowStage"];
+    [USER_DEFAULT setObject:nil forKey:ANSWER_RESTORE_KEY];
+    [USER_DEFAULT setObject:nil forKey:WORDS_RESTORE_KEY];
     [USER_DEFAULT synchronize];
     
     //クリアした時のビュー
