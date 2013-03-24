@@ -1519,7 +1519,18 @@
     [compButton7 setBackgroundImage:buttonImage forState:UIControlStateNormal];
     
     //次ステージの準備
-    nowStage++;
+    if (nowStage < [USER_DEFAULT integerForKey:MAXSTAGE_KEY]) {
+        nowStage++;
+    }
+    else{
+        UIImageView *soon = [[UIImageView alloc] initWithFrame:CGRectMake(80, 310, 163, 68)];
+        soon.image = [UIImage imageNamed:@"commingsoon"];
+        soon.backgroundColor = [UIColor clearColor];
+        
+        [next setEnabled:NO];
+        [self.navigationController.view addSubview:soon];
+    }
+    
     [USER_DEFAULT setInteger:nowStage forKey:@"nowStage"];
     [USER_DEFAULT setObject:nil forKey:ANSWER_RESTORE_KEY];
     [USER_DEFAULT setObject:nil forKey:WORDS_RESTORE_KEY];
@@ -1627,7 +1638,27 @@
 //    [fbManager publish];
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"Mojikeshi_Btn_on" ofType:@"png"];
 //    NSLog(@"%@",path);
-    [fbManager publishWithDescription:@"testtest" filePath:@"http://blog-imgs-54.fc2.com/d/0/9/d09325/img_387733_4701749_0.jpg"];
+    
+    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    NSString *str = [dic objectForKey:@"string"];
+    NSString *description = [NSString stringWithFormat:@"写真から答えを連想しよう！\n「%@」\nこの12文字の中から選んで答えを当ててね！あなたは答えがわかるかな？",str];
+    
+    NSString *path = [NSString stringWithFormat:@"http://blog-imgs-54.fc2.com/d/0/9/d09325/img_387733_4701749_0.jpg"];
+    
+    [fbManager publishWithDescription:description filePath:path];
+}
+
+
+- (void)facebookShareWhenClear:(UIButton *)b{
+    FacebookManager *fbManager = [FacebookManager sharedInstance];
+    
+    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    NSString *str = [dic objectForKey:@"string"];
+    NSString *description = [NSString stringWithFormat:@"写真から答えを連想しよう！\n「%@」\nこの12文字の中から選んで答えを当ててね！あなたは答えがわかるかな？",str];
+    
+    NSString *path = [NSString stringWithFormat:@"http://blog-imgs-54.fc2.com/d/0/9/d09325/img_387733_4701749_0.jpg"];
+    
+    [fbManager publishWithDescription:description filePath:path];
 }
 
 - (void)didReceiveMemoryWarning

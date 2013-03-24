@@ -32,6 +32,7 @@
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]
 #define HASH_STRING_KEY @"randomType"
 #define NOWSTAGE_KEY @"nowStage"
+#define MAXSTAGE_KEY @"maxStage"
 #define COINS_KEY @"coins"
 
 #define ANSWER_RESTORE_KEY @"answersTag"
