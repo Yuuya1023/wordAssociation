@@ -48,7 +48,7 @@
         
 //        //リセット用
 //        UIButton *reset = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        reset.frame = CGRectMake(110, 320, 100, 40);
+//        reset.frame = CGRectMake(110, 470, 100, 40);
 //        //        [startPlay setTitle:@"Play" forState:UIControlStateNormal];
 //        [reset setImage:[UIImage imageNamed:@"play_Btn"] forState:UIControlStateNormal];
 //        [reset addTarget:self action:NSSelectorFromString(@"reset:") forControlEvents:UIControlEventTouchUpInside];
@@ -71,11 +71,11 @@
 }
 
 - (void)reset:(UIButton *)b{
-//    [USER_DEFAULT setInteger:1 forKey:@"nowStage"];
-//    [USER_DEFAULT synchronize];
+    [USER_DEFAULT setInteger:1 forKey:@"nowStage"];
+    [USER_DEFAULT synchronize];
     
-    FacebookManager *fbManager = [FacebookManager sharedInstance];
-    [fbManager publish];
+//    FacebookManager *fbManager = [FacebookManager sharedInstance];
+//    [fbManager publish];
 }
 
 - (void)didReceiveMemoryWarning

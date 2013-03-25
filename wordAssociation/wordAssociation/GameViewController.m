@@ -1011,10 +1011,10 @@
     NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:stage - 1];
     
     //写真
-    image1.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_1",stage]];
-    image2.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_2",stage]];
-    image3.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_3",stage]];
-    image4.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_4",stage]];
+    image1.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_1.jpg",stage]];
+    image2.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_2.jpg",stage]];
+    image3.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_3.jpg",stage]];
+    image4.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_4.jpg",stage]];
     
     //12文字
     NSString *str = [dic objectForKey:@"string"];
