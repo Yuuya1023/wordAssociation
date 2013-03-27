@@ -870,8 +870,8 @@
 		189C9F0416FD853500058371 /* item5_Btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "item5_Btn@2x.png"; sourceTree = "<group>"; };
 		189C9F0516FD853500058371 /* text_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text_clear@2x.png"; sourceTree = "<group>"; };
 		189C9F1416FDBF7100058371 /* item4_Btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item4_Btn.png; sourceTree = "<group>"; };
-		189C9F2316FDE85C00058371 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		189C9F2516FDE8E300058371 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		189C9F2316FDE85C00058371 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		189C9F2516FDE8E300058371 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		189C9F2616FDE8E300058371 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		189C9F2716FDE8E300058371 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		189C9F2916FF56AA00058371 /* 10_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10_1.jpg; sourceTree = "<group>"; };
@@ -2463,7 +2463,7 @@
 		18DF072916EF5EDD0049B1B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YUYA NAMBU";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuya Nambu (Z672L5L4QF)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/wordAssociation/framework\"",
@@ -2477,7 +2477,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "96AB9476-9626-4725-8B13-7B8BEF7C79BE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4BCD4CA-5021-4A28-9E21-4E2526CC110D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

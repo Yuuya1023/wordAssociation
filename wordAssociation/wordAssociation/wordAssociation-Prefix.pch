@@ -30,9 +30,12 @@
 #endif
 
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+#define APP_VERSION_KEY @"appVersion"
+#define SET_DEFAULT_KEY @"setDefault"
 #define HASH_STRING_KEY @"randomType"
 #define NOWSTAGE_KEY @"nowStage"
 #define MAXSTAGE_KEY @"maxStage"
+#define SCENARIO_KEY @"scenario"
 #define COINS_KEY @"coins"
 
 #define ANSWER_RESTORE_KEY @"answersTag"

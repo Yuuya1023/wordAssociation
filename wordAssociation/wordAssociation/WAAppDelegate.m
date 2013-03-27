@@ -18,56 +18,49 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
-    //SBJson
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *path = [bundle pathForResource:@"word" ofType:@"json"];
-    NSString *jsonString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:path] encoding:NSUTF8StringEncoding];
-//    NSArray *jsonArray = [jsonString JSONValue];
-    
-    SBJsonParser* sbjsonparser =[[SBJsonParser alloc]init];
-    NSError* error;
-    error = nil;
-    NSDictionary* dic = [sbjsonparser objectWithString:jsonString
-                                                 error:&error];
-
-    
-//    NSLog(@"json %d",[dic count]);
-    
-    [USER_DEFAULT setObject:dic forKey:@"json"];
-    [USER_DEFAULT synchronize];
-    
     //ユーザーデフォルトに初期値を設定
     NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
-    [defaults setObject:[NSString stringWithFormat:@"%d",[dic count]] forKey:MAXSTAGE_KEY];
+    [defaults setObject:@"1.0" forKey:APP_VERSION_KEY];
     [defaults setObject:@"1" forKey:NOWSTAGE_KEY];
     [defaults setObject:@"60" forKey:COINS_KEY];
-    [defaults setObject:@"0" forKey:HASH_STRING_KEY];
     [USER_DEFAULT registerDefaults:defaults];
     [USER_DEFAULT synchronize];
-
+    
+    
+    if(![USER_DEFAULT boolForKey:SET_DEFAULT_KEY]){
+//        NSLog(@"%@",[USER_DEFAULT stringForKey:SET_DEFAULT_KEY]);
+        //SBJson
+        NSBundle *bundle = [NSBundle mainBundle];
+        NSString *path = [bundle pathForResource:@"word" ofType:@"json"];
+        NSString *jsonString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:path] encoding:NSUTF8StringEncoding];
+//        NSArray *jsonArray = [jsonString JSONValue];
+        
+        SBJsonParser* sbjsonparser =[[SBJsonParser alloc]init];
+        NSError* error;
+        error = nil;
+        NSDictionary* dic = [sbjsonparser objectWithString:jsonString
+                                                     error:&error];
+        
+        
+//        NSLog(@"json %d",[dic count]);
+        
+        //ステージごとのシナリオを一括で作成
+        NSMutableArray *scenario = [[NSMutableArray alloc] initWithArray:[Utilities setQuestionIDs:20]];
+        NSLog(@"scenario %@",scenario);
+    
+        //test
+        [USER_DEFAULT setObject:dic forKey:@"json"];
+        
+        [USER_DEFAULT setObject:[NSString stringWithFormat:@"%d",[dic count]] forKey:MAXSTAGE_KEY];
+        [USER_DEFAULT setObject:scenario forKey:SCENARIO_KEY];
+        [USER_DEFAULT setBool:YES forKey:SET_DEFAULT_KEY];
+        [USER_DEFAULT synchronize];
+    }
 
     HomeViewController *masterViewController = [[HomeViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     [self.navigationController.navigationBar setHidden:YES];
-    
-    
-//    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
-////        [self.navigationController.navigationBar setAlpha:0.0];
-////        [self.navigationController.navigationBar setTranslucent:NO];
-////        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"Title_Bar"] forBarMetrics:UIBarMetricsDefault];
-//        [self.navigationController.navigationBar setHidden:YES];
-//    }
-//    // iOS 4.3用
-//    else {
-////        UIImageView *navBGImageView = [[UIImageView alloc] initWithImage:navBGImage];
-////        navBGImageView.frame = self.navigationController.navigationBar.bounds;
-////        navBGImageView.autoresizingMask =
-////		UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-////        navBGImageView.layer.zPosition = -FLT_MAX;
-////        [self.navigationController.navigationBar insertSubview:navBGImageView atIndex:0];
-////        [navBGImageView release];
-//    }
-    
+
     
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];

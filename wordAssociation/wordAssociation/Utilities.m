@@ -23,4 +23,20 @@
     return isDevice5thGen;
 }
 
++ (NSMutableArray *)setQuestionIDs:(int)num{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (int i = 0; i < num; i++) {
+        BOOL y = YES;
+        while (y) {
+            int rand = arc4random() % num;
+            if (![array containsObject:[NSString stringWithFormat:@"%d",rand]]) {
+                [array addObject:[NSString stringWithFormat:@"%d",rand]];
+                NSLog(@"%d",rand);
+                y = NO;
+            }
+        }
+    }
+    return array;
+}
+
 @end

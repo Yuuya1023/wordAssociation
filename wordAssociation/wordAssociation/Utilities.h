@@ -12,5 +12,6 @@
 
 
 + (BOOL)isDevice5thGen;
++ (NSMutableArray *)setQuestionIDs:(int)num;
 
 @end
