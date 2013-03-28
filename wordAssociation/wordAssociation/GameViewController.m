@@ -20,7 +20,7 @@
 {
     self = [super init];
     if (self) {
-        nowStage = [USER_DEFAULT integerForKey:@"nowStage"];
+        nowStage = [USER_DEFAULT integerForKey:NOW_TOTALSTAGE_KEY];
 //        self.title = [NSString stringWithFormat:@"Stage %d",nowStage];
 //        self.view.backgroundColor = [UIColor whiteColor];
         

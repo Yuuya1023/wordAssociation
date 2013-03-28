@@ -13,5 +13,10 @@
 
 + (BOOL)isDevice5thGen;
 + (NSMutableArray *)setQuestionIDs:(int)num;
++ (NSDictionary *)jsonParserWithPath:(NSString *)filePath;
++ (NSDictionary *)jsonParserWithJsonString:(NSString *)jsonString;
+
+
+
 
 @end

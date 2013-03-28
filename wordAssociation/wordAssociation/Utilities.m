@@ -7,6 +7,8 @@
 //
 
 #import "Utilities.h"
+#import "SBJson.h"
+
 
 @implementation Utilities
 
@@ -37,6 +39,27 @@
         }
     }
     return array;
+}
+
++ (NSDictionary *)jsonParserWithPath:(NSString *)filePath{
+    NSString *jsonString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:filePath] encoding:NSUTF8StringEncoding];
+//        NSArray *jsonArray = [jsonString JSONValue];
+    
+    SBJsonParser* sbjsonparser =[[SBJsonParser alloc]init];
+    NSError* error = nil;
+    NSDictionary* dic = [sbjsonparser objectWithString:jsonString
+                                                 error:&error];
+    
+    return dic;
+}
+
++ (NSDictionary *)jsonParserWithJsonString:(NSString *)jsonString{
+    SBJsonParser* sbjsonparser =[[SBJsonParser alloc]init];
+    NSError* error = nil;
+    NSDictionary* dic = [sbjsonparser objectWithString:jsonString
+                                                 error:&error];
+    
+    return dic;
 }
 
 @end

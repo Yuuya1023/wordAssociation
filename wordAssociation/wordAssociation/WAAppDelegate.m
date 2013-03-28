@@ -21,7 +21,9 @@
     //ユーザーデフォルトに初期値を設定
     NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
     [defaults setObject:@"1.0" forKey:APP_VERSION_KEY];
-    [defaults setObject:@"1" forKey:NOWSTAGE_KEY];
+    [defaults setObject:@"1" forKey:NOW_MAINSTAGE_KEY];
+    [defaults setObject:@"1" forKey:NOW_SUBSTAGE_KEY];
+    [defaults setObject:@"1" forKey:NOW_TOTALSTAGE_KEY];
     [defaults setObject:@"60" forKey:COINS_KEY];
     [USER_DEFAULT registerDefaults:defaults];
     [USER_DEFAULT synchronize];
@@ -31,27 +33,33 @@
 //        NSLog(@"%@",[USER_DEFAULT stringForKey:SET_DEFAULT_KEY]);
         //SBJson
         NSBundle *bundle = [NSBundle mainBundle];
-        NSString *path = [bundle pathForResource:@"word" ofType:@"json"];
-        NSString *jsonString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:path] encoding:NSUTF8StringEncoding];
-//        NSArray *jsonArray = [jsonString JSONValue];
+        NSString *path1 = [bundle pathForResource:@"stage1" ofType:@"json"];
+        NSString *path2 = [bundle pathForResource:@"stage2" ofType:@"json"];
+        NSString *path3 = [bundle pathForResource:@"stage3" ofType:@"json"];
+        NSString *path4 = [bundle pathForResource:@"stage4" ofType:@"json"];
+        NSString *path5 = [bundle pathForResource:@"stage5" ofType:@"json"];
+        NSString *path6 = [bundle pathForResource:@"stage6" ofType:@"json"];
+
         
-        SBJsonParser* sbjsonparser =[[SBJsonParser alloc]init];
-        NSError* error;
-        error = nil;
-        NSDictionary* dic = [sbjsonparser objectWithString:jsonString
-                                                     error:&error];
-        
-        
-//        NSLog(@"json %d",[dic count]);
+        NSDictionary *stage1 = [Utilities jsonParserWithPath:path1];
+        NSDictionary *stage2 = [Utilities jsonParserWithPath:path2];
+        NSDictionary *stage3 = [Utilities jsonParserWithPath:path3];
+        NSDictionary *stage4 = [Utilities jsonParserWithPath:path4];
+        NSDictionary *stage5 = [Utilities jsonParserWithPath:path5];
+        NSDictionary *stage6 = [Utilities jsonParserWithPath:path6];
         
         //ステージごとのシナリオを一括で作成
-        NSMutableArray *scenario = [[NSMutableArray alloc] initWithArray:[Utilities setQuestionIDs:20]];
+        NSMutableArray *scenario = [[NSMutableArray alloc] initWithArray:[Utilities setQuestionIDs:15]];
         NSLog(@"scenario %@",scenario);
     
-        //test
-        [USER_DEFAULT setObject:dic forKey:@"json"];
+        [USER_DEFAULT setObject:stage1 forKey:STAGE1_QUESTIONS_KEY];
+        [USER_DEFAULT setObject:stage2 forKey:STAGE2_QUESTIONS_KEY];
+        [USER_DEFAULT setObject:stage3 forKey:STAGE3_QUESTIONS_KEY];
+        [USER_DEFAULT setObject:stage4 forKey:STAGE4_QUESTIONS_KEY];
+        [USER_DEFAULT setObject:stage5 forKey:STAGE5_QUESTIONS_KEY];
+        [USER_DEFAULT setObject:stage6 forKey:STAGE6_QUESTIONS_KEY];
         
-        [USER_DEFAULT setObject:[NSString stringWithFormat:@"%d",[dic count]] forKey:MAXSTAGE_KEY];
+        [USER_DEFAULT setObject:@"6" forKey:MAXSTAGE_KEY];
         [USER_DEFAULT setObject:scenario forKey:SCENARIO_KEY];
         [USER_DEFAULT setBool:YES forKey:SET_DEFAULT_KEY];
         [USER_DEFAULT synchronize];
