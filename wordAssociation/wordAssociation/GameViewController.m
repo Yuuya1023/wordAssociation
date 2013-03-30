@@ -21,8 +21,8 @@
     self = [super init];
     if (self) {
         nowStage = [USER_DEFAULT integerForKey:NOW_TOTALSTAGE_KEY];
-//        self.title = [NSString stringWithFormat:@"Stage %d",nowStage];
-//        self.view.backgroundColor = [UIColor whiteColor];
+        nowMainStage = [USER_DEFAULT integerForKey:NOW_MAINSTAGE_KEY];
+        nowSubStage = [USER_DEFAULT integerForKey:NOW_SUBSTAGE_KEY];
         
         naviBarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
         naviBarImageView.image = [UIImage imageNamed:@"Bar"];
@@ -329,7 +329,7 @@
         answerArray = [[NSMutableArray alloc] init];
         answerTagArray = [[NSMutableArray alloc] init];
         didDeleteWordsTagArray = [[NSMutableArray alloc] init];
-        [self setQuestion:nowStage];
+        [self setQuestion];
     }
     return self;
 }
@@ -681,7 +681,7 @@
     }
     NSLog(@"どやっ %@",answer);
     
-    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    NSDictionary *dic= [self setQuestionDictionary];
     if ([[dic objectForKey:@"answer"] isEqualToString:answer]) {
         NSLog(@"正解！");
         [self showCompleteView];
@@ -810,7 +810,7 @@
 /////UIAlertView Delegate
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    NSDictionary *dic= [self setQuestionDictionary];
     int coins = [USER_DEFAULT integerForKey:COINS_KEY];
     if (alertView.tag == 400 && buttonIndex == 1) {
         if (coins < 60) {
@@ -1007,14 +1007,14 @@
 
 //////問題をセット
 
-- (void)setQuestion:(int)stage{
-    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:stage - 1];
+- (void)setQuestion{
+    NSDictionary *dic= [self setQuestionDictionary];
     
     //写真
-    image1.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_1.jpg",stage]];
-    image2.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_2.jpg",stage]];
-    image3.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_3.jpg",stage]];
-    image4.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_4.jpg",stage]];
+    image1.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_1.jpg",nowStage]];
+    image2.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_2.jpg",nowStage]];
+    image3.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_3.jpg",nowStage]];
+    image4.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_4.jpg",nowStage]];
     
     //12文字
     NSString *str = [dic objectForKey:@"string"];
@@ -1125,6 +1125,40 @@
         }
     }
     NSLog(@"answerTagArray %@",answerTagArray);
+}
+
+
+
+
+
+- (NSDictionary *)setQuestionDictionary{
+    
+    NSDictionary *dic= [[NSDictionary alloc] init];
+
+    switch (nowMainStage) {
+        case 1:
+            dic = [[USER_DEFAULT objectForKey:STAGE1_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            break;
+        case 2:
+            dic = [[USER_DEFAULT objectForKey:STAGE2_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            break;
+        case 3:
+            dic = [[USER_DEFAULT objectForKey:STAGE3_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            break;
+        case 4:
+            dic = [[USER_DEFAULT objectForKey:STAGE4_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            break;
+        case 5:
+            dic = [[USER_DEFAULT objectForKey:STAGE5_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            break;
+        case 6:
+            dic = [[USER_DEFAULT objectForKey:STAGE6_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            break;
+        default:
+            break;
+    }
+
+    return dic;
 }
 
 
@@ -1417,7 +1451,7 @@
     [compButton7 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     
-    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    NSDictionary *dic= [self setQuestionDictionary];
     NSString *answer = [dic objectForKey:@"answer"];
     
     int rectY = 200;
@@ -1518,23 +1552,56 @@
     [compButton6 setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [compButton7 setBackgroundImage:buttonImage forState:UIControlStateNormal];
     
-    //次ステージの準備
-    if (nowStage < [USER_DEFAULT integerForKey:MAXSTAGE_KEY]) {
+    //次ステージの準備 (とりあえず今はステージが15で固定だからこれで)
+    if (nowSubStage == 15) {
+        if (nowMainStage == 6) {
+            UIImageView *soon = [[UIImageView alloc] initWithFrame:CGRectMake(80, 310, 163, 68)];
+            soon.image = [UIImage imageNamed:@"commingsoon"];
+            soon.backgroundColor = [UIColor clearColor];
+            
+            [next setEnabled:NO];
+            [self.navigationController.view addSubview:soon];
+        }
+        
         nowStage++;
+        [USER_DEFAULT setInteger:nowStage forKey:NOW_TOTALSTAGE_KEY];
+        
+        nowMainStage++;
+        [USER_DEFAULT setInteger:nowMainStage forKey:NOW_MAINSTAGE_KEY];
+        
+        nowSubStage = 1;
+        [USER_DEFAULT setInteger:nowSubStage forKey:NOW_SUBSTAGE_KEY];
     }
     else{
-        UIImageView *soon = [[UIImageView alloc] initWithFrame:CGRectMake(80, 310, 163, 68)];
-        soon.image = [UIImage imageNamed:@"commingsoon"];
-        soon.backgroundColor = [UIColor clearColor];
+        nowStage++;
+        [USER_DEFAULT setInteger:nowStage forKey:NOW_TOTALSTAGE_KEY];
         
-        [next setEnabled:NO];
-        [self.navigationController.view addSubview:soon];
+        nowSubStage++;
+        [USER_DEFAULT setInteger:nowSubStage forKey:NOW_SUBSTAGE_KEY];
     }
-    
-    [USER_DEFAULT setInteger:nowStage forKey:@"nowStage"];
     [USER_DEFAULT setObject:nil forKey:ANSWER_RESTORE_KEY];
     [USER_DEFAULT setObject:nil forKey:WORDS_RESTORE_KEY];
     [USER_DEFAULT synchronize];
+    
+    [self setCoins:3];
+    
+    
+//    if (nowStage < [USER_DEFAULT integerForKey:MAXSTAGE_KEY]) {
+//        nowStage++;
+//    }
+//    else{
+//        UIImageView *soon = [[UIImageView alloc] initWithFrame:CGRectMake(80, 310, 163, 68)];
+//        soon.image = [UIImage imageNamed:@"commingsoon"];
+//        soon.backgroundColor = [UIColor clearColor];
+//        
+//        [next setEnabled:NO];
+//        [self.navigationController.view addSubview:soon];
+//    }
+//    
+//    [USER_DEFAULT setInteger:nowStage forKey:@"nowStage"];
+//    [USER_DEFAULT setObject:nil forKey:ANSWER_RESTORE_KEY];
+//    [USER_DEFAULT setObject:nil forKey:WORDS_RESTORE_KEY];
+//    [USER_DEFAULT synchronize];
     
     [UIView animateWithDuration:0.5f animations:^(void) {
         completeView.alpha = 0.7;
@@ -1551,7 +1618,7 @@
 //////次ページへ遷移
 
 - (void)goToNextStage:(UIButton *)b{
-    [self setQuestion:nowStage];
+    [self setQuestion];
     [self deselestAll];
     [UIView animateWithDuration:0.5f animations:^(void) {
         titleLabel.text = [NSString stringWithFormat:@"Stage %d",nowStage];
@@ -1639,7 +1706,7 @@
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"Mojikeshi_Btn_on" ofType:@"png"];
 //    NSLog(@"%@",path);
     
-    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    NSDictionary *dic= [self setQuestionDictionary];
     NSString *str = [dic objectForKey:@"string"];
     NSString *description = [NSString stringWithFormat:@"写真から答えを連想しよう！\n「%@」\nこの12文字の中から選んで答えを当ててね！あなたは答えがわかるかな？",str];
     
@@ -1652,7 +1719,7 @@
 - (void)facebookShareWhenClear:(UIButton *)b{
     FacebookManager *fbManager = [FacebookManager sharedInstance];
     
-    NSDictionary *dic= [[USER_DEFAULT objectForKey:@"json"] objectAtIndex:nowStage - 1];
+    NSDictionary *dic= [self setQuestionDictionary];
     NSString *str = [dic objectForKey:@"string"];
     NSString *description = [NSString stringWithFormat:@"写真から答えを連想しよう！\n「%@」\nこの12文字の中から選んで答えを当ててね！あなたは答えがわかるかな？",str];
     

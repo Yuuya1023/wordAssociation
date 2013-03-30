@@ -66,6 +66,9 @@
     
     int tapCount;
     int nowStage;
+    int nowMainStage;
+    int nowSubStage;
+    NSString *nowStageKey;
     
     NSMutableArray *answerArray;
     NSMutableArray *answerTagArray;
