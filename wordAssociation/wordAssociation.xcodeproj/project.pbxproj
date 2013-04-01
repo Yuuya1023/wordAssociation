@@ -1028,6 +1028,18 @@
 		189C9F1616FDBF7100058371 /* item4_Btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C9F1416FDBF7100058371 /* item4_Btn.png */; };
 		189C9F2116FDE85C00058371 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 189C9F2416FDE85C00058371 /* Localizable.strings */; };
 		189C9F2216FDE85C00058371 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 189C9F2416FDE85C00058371 /* Localizable.strings */; };
+		18A1B23C1709BF76000D847E /* Coinget.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B2391709BF76000D847E /* Coinget.png */; };
+		18A1B23D1709BF76000D847E /* Coinget.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B2391709BF76000D847E /* Coinget.png */; };
+		18A1B23E1709BF76000D847E /* Photoflame.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B23A1709BF76000D847E /* Photoflame.png */; };
+		18A1B23F1709BF76000D847E /* Photoflame.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B23A1709BF76000D847E /* Photoflame.png */; };
+		18A1B2401709BF76000D847E /* Title_Coinshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B23B1709BF76000D847E /* Title_Coinshop.png */; };
+		18A1B2411709BF76000D847E /* Title_Coinshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B23B1709BF76000D847E /* Title_Coinshop.png */; };
+		18A1B2451709BFB5000D847E /* Coinget@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B2421709BFB5000D847E /* Coinget@2x.png */; };
+		18A1B2461709BFB5000D847E /* Coinget@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B2421709BFB5000D847E /* Coinget@2x.png */; };
+		18A1B2471709BFB5000D847E /* Photoflame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B2431709BFB5000D847E /* Photoflame@2x.png */; };
+		18A1B2481709BFB5000D847E /* Photoflame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B2431709BFB5000D847E /* Photoflame@2x.png */; };
+		18A1B2491709BFB5000D847E /* Title_Coinshop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B2441709BFB5000D847E /* Title_Coinshop@2x.png */; };
+		18A1B24A1709BFB5000D847E /* Title_Coinshop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B2441709BFB5000D847E /* Title_Coinshop@2x.png */; };
 		18DF06EE16EF5EDC0049B1B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */; };
 		18DF06F016EF5EDC0049B1B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */; };
 		18DF06F216EF5EDC0049B1B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DF06F116EF5EDC0049B1B6 /* CoreGraphics.framework */; };
@@ -1652,6 +1664,12 @@
 		189C9F2516FDE8E300058371 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		189C9F2616FDE8E300058371 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		189C9F2716FDE8E300058371 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18A1B2391709BF76000D847E /* Coinget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coinget.png; sourceTree = "<group>"; };
+		18A1B23A1709BF76000D847E /* Photoflame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Photoflame.png; sourceTree = "<group>"; };
+		18A1B23B1709BF76000D847E /* Title_Coinshop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title_Coinshop.png; sourceTree = "<group>"; };
+		18A1B2421709BFB5000D847E /* Coinget@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Coinget@2x.png"; sourceTree = "<group>"; };
+		18A1B2431709BFB5000D847E /* Photoflame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photoflame@2x.png"; sourceTree = "<group>"; };
+		18A1B2441709BFB5000D847E /* Title_Coinshop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Title_Coinshop@2x.png"; sourceTree = "<group>"; };
 		18DF06EA16EF5EDC0049B1B6 /* wordAssociation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wordAssociation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DF06ED16EF5EDC0049B1B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18DF06EF16EF5EDC0049B1B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1738,6 +1756,9 @@
 				189B275A16F9779400A1CB9E /* title_bg-2.png */,
 				189B28A916FB400600A1CB9E /* Title_bg.png */,
 				189B28A316FB3E4F00A1CB9E /* Title_bg-568h.png */,
+				18A1B2391709BF76000D847E /* Coinget.png */,
+				18A1B23A1709BF76000D847E /* Photoflame.png */,
+				18A1B23B1709BF76000D847E /* Title_Coinshop.png */,
 				189B275C16F9779400A1CB9E /* Word_btn.png */,
 				189B275D16F9779400A1CB9E /* Word_btn_on.png */,
 			);
@@ -1747,6 +1768,9 @@
 		189B272B16F9779400A1CB9E /* @2x */ = {
 			isa = PBXGroup;
 			children = (
+				18A1B2421709BFB5000D847E /* Coinget@2x.png */,
+				18A1B2431709BFB5000D847E /* Photoflame@2x.png */,
+				18A1B2441709BFB5000D847E /* Title_Coinshop@2x.png */,
 				189C9EFF16FD853500058371 /* commingsoon@2x.png */,
 				189C9F0016FD853500058371 /* item1_Btn@2x.png */,
 				189C9F0116FD853500058371 /* item2_Btn@2x.png */,
@@ -2987,6 +3011,12 @@
 				189C0E9D1704943F004E68CA /* stage4.json in Resources */,
 				189C0E9F1704943F004E68CA /* stage5.json in Resources */,
 				189C0EA11704943F004E68CA /* stage6.json in Resources */,
+				18A1B23C1709BF76000D847E /* Coinget.png in Resources */,
+				18A1B23E1709BF76000D847E /* Photoflame.png in Resources */,
+				18A1B2401709BF76000D847E /* Title_Coinshop.png in Resources */,
+				18A1B2451709BFB5000D847E /* Coinget@2x.png in Resources */,
+				18A1B2471709BFB5000D847E /* Photoflame@2x.png in Resources */,
+				18A1B2491709BFB5000D847E /* Title_Coinshop@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3440,6 +3470,12 @@
 				189C0E9E1704943F004E68CA /* stage4.json in Resources */,
 				189C0EA01704943F004E68CA /* stage5.json in Resources */,
 				189C0EA21704943F004E68CA /* stage6.json in Resources */,
+				18A1B23D1709BF76000D847E /* Coinget.png in Resources */,
+				18A1B23F1709BF76000D847E /* Photoflame.png in Resources */,
+				18A1B2411709BF76000D847E /* Title_Coinshop.png in Resources */,
+				18A1B2461709BFB5000D847E /* Coinget@2x.png in Resources */,
+				18A1B2481709BFB5000D847E /* Photoflame@2x.png in Resources */,
+				18A1B24A1709BFB5000D847E /* Title_Coinshop@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

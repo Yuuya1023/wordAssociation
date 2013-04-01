@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface GameViewController : UIViewController{
     
@@ -54,6 +55,9 @@
     UIView *completeView;
     UIButton *next;
     UIImageView *textImageView;
+    UIImageView *coingetImageView;
+    UILabel *stageCountLabel;
+    UILabel *stageLabel;
     
     UIImageView *compPanel;
     UIButton *compButton1;
@@ -81,6 +85,7 @@
     UIActivityIndicatorView *indicator;
     
     UIImageView *itemListView;
+    UIImageView *itemListTitleView;
     UIButton *item1;
     UIButton *item2;
     UIButton *item3;
