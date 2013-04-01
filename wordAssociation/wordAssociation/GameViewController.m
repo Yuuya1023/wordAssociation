@@ -29,13 +29,34 @@
         naviBarImageView.userInteractionEnabled = YES;
         [self.view addSubview:naviBarImageView];
         
-        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 6, 200, 30)];
-        titleLabel.text = [NSString stringWithFormat:@"Stage %d",nowStage];
-        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 6, 100, 30)];
+        titleLabel.text = [NSString stringWithFormat:@"%d",nowStage];
+        titleLabel.textAlignment = NSTextAlignmentRight;
         titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.font = [UIFont boldSystemFontOfSize:35];
         titleLabel.backgroundColor = [UIColor clearColor];
         
+        titleLabel.layer.shadowColor = [[UIColor whiteColor] CGColor];
+        titleLabel.layer.shadowRadius = 4.0f;
+        titleLabel.layer.shadowOpacity = .9;
+        titleLabel.layer.shadowOffset = CGSizeZero;
+        titleLabel.layer.masksToBounds = NO;
+        
+        subTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(170, 13, 30, 30)];
+        subTitleLabel.text = @"問目";
+        subTitleLabel.textAlignment = NSTextAlignmentCenter;
+        subTitleLabel.textColor = [UIColor whiteColor];
+        subTitleLabel.font = [UIFont boldSystemFontOfSize:12];
+        subTitleLabel.backgroundColor = [UIColor clearColor];
+        
+        subTitleLabel.layer.shadowColor = [[UIColor whiteColor] CGColor];
+        subTitleLabel.layer.shadowRadius = 4.0f;
+        subTitleLabel.layer.shadowOpacity = .9;
+        subTitleLabel.layer.shadowOffset = CGSizeZero;
+        subTitleLabel.layer.masksToBounds = NO;
+        
         [naviBarImageView addSubview:titleLabel];
+        [naviBarImageView addSubview:subTitleLabel];
         
         int navbarHeight = 44;
         
@@ -191,6 +212,7 @@
         
         //文字たち
         UIImage *btnBg = [UIImage imageNamed:@"Word_btn"];
+        UIImage *btnOnBg = [UIImage imageNamed:@"Word_Btn_on"];
         UIColor *titleColor = [UIColor blackColor];
 //        UIFont *titleFont = [UIFont fontWithName:@"GillSans" size:18];
 
@@ -200,6 +222,8 @@
         button1.tag = 301;
         button1.titleLabel.font = titleFont;
         [button1 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button1 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button1 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button1 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button2 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -208,6 +232,8 @@
         button2.tag = 302;
         button2.titleLabel.font = titleFont;
         [button2 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button2 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button2 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button2 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
 
         button3 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -216,6 +242,8 @@
         button3.tag = 303;
         button3.titleLabel.font = titleFont;
         [button3 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button3 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button3 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button3 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button4 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -224,6 +252,8 @@
         button4.tag = 304;
         button4.titleLabel.font = titleFont;
         [button4 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button4 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button4 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button4 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button5 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -232,6 +262,8 @@
         button5.tag = 305;
         button5.titleLabel.font = titleFont;
         [button5 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button5 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button5 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button5 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button6 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -240,6 +272,8 @@
         button6.tag = 306;
         button6.titleLabel.font = titleFont;
         [button6 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button6 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button6 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button6 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
 
@@ -250,6 +284,8 @@
         button7.tag = 307;
         button7.titleLabel.font = titleFont;
         [button7 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button7 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button7 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button7 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button8 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -258,6 +294,8 @@
         button8.tag = 308;
         button8.titleLabel.font = titleFont;
         [button8 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button8 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button8 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button8 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button9 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -266,6 +304,8 @@
         button9.tag = 309;
         button9.titleLabel.font = titleFont;
         [button9 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button9 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button9 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button9 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button10 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -274,6 +314,8 @@
         button10.tag = 310;
         button10.titleLabel.font = titleFont;
         [button10 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button10 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button10 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button10 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
         button11 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -282,6 +324,8 @@
         button11.tag = 311;
         button11.titleLabel.font = titleFont;
         [button11 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button11 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button11 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button11 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
 
         button12 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -290,6 +334,8 @@
         button12.tag = 312;
         button12.titleLabel.font = titleFont;
         [button12 setBackgroundImage:btnBg forState:UIControlStateNormal];
+        [button12 setBackgroundImage:btnOnBg forState:UIControlStateHighlighted];
+        [button12 setBackgroundImage:btnOnBg forState:UIControlStateDisabled];
         [button12 addTarget:self action:NSSelectorFromString(@"tapWord:") forControlEvents:UIControlEventTouchUpInside];
         
 
@@ -1672,7 +1718,7 @@
     [self setQuestion];
     [self deselestAll];
     [UIView animateWithDuration:0.5f animations:^(void) {
-        titleLabel.text = [NSString stringWithFormat:@"Stage %d",nowStage];
+        titleLabel.text = [NSString stringWithFormat:@"%d",nowStage];
         completeView.alpha = 0.0;
         coingetImageView.alpha = 0.0;
         textImageView.alpha = 0.0;

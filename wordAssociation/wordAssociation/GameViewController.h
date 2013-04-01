@@ -14,6 +14,7 @@
 //    UINavigationBar *navBar;
     UIImageView *naviBarImageView;
     UILabel *titleLabel;
+    UILabel *subTitleLabel;
     
     UIImageView *image1;
     UIImageView *image2;
