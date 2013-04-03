@@ -370,14 +370,17 @@ static VerificationController *singleton;
     
     // So we got some receipt data. Now does it all check out?
     BOOL isOk = [self doesTransactionInfoMatchReceipt:responseString];
-    
+    NSLog(@"responseString %@",responseString);
+    IAPManager *manager = [IAPManager sharedInstance];
     if (isOk)
     {
         //Validation suceeded. Unlock content here.
         NSLog(@"VerificationController Validation suceeded.");
-        IAPManager *manager = [IAPManager sharedInstance];
         [manager completeTransactionWithData:data];
-
+    }
+    else{
+        NSLog(@"VerificationController Validation error.");
+        [manager completeTransactionWithData:data];
     }
 }
 

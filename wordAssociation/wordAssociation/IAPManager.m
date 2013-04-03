@@ -10,6 +10,13 @@
 #import "SBJson.h"
 #import "NSString+MD5.h"
 
+#define WA350COINS 350
+#define WA750COINS 750
+#define WA2000COINS 2000
+#define WA4500COINS 4500
+#define WA10000COINS 10000
+
+
 static IAPManager *singleton;
 
 @implementation IAPManager
@@ -62,18 +69,23 @@ static IAPManager *singleton;
     switch (type) {
         case 0:
             set = [NSSet setWithObjects:@"wa.350coins", nil];
+            debugPoint = WA350COINS;
             break;
         case 1:
             set = [NSSet setWithObjects:@"wa.750coins", nil];
+            debugPoint = WA750COINS;
             break;
         case 2:
             set = [NSSet setWithObjects:@"wa.2000coins", nil];
+            debugPoint = WA2000COINS;
             break;
         case 3:
             set = [NSSet setWithObjects:@"wa.4500coins", nil];
+            debugPoint = WA4500COINS;
             break;
         case 4:
             set = [NSSet setWithObjects:@"wa.10000coins", nil];
+            debugPoint = WA10000COINS;
             break;
         default:
             break;
@@ -122,15 +134,17 @@ static IAPManager *singleton;
                 
                 break;
             case SKPaymentTransactionStatePurchased:
-                
-                // 購入処理成功
-                if([verificationController verifyPurchase:transaction]){
-                    [queue finishTransaction:transaction];
-                }
+                NSLog(@"SKPaymentTransactionStatePurchased");
+                [verificationController verifyPurchase:transaction];
+                [queue finishTransaction:transaction];
+//                // 購入処理成功
+//                if([verificationController verifyPurchase:transaction]){
+//                    [queue finishTransaction:transaction];
+//                }
                 
                 break;
             case SKPaymentTransactionStateFailed:{
-                
+                NSLog(@"SKPaymentTransactionStateFailed");
                 // 購入処理エラー。ユーザが購入処理をキャンセルした場合もここにくる
                 [queue finishTransaction:transaction];
                 [self finishTransaction];
@@ -177,24 +191,33 @@ static IAPManager *singleton;
                                                  error:&error];
     NSLog(@"%@",dic);
     int point = 0;
-    if ([[dic objectForKey:@"status"] intValue] == 0) {
+    int status = [[dic objectForKey:@"status"] intValue];
+    NSLog(@"verify status is %d",status);
+    if (status == 0) {
         NSString *pid = [[dic objectForKey:@"receipt"] objectForKey:@"product_id"];
         if ([pid isEqualToString:@"wa.350coins"]) {
-            point = 350;
+            point = WA350COINS;
         }
         else if ([pid isEqualToString:@"wa.750coins"]){
-            point = 750;
+            point = WA750COINS;
         }
         else if ([pid isEqualToString:@"wa.2000coins"]){
-            point = 2000;
+            point = WA2000COINS;
         }
         else if ([pid isEqualToString:@"wa.4500coins"]){
-            point = 4500;
+            point = WA4500COINS;
         }
         else if ([pid isEqualToString:@"wa.10000coins"]){
-            point = 10000;
+            point = WA10000COINS;
         }
         NSLog(@"%d coins",point);
+    }
+    else if (status == 21007 || status == 21008){
+        point = debugPoint;
+    }
+    else{
+        [self finishTransactionWithError];
+        return;
     }
 //    NSString *pointStr = [NSString stringWithFormat:@"%d",point];
 //    NSString *MD5 = [pointStr md5String];
@@ -233,6 +256,18 @@ static IAPManager *singleton;
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"成功！"
                                                     message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    purchasing = NO;
+    NSNotification *n = [NSNotification notificationWithName:IAP_FINISHED_NOTIFICATION_NAME object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:n];
+}
+
+- (void)finishTransactionWithError{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"決済に失敗しました"
+                                                    message:@"この決済は無効です。"
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];

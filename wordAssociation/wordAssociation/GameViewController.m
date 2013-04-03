@@ -1486,6 +1486,7 @@
     [item5 removeFromSuperview];
     [cancel removeFromSuperview];
     [itemListView removeFromSuperview];
+    [itemListTitleView removeFromSuperview];
     
     IAPManager *iapManager = [IAPManager sharedInstance];
     if ([iapManager checkCanMakePayment]) {
