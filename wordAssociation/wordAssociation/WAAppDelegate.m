@@ -10,6 +10,7 @@
 
 #import "HomeViewController.h"
 #import "SBJson.h"
+#import "Appirater.h"
 
 @implementation WAAppDelegate
 
@@ -72,6 +73,9 @@
     
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
+    
+    [Appirater setAppId:@"621883285"];
+    [Appirater appLaunched:YES];
     return YES;
 }
 
@@ -90,6 +94,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

@@ -1028,6 +1028,12 @@
 		189C9F1616FDBF7100058371 /* item4_Btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C9F1416FDBF7100058371 /* item4_Btn.png */; };
 		189C9F2116FDE85C00058371 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 189C9F2416FDE85C00058371 /* Localizable.strings */; };
 		189C9F2216FDE85C00058371 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 189C9F2416FDE85C00058371 /* Localizable.strings */; };
+		18A13282170C63B6002CA04A /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1327A170C63B6002CA04A /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18A13283170C63B6002CA04A /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1327A170C63B6002CA04A /* Appirater.m */; };
+		18A13286170C63B6002CA04A /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18A1327D170C63B6002CA04A /* AppiraterLocalizable.strings */; };
+		18A13287170C63B6002CA04A /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18A1327D170C63B6002CA04A /* AppiraterLocalizable.strings */; };
+		18A13289170C660D002CA04A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A13288170C660C002CA04A /* CFNetwork.framework */; };
+		18A1328B170C661B002CA04A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A1328A170C661B002CA04A /* SystemConfiguration.framework */; };
 		18A1B23C1709BF76000D847E /* Coinget.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B2391709BF76000D847E /* Coinget.png */; };
 		18A1B23D1709BF76000D847E /* Coinget.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B2391709BF76000D847E /* Coinget.png */; };
 		18A1B23E1709BF76000D847E /* Photoflame.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A1B23A1709BF76000D847E /* Photoflame.png */; };
@@ -1664,6 +1670,13 @@
 		189C9F2516FDE8E300058371 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		189C9F2616FDE8E300058371 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		189C9F2716FDE8E300058371 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		18A13279170C63B6002CA04A /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		18A1327A170C63B6002CA04A /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		18A1327C170C63B6002CA04A /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
+		18A1327E170C63B6002CA04A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AppiraterLocalizable.strings; sourceTree = "<group>"; };
+		18A1327F170C63B6002CA04A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AppiraterLocalizable.strings; sourceTree = "<group>"; };
+		18A13288170C660C002CA04A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		18A1328A170C661B002CA04A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		18A1B2391709BF76000D847E /* Coinget.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Coinget.png; sourceTree = "<group>"; };
 		18A1B23A1709BF76000D847E /* Photoflame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Photoflame.png; sourceTree = "<group>"; };
 		18A1B23B1709BF76000D847E /* Title_Coinshop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title_Coinshop.png; sourceTree = "<group>"; };
@@ -1697,6 +1710,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A1328B170C661B002CA04A /* SystemConfiguration.framework in Frameworks */,
+				18A13289170C660D002CA04A /* CFNetwork.framework in Frameworks */,
 				189B269116F9694800A1CB9E /* Social.framework in Frameworks */,
 				189B268E16F9694000A1CB9E /* Accounts.framework in Frameworks */,
 				189B268F16F9694000A1CB9E /* AdSupport.framework in Frameworks */,
@@ -2347,6 +2362,7 @@
 		189C896D16F173E00081103B /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				18A13277170C63B6002CA04A /* appirater */,
 				189B27CC16F9C64C00A1CB9E /* Facebook */,
 				189C672C16F4A03E000E77C7 /* NSString+MD5.h */,
 				189C672D16F4A03E000E77C7 /* NSString+MD5.m */,
@@ -2404,6 +2420,17 @@
 			path = icon;
 			sourceTree = "<group>";
 		};
+		18A13277170C63B6002CA04A /* appirater */ = {
+			isa = PBXGroup;
+			children = (
+				18A13279170C63B6002CA04A /* Appirater.h */,
+				18A1327A170C63B6002CA04A /* Appirater.m */,
+				18A1327C170C63B6002CA04A /* AppiraterDelegate.h */,
+				18A1327D170C63B6002CA04A /* AppiraterLocalizable.strings */,
+			);
+			path = appirater;
+			sourceTree = "<group>";
+		};
 		18DF06E116EF5EDC0049B1B6 = {
 			isa = PBXGroup;
 			children = (
@@ -2426,6 +2453,8 @@
 		18DF06EC16EF5EDC0049B1B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18A1328A170C661B002CA04A /* SystemConfiguration.framework */,
+				18A13288170C660C002CA04A /* CFNetwork.framework */,
 				189B269016F9694800A1CB9E /* Social.framework */,
 				189B268C16F9694000A1CB9E /* Accounts.framework */,
 				189B268D16F9694000A1CB9E /* AdSupport.framework */,
@@ -3017,6 +3046,7 @@
 				18A1B2451709BFB5000D847E /* Coinget@2x.png in Resources */,
 				18A1B2471709BFB5000D847E /* Photoflame@2x.png in Resources */,
 				18A1B2491709BFB5000D847E /* Title_Coinshop@2x.png in Resources */,
+				18A13286170C63B6002CA04A /* AppiraterLocalizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3476,6 +3506,7 @@
 				18A1B2461709BFB5000D847E /* Coinget@2x.png in Resources */,
 				18A1B2481709BFB5000D847E /* Photoflame@2x.png in Resources */,
 				18A1B24A1709BFB5000D847E /* Title_Coinshop@2x.png in Resources */,
+				18A13287170C63B6002CA04A /* AppiraterLocalizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3569,6 +3600,7 @@
 				189B289B16F9C71200A1CB9E /* FBSBJsonParser.m in Sources */,
 				189B289D16F9C71200A1CB9E /* FBSBJsonWriter.m in Sources */,
 				189B28A116F9D07100A1CB9E /* FacebookManager.m in Sources */,
+				18A13282170C63B6002CA04A /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3640,6 +3672,7 @@
 				189B289C16F9C71200A1CB9E /* FBSBJsonParser.m in Sources */,
 				189B289E16F9C71200A1CB9E /* FBSBJsonWriter.m in Sources */,
 				189B28A216F9D07100A1CB9E /* FacebookManager.m in Sources */,
+				18A13283170C63B6002CA04A /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3661,6 +3694,15 @@
 				189C9F2516FDE8E300058371 /* ja */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		18A1327D170C63B6002CA04A /* AppiraterLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				18A1327E170C63B6002CA04A /* en */,
+				18A1327F170C63B6002CA04A /* ja */,
+			);
+			name = AppiraterLocalizable.strings;
 			sourceTree = "<group>";
 		};
 		18DF06F616EF5EDC0049B1B6 /* InfoPlist.strings */ = {
