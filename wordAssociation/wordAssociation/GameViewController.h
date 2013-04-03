@@ -21,6 +21,12 @@
     UIImageView *image3;
     UIImageView *image4;
     
+    UIImageView *imageFlame1;
+    UIImageView *imageFlame2;
+    UIImageView *imageFlame3;
+    UIImageView *imageFlame4;
+    UIImageView *imageFlame5;
+
     UIImageView *zoomImage;
     
     UIImageView *panelBg;

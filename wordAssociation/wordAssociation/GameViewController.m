@@ -121,21 +121,54 @@
         zoomImage.alpha = 0.0;
         zoomImage.backgroundColor = [UIColor grayColor];
         
+        imageFlame1 = [[UIImageView alloc] init];
+        imageFlame1.image = [UIImage imageNamed:@"Photoflame"];
+        
+        imageFlame2 = [[UIImageView alloc] init];
+        imageFlame2.image = [UIImage imageNamed:@"Photoflame"];
+        
+        imageFlame3 = [[UIImageView alloc] init];
+        imageFlame3.image = [UIImage imageNamed:@"Photoflame"];
+        
+        imageFlame4 = [[UIImageView alloc] init];
+        imageFlame4.image = [UIImage imageNamed:@"Photoflame"];
+        
+        imageFlame5 = [[UIImageView alloc] init];
+        imageFlame5.image = [UIImage imageNamed:@"Photoflame"];
+        imageFlame5.alpha = 0.0;
+        
         if ([Utilities isDevice5thGen]) {
-            image1.frame = CGRectMake(30, 30 + navbarHeight, 120, 120);
-            image2.frame = CGRectMake(170, 30 + navbarHeight, 120, 120);
-            image3.frame = CGRectMake(30, 160 + navbarHeight, 120, 120);
-            image4.frame = CGRectMake(170, 160 + navbarHeight, 120, 120);
+            imageFlame1.frame = CGRectMake(30, 30 + navbarHeight, 120, 120);
+            imageFlame2.frame = CGRectMake(170, 30 + navbarHeight, 120, 120);
+            imageFlame3.frame = CGRectMake(30, 160 + navbarHeight, 120, 120);
+            imageFlame4.frame = CGRectMake(170, 160 + navbarHeight, 120, 120);
+            imageFlame5.frame = CGRectMake(30, 25 + navbarHeight, 260, 260);
+            
+            image1.frame = CGRectMake(37, 37 + navbarHeight, 106, 106);
+            image2.frame = CGRectMake(177, 37 + navbarHeight, 106, 106);
+            image3.frame = CGRectMake(37, 167 + navbarHeight, 106, 106);
+            image4.frame = CGRectMake(177, 167 + navbarHeight, 106, 106);
             zoomImage.frame = CGRectMake(35, 30 + navbarHeight, 250, 250);
         }
         else{
-            image1.frame = CGRectMake(30, 10 + navbarHeight, 120, 120);
-            image2.frame = CGRectMake(170, 10 + navbarHeight, 120, 120);
-            image3.frame = CGRectMake(30, 140 + navbarHeight, 120, 120);
-            image4.frame = CGRectMake(170, 140 + navbarHeight, 120, 120);
+            imageFlame1.frame = CGRectMake(30, 10 + navbarHeight, 120, 120);
+            imageFlame2.frame = CGRectMake(170, 10 + navbarHeight, 120, 120);
+            imageFlame3.frame = CGRectMake(30, 140 + navbarHeight, 120, 120);
+            imageFlame4.frame = CGRectMake(170, 140 + navbarHeight, 120, 120);
+            imageFlame5.frame = CGRectMake(30, 5 + navbarHeight, 260, 260);
+            
+            image1.frame = CGRectMake(37, 17 + navbarHeight, 106, 106);
+            image2.frame = CGRectMake(177, 17 + navbarHeight, 106, 106);
+            image3.frame = CGRectMake(37, 147 + navbarHeight, 106, 106);
+            image4.frame = CGRectMake(177, 147 + navbarHeight, 106, 106);
             zoomImage.frame = CGRectMake(35, 10 + navbarHeight, 250, 250);
         }
-
+        
+        [self.view addSubview:imageFlame1];
+        [self.view addSubview:imageFlame2];
+        [self.view addSubview:imageFlame3];
+        [self.view addSubview:imageFlame4];
+        [self.view addSubview:imageFlame5];
         
         [self.view addSubview:image1];
         [self.view addSubview:image2];
@@ -212,7 +245,7 @@
         
         //文字たち
         UIImage *btnBg = [UIImage imageNamed:@"Word_btn"];
-        UIImage *btnOnBg = [UIImage imageNamed:@"Word_Btn_on"];
+        UIImage *btnOnBg = [UIImage imageNamed:@"Word_btn_on"];
         UIColor *titleColor = [UIColor blackColor];
 //        UIFont *titleFont = [UIFont fontWithName:@"GillSans" size:18];
 
@@ -503,6 +536,7 @@
             break;
     }
     [UIView animateWithDuration:0.5f animations:^(void) {
+        imageFlame5.alpha = 1.0;
         zoomImage.alpha = 1.0;
         image1.alpha = 0.0;
         image2.alpha = 0.0;
@@ -521,6 +555,7 @@
 
 - (void)zoomOutImage{
     [UIView animateWithDuration:0.5f animations:^(void) {
+        imageFlame5.alpha = 0.0;
         zoomImage.alpha = 0.0;
         image1.alpha = 1.0;
         image2.alpha = 1.0;
