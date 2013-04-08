@@ -79,6 +79,7 @@
     int nowStage;
     int nowMainStage;
     int nowSubStage;
+    int scenarioNumber;
     NSString *nowStageKey;
     
     NSMutableArray *answerArray;

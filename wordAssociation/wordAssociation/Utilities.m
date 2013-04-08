@@ -30,7 +30,7 @@
     for (int i = 0; i < num; i++) {
         BOOL y = YES;
         while (y) {
-            int rand = arc4random() % num;
+            int rand = arc4random() % num + 1;
             if (![array containsObject:[NSString stringWithFormat:@"%d",rand]]) {
                 [array addObject:[NSString stringWithFormat:@"%d",rand]];
                 NSLog(@"%d",rand);

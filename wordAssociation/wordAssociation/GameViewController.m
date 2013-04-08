@@ -24,6 +24,11 @@
         nowMainStage = [USER_DEFAULT integerForKey:NOW_MAINSTAGE_KEY];
         nowSubStage = [USER_DEFAULT integerForKey:NOW_SUBSTAGE_KEY];
         
+        NSMutableArray *scenarioArray = [USER_DEFAULT objectForKey:SCENARIO_KEY];
+        scenarioNumber = [[scenarioArray objectAtIndex:nowSubStage - 1] intValue];
+        NSLog(@"scenarioNumber %d",scenarioNumber);
+        
+        
         naviBarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
         naviBarImageView.image = [UIImage imageNamed:@"Bar"];
         naviBarImageView.userInteractionEnabled = YES;
@@ -1153,10 +1158,10 @@
     NSDictionary *dic= [self setQuestionDictionary];
     
     //写真
-    image1.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_1.jpg",nowStage]];
-    image2.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_2.jpg",nowStage]];
-    image3.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_3.jpg",nowStage]];
-    image4.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_4.jpg",nowStage]];
+    image1.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_1.jpg",scenarioNumber + ((nowMainStage - 1) * 15)]];
+    image2.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_2.jpg",scenarioNumber + ((nowMainStage - 1) * 15)]];
+    image3.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_3.jpg",scenarioNumber + ((nowMainStage - 1) * 15)]];
+    image4.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d_4.jpg",scenarioNumber + ((nowMainStage - 1) * 15)]];
     
     //12文字
     NSString *str = [dic objectForKey:@"string"];
@@ -1276,25 +1281,25 @@
 - (NSDictionary *)setQuestionDictionary{
     
     NSDictionary *dic= [[NSDictionary alloc] init];
-
+    
     switch (nowMainStage) {
         case 1:
-            dic = [[USER_DEFAULT objectForKey:STAGE1_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            dic = [[USER_DEFAULT objectForKey:STAGE1_QUESTIONS_KEY] objectAtIndex:scenarioNumber - 1];
             break;
         case 2:
-            dic = [[USER_DEFAULT objectForKey:STAGE2_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            dic = [[USER_DEFAULT objectForKey:STAGE2_QUESTIONS_KEY] objectAtIndex:scenarioNumber - 1];
             break;
         case 3:
-            dic = [[USER_DEFAULT objectForKey:STAGE3_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            dic = [[USER_DEFAULT objectForKey:STAGE3_QUESTIONS_KEY] objectAtIndex:scenarioNumber - 1];
             break;
         case 4:
-            dic = [[USER_DEFAULT objectForKey:STAGE4_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            dic = [[USER_DEFAULT objectForKey:STAGE4_QUESTIONS_KEY] objectAtIndex:scenarioNumber - 1];
             break;
         case 5:
-            dic = [[USER_DEFAULT objectForKey:STAGE5_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            dic = [[USER_DEFAULT objectForKey:STAGE5_QUESTIONS_KEY] objectAtIndex:scenarioNumber - 1];
             break;
         case 6:
-            dic = [[USER_DEFAULT objectForKey:STAGE6_QUESTIONS_KEY] objectAtIndex:nowSubStage - 1];
+            dic = [[USER_DEFAULT objectForKey:STAGE6_QUESTIONS_KEY] objectAtIndex:scenarioNumber - 1];
             break;
         default:
             break;
@@ -1712,6 +1717,10 @@
     [USER_DEFAULT setObject:nil forKey:ANSWER_RESTORE_KEY];
     [USER_DEFAULT setObject:nil forKey:WORDS_RESTORE_KEY];
     [USER_DEFAULT synchronize];
+    
+    NSMutableArray *scenarioArray = [USER_DEFAULT objectForKey:SCENARIO_KEY];
+    scenarioNumber = [[scenarioArray objectAtIndex:nowSubStage - 1] intValue];
+    NSLog(@"scenarioNumber %d",scenarioNumber);
     
     [self setCoins:3];
     
