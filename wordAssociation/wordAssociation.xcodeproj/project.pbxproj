@@ -3801,7 +3801,7 @@
 		18DF072A16EF5EDD0049B1B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuya Nambu (Z672L5L4QF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YUYA NAMBU";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/wordAssociation/framework\"",
@@ -3815,7 +3815,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4BCD4CA-5021-4A28-9E21-4E2526CC110D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E8208051-203A-489D-9095-2F658C219DEA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
