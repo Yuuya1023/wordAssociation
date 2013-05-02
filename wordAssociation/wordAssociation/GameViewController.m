@@ -1547,7 +1547,7 @@
 - (void)showCompleteView{
     stageCountLabel.text = [NSString stringWithFormat:@"%d",nowStage];
     
-    
+    [self zoomOutImage];
     
 //    compPanel = [[UIImageView alloc] init];
 //    compPanel.alpha = 0.0;
