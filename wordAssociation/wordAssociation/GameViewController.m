@@ -1850,11 +1850,15 @@
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"Mojikeshi_Btn_on" ofType:@"png"];
 //    NSLog(@"%@",path);
     
+    
+    
     NSDictionary *dic= [self setQuestionDictionary];
     NSString *str = [dic objectForKey:@"string"];
     NSString *description = [NSString stringWithFormat:@"写真から答えを連想しよう！\n「%@」\nこの12文字の中から選んで答えを当ててね！あなたは答えがわかるかな？",str];
     
-    NSString *path = [NSString stringWithFormat:@"http://blog-imgs-54.fc2.com/d/0/9/d09325/img_387733_4701749_0.jpg"];
+    int rand = arc4random() % 4;
+    int imageNum =  scenarioNumber + ((nowMainStage - 1) * 15);
+    NSString *path = [NSString stringWithFormat:@"http://eightfor.sakura.ne.jp/wa/pictures/%d_%d",imageNum,rand + 1];
     
     [fbManager publishWithDescription:description filePath:path];
 }
@@ -1863,11 +1867,14 @@
 - (void)facebookShareWhenClear:(UIButton *)b{
     FacebookManager *fbManager = [FacebookManager sharedInstance];
     
+    
     NSDictionary *dic= [self setQuestionDictionary];
     NSString *str = [dic objectForKey:@"string"];
     NSString *description = [NSString stringWithFormat:@"写真から答えを連想しよう！\n「%@」\nこの12文字の中から選んで答えを当ててね！あなたは答えがわかるかな？",str];
     
-    NSString *path = [NSString stringWithFormat:@"http://blog-imgs-54.fc2.com/d/0/9/d09325/img_387733_4701749_0.jpg"];
+    int rand = arc4random() % 4;
+    int imageNum =  scenarioNumber + ((nowMainStage - 1) * 15);
+    NSString *path = [NSString stringWithFormat:@"http://eightfor.sakura.ne.jp/wa/pictures/%d_%d",imageNum,rand + 1];
     
     [fbManager publishWithDescription:description filePath:path];
 }
